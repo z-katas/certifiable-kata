@@ -1,1 +1,0 @@
-# certifiable-kata
