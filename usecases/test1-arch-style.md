@@ -7,12 +7,12 @@ TODO
 
 
 
-![Test1 ](/assets/test2c2.png "Test1 c")
+![Test1 ]("Test1 c")
 
 
 Data flow diagram:
 ------------------------
 
 
-![Test1 dataflow](/assets/casestudy-flow-diagram.png "Test1 dataflow")
+![Test1 dataflow]("Test1 dataflow")
 
