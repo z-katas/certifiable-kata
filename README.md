@@ -12,6 +12,8 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
   - [Objectives](#objectives)
     - [Functional Objectives](#functional-objectives)
     - [Non-Functional Attributes](#non-functional-attributes)
+- [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)   
+  
 
 ## Team
 
@@ -82,3 +84,13 @@ Each non-functional requirement aligns with a key business challenge:
 - **Cost Efficiency:** *AI implementation costs must be optimized to prevent overruns while supporting Certifiable, Inc.'s strategic expansion. AI adoption should not exceed a 30% increase in grading expenses.*
 - **Accuracy:** *As a market leader, Certifiable, Inc. must maintain grading precision. Inaccurate evaluations could impact candidate careers and damage the company’s reputation.*
 - **Reliability:** *Certification credibility is critical—misleading exams or inconsistent grading can undermine employer trust and industry acceptance.*
+
+# Automation use-cases using Gen AI
+- HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?
+- HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?
+- HMW generate AI-assisted structured feedback reports for expert architects so that candidates receive detailed insights more efficiently?
+- HMW monitor software architecture trends for expert architects so that certification content remains aligned with evolving industry standards?
+- HMW automate test content evaluation for expert architects so that improvements are continuously implemented based on candidate performance trends?
+- HMW implement AI-based consistency checks for expert architects so that grading discrepancies are minimized across multiple reviewers?
+- HMW develop AI-driven mechanisms for expert architects so that new case studies can be created and rotated periodically to prevent exam content leaks?
+
