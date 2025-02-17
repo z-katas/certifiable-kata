@@ -22,7 +22,7 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
 - **Srikanth**, [LinkedIn](https://www.linkedin.com/in/koraveni-srikanth/)
 - **Shashank**, [LinkedIn](https://www.linkedin.com/in/shashank-sheela-740746b4)
 
-## Introduction
+# Introduction
 
 ## Background & Context
 
@@ -66,11 +66,9 @@ Following the success of the U.S. licensing program, **UK, Europe, and Asia have
   - Incorporate new industry techniques, practices, and patterns into certification content.
   - Modify and create new case studies for Test 2 to maintain exam integrity and prevent leaks.
 
-## Objectives
+## Key Objectives
 
 With the anticipated **5-10X increase** in certification requests, Certifiable, Inc. must optimize its processes to sustain growth. The company aims to leverage **Generative AI** to address the challenges highlighted above.
-
-### Functional Objectives
 
 - **Identify AI Opportunities:** Evaluate areas where **Generative AI** can replace or enhance manual grading and assessment processes.
 - **Design Solutions:** Design Generative AI services that automate identified manual processes while adhering to established AI architecture patterns and avoiding known anti-patterns.
