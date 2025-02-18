@@ -1,7 +1,7 @@
 # Grading short answers
 
 ## Use Case & Problem Statement
-- **Primary Goals:**
+- **Primary Goals:** HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?
 - **Scope:**
 - **Current Challenges:**
 - **Limitations of Existing System:**
