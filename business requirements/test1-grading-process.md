@@ -1,8 +1,7 @@
 # Test 1: Aptitude Test - Process & Evaluation
 
 ## Reference to ISAQB Certification
-As the details of the certification process are not explicitly provided, we are referring to the **iSAQB Certified Professional for Software Architecture (CPSA-F)** framework as the baseline for defining the test structure, evaluation criteria, and competencies. We took the help of ChatGPT
-to help us create the requirements of evaluation process.
+As the details of the certification process are not explicitly provided, we are referring to the **iSAQB Certified Professional for Software Architecture (CPSA-F)** framework as the baseline for defining the test structure, evaluation criteria, and competencies. We took the help of ChatGPT to help us create the requirements of evaluation process. We have referred to the [foundation level curriculum](/)
 
 ## Overview
 Test 1 serves as the initial evaluation stage in the certification process, assessing candidates' theoretical and conceptual understanding of software architecture. This test comprises multiple-choice and short-answer questions designed to measure foundational knowledge.
@@ -89,7 +88,7 @@ Each question is graded on a 10-point scale, considering these criteria:
 
 ## Evaluation of Candidate Responses
 ### **Candidate 1: More Experienced Software Architect**
-| **Question** | **Total Score** | **Technical Accuracy** | **Clarity & Conciseness** | **Depth & Justification** | **Use of Correct Terminology** | **Overall Justification** |
+| **Question** | **Total Score** | **Technical Accuracy** | **Clarity & Conciseness** | **Application & Justification** | **Use of Correct Terminology** | **Overall Justification** |
 |-------------|--------------|-----------------|------------------|-----------------|------------------|----------------------|
 | **1** | **10** | **10** (Clearly differentiates responsibilities) | **10** (Concise and structured) | **10** (Real-world examples) | **10** (Precise terminology) | Defines clear distinctions between architect and developer roles. |
 | **2** | **9** | **9** (Discusses long-term impact) | **9** (Concise, effective) | **9** (Examples of maintainability) | **9** (Accurate terminology) | Covers technical debt and cost implications. |
@@ -101,7 +100,7 @@ Each question is graded on a 10-point scale, considering these criteria:
 | **8** | **10** | **10** (Describes encryption, zero-trust) | **10** (Concise explanation) | **10** (Real-world risks) | **10** (Security terminology used well) | Discusses access control risks. |
 
 ### **Candidate 2: Less Experienced Candidate**
-| **Question** | **Total Score** | **Technical Accuracy** | **Clarity & Conciseness** | **Depth & Justification** | **Use of Correct Terminology** | **Overall Justification** |
+| **Question** | **Total Score** | **Technical Accuracy** | **Clarity & Conciseness** | **Application & Justification** | **Use of Correct Terminology** | **Overall Justification** |
 |-------------|--------------|-----------------|------------------|-----------------|------------------|----------------------|
 | **1** | **5** | **5** (Superficial role differentiation) | **5** (Generalized statement) | **5** (Lacks practical examples) | **5** (Terminology not precise) | Vague description without structured reasoning. |
 | **2** | **4** | **4** (Mentions maintainability but lacks depth) | **4** (Vague reasoning) | **4** (No real-world examples) | **4** (Inconsistent terminology) | Lacks justification for architectural impact. |
@@ -119,7 +118,7 @@ Each question is graded on a 10-point scale, considering these criteria:
 ### **Overall Evaluation Comparison**
 1. **Technical Accuracy** - Candidate 1 consistently demonstrated deeper understanding and practical application.
 2. **Clarity & Conciseness** - Candidate 1 provided well-structured, precise answers, while Candidate 2 was vague.
-3. **Depth & Justification** - Candidate 1 supported answers with real-world examples, Candidate 2 lacked depth.
+3. **Application & Justification** - Candidate 1 supported answers with real-world examples, Candidate 2 lacked depth.
 4. **Use of Correct Terminology** - Candidate 1 used accurate terminology throughout, Candidate 2 misused or omitted key terms.
 
 ## Additional Considerations for Architecture Design <draft>
