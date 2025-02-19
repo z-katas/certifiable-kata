@@ -1,7 +1,7 @@
 # Test 1: Aptitude Test - Process & Evaluation
 
 ## Reference to ISAQB Certification
-As the details of the certification process are not explicitly provided, we are referring to the **iSAQB Certified Professional for Software Architecture (CPSA-F)** framework as the baseline for defining the test structure, evaluation criteria, and competencies. We took the help of ChatGPT to help us create the requirements of evaluation process. We have referred to the [foundation level curriculum](/business requirements/isaqb-foundation-level-curriculum-en.pdf)
+As the details of the certification process are not explicitly provided, we are referring to the **iSAQB Certified Professional for Software Architecture (CPSA-F)** framework as the baseline for defining the test structure, evaluation criteria, and competencies. We took the help of ChatGPT to help us create the requirements of evaluation process. We have referred to the [foundation level curriculum](/business-requirements/references/isaqb-foundation-level-curriculum-en.pdf)
 
 ## Overview
 Test 1 serves as the initial evaluation stage in the certification process, assessing candidates' theoretical and conceptual understanding of software architecture. This test comprises multiple-choice and short-answer questions designed to measure foundational knowledge.
