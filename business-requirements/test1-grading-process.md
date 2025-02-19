@@ -123,30 +123,3 @@ Each question is graded on a 10-point scale, considering these criteria:
 
 ## Additional Considerations for Architecture Design <draft>
 To assist architects in designing the system that supports this certification process, the following factors should be taken into account:
-
-### **1. Scalability & Performance**
-- The test platform must be designed to handle **high concurrency** as the number of candidates grows.
-- **Auto-scaling** should be implemented for peak periods of certification requests.
-- **Caching mechanisms** should be used to optimize frequently accessed test content.
-
-### **2. Security & Compliance**
-- Secure **authentication and authorization** must be implemented for candidates and evaluators.
-- **Data encryption** for test responses and evaluation results to ensure integrity and confidentiality.
-- Compliance with **GDPR, ISO/IEC 27001, and other relevant data protection standards**.
-
-### **3. AI-Driven Grading Automation**
-- AI should **auto-grade multiple-choice questions** while maintaining fairness and bias control.
-- **Natural Language Processing (NLP)** can assist in pre-evaluating short-answer responses before expert review.
-- AI-driven **consistency checks** across multiple graders to ensure fairness.
-
-### **4. Reporting & Analytics**
-- Dashboards for **candidate performance tracking**, trends, and analytics for improvement.
-- **Real-time monitoring** of test completion rates and grading efficiency.
-- AI-generated reports to highlight **common knowledge gaps and training needs**.
-
-### **5. Maintainability & Extensibility**
-- Modular design to accommodate **future enhancements** (e.g., new test sections, AI model improvements).
-- APIs to allow **integration with learning management systems (LMS)**.
-- Regular content **updates and version control** for test questions.
-
-These considerations will ensure that the certification test is **scalable, secure, automated, and aligned with international standards**, facilitating an efficient and robust certification process.
