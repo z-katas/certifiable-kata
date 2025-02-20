@@ -101,6 +101,15 @@ The ASAS Grader will execute the following steps:
 7. Publish the query to the LLM query queue and subscribe to the LLM response queue.
 8. Process the LLM response through output guardrails (to ensure valid structure, appropriate language, etc.).
 9. Store the grading result in the ASAS database with a status of “Awaiting Judgement.”
+10. Relevant ADRs
+    - [Prompt Orchestrator](/ADRs/adr-prompt-orchestrator.md)
+    - [Structured Output](/ADRs/adr-llm-structured-output.md)
+    - [Embedding Model](/ADRs/adr-llm-embedding-model.md)
+    - [Vector Store](/ADRs/adr-llm-vector-store.md)
+    - [Vector Search](/ADRs/adr-llm-vector-search.md)
+11. Other links
+    - [Example Test 1 Grading Process](/business-requirements/test1-grading-process.md) : Could be used for creating system prompt fot ASAS Grader 
+
 
 ## ASAS Judge
 
@@ -116,16 +125,23 @@ The ASAS Judge is responsible for evaluating the quality of the AI-generated gra
    - If above the threshold, finalize the grading.
    - If below, update the status to “Pending Manual Review.”
 8. Integrate the outcomes of manual review to continuously refine the judgment prompt.
+9. Relevant ADRs
+   - [Observability](/ADRs/adr-llm-observability.md) 
 
 ## AI Model Gateway
 
 The AI Model Gateway orchestrates communication between queued queries and the LLM models. Its responsibilities include:
 
-- Pulling queries from the LLM query queue and performing generic guardrail checks.
-- Looking up cached responses; if none exist, batching the query for processing.
-- Identifying the appropriate model for each query batch and routing them accordingly.
-- Updating the cache with optimized LLM outputs.
-- Publishing responses to the LLM response queue.
+1. Pulling queries from the LLM query queue and performing generic guardrail checks.
+2. Looking up cached responses; if none exist, batching the query for processing.
+3. Identifying the appropriate model for each query batch and routing them accordingly.
+4. Updating the cache with optimized LLM outputs.
+5. Publishing responses to the LLM response queue.
+6. Relevant ADRs
+   - [AI Gateway](/ADRs/adr-using-ai-gateway.md)
+   - [LLM Deplyment](/ADRs/adr-llm-deployment.md)
+   - [Multi Model AI](/ADRs/adr-ai-multi-model-strategy.md)
+
 
 ## ASAS Grader C2 Diagram
 
