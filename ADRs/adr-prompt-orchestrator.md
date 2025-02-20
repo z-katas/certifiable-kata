@@ -1,12 +1,10 @@
-# Title
-
-Decision Record: Selection of an LLM Prompt Orchestrator Framework
+# Selection of an LLM Prompt Orchestrator Framework
 
 Date:  [2025-02-20]
 
 ## Status
 
-Proposed
+Accepted
 
 ## Context
 
