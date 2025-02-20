@@ -15,8 +15,7 @@
 ## Problem Statement & Scope
 
 - The current manual grading process for Test 1 is unsustainable, requiring **3 hours per candidate**, making it infeasible to support the projected **5-10X growth in applicants**.
-- This leads to excessive costs, grading delays, and inconsistencies due to expert workload limitations.
-- **Generative AI** will automate grading while ensuring **scalability, accuracy, cost-effectiveness, and efficiency**, maintaining expert-level evaluation quality.
+- **Generative AI** will automate grading while ensuring **scalability, accuracy, cost-effectiveness, and efficiency**, maintaining expert-level evaluation quality as mentioned in the main readme.md.
 - **Cost-effectiveness** – AI-driven grading must be ** less than the current $300K per week manual grading budget**.
 - **Productivity** – The solution must **improve grading efficiency by at least 4X** to meet scaling demands and expert workload constraints.
 
@@ -28,7 +27,6 @@
 - **Confidence-Based Expert Review** – AI must flag low-confidence evaluations for expert validation.
 - **Adaptive Learning Mechanism** – AI models must continuously improve based on expert corrections and evolving certification criteria.
 - **Security & Compliance** – AI must handle grading data with strict **privacy and security protocols**.
-- **Integration with Certification Systems** – AI grading must seamlessly integrate with existing certification infrastructure.
 
 ## Assumptions
 
@@ -47,6 +45,7 @@
 - **Response evaluation logic is well-documented**, ensuring AI implementation aligns with established grading methodologies.
 
 ## New User Journey / Golden Path using Jobs to be done framework
+
 **Main Job:** Evaluate and grade short-answer responses efficiently.
   
 **Backstory:** After completing their main project, the expert architect must evaluate Test 1 responses for **5-7 candidates per week**. With a maximum of 2 hours available per day, Alex logs into the application to begin the evaluation process.
