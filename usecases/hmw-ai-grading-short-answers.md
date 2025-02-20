@@ -46,6 +46,8 @@
 
 ## New User Journey / Golden Path using Jobs to be done framework
 
+**Persona:** [Alex,Expert Architect](/business-requirements/exper-architect-persona.md)
+
 **Main Job:** Evaluate and grade short-answer responses efficiently.
   
 **Backstory:** After completing their main project, the expert architect must evaluate Test 1 responses for **5-7 candidates per week**. With a maximum of 2 hours available per day, Alex logs into the application to begin the evaluation process.
