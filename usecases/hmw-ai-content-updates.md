@@ -19,29 +19,24 @@
 - **Expected Outcomes:**
 
 ## Architecture Diagrams
-### Context Diagram (C1)
-- **Description:**
-- **Diagram:**
-
 ### Container Diagram (C2)
-- **Description:**
+- **Description:** Containers and interactions
 - **Diagram:**
+![test 1 and test 2 content updates](/assets/new-questions-c2.png "test 1 and test 2 content updates")
+### Flow Diagram
+- **Description:** Flow involving chunking of documents, storing in vector store and retrieival by the expert Architect to update the tests
+- **Diagram:**
+![test 1 and test 2 content updates](/assets/New-test1-and-test2-questions.png "test 1 and test 2 content updates")
 
 ## Constraints
-- **Technical Constraints:**
-- **Operational Constraints:**
+- **Technical Constraints:** 
+- **Operational Constraints:** 
 - **Security & Compliance Constraints:**
 
 ## Architectural Decision Records (ADRs)
-- **ADR 1 - Title:**
-  - **Context:**
-  - **Decision:**
-  - **Consequences:**
+- [**ADR 1 - Architecture documents chunking strategy**](/ADRs/architecture-knowledge-chunking-strategy.md)
 
 - **ADR 2 - Title:**
-  - **Context:**
-  - **Decision:**
-  - **Consequences:**
 
 ## Implementation Details
 

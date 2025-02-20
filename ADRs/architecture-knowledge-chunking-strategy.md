@@ -1,7 +1,9 @@
 # Document Chunking Strategy for Knowledge Base Vector Store
 
+Date: [2025-02-14]
+
 ## Status
-**Implemented**
+**Accepted**
 
 ## Context
 To generate aptitude test questions and case studies on new architecture patterns, trends, and techniques, we need to store relevant information in a knowledge base vector store. Effective retrieval depends on how documents are chunked before embedding into the vector store. Choosing the right chunking strategy is critical to ensure optimal semantic retrieval, query relevance, and storage efficiency.
