@@ -46,12 +46,25 @@
 - The **architecture must allow AI-driven grading to integrate as a modular service** without disrupting existing workflows.
 - **Response evaluation logic is well-documented**, ensuring AI implementation aligns with established grading methodologies.
 
-## New User Journey / Golden Path
-- **Job To Be Done (JTBD):**
-- **High-Level User Flow:**
-- **Key Steps in the Process:**
-- **Expected Outcomes:**
+## New User Journey / Golden Path using Jobs to be done framework
+**Main Job:** Evaluate and grade short-answer responses efficiently.
+  
+**Backstory:** After completing their main project, the expert architect must evaluate Test 1 responses for **5-7 candidates per week**. With a maximum of 2 hours available per day, Alex logs into the application to begin the evaluation process.
+  
+**End Goal of the Main Job:** Ensure consistent, fair, and expert-level grading with structured and justifiable feedback.
+  
+**Job Steps(using universal job map):**
+1. **View candidate submissions** – Access all short-answer responses in the system.
+2. **Analyze AI-generated grading recommendations** – Review AI-suggested scores and feedback for accuracy.
+3. **Validate flagged responses** – Manually assess AI-flagged responses requiring expert review.
+4. **Adjust grading if discrepancies are found** – Modify AI-assigned scores based on expert judgment.
+5. **Finalize and confirm scores** – Ensure all reviewed responses meet grading standards.
+6. **Generate structured feedback reports** – Provide candidates with AI-assisted, expert-reviewed feedback.
+7. **Modify feedback reports if necessary** – Ensure clarity and relevance before submission.
+8. **Submit final evaluation results** – Confirm scores and update certification records for candidate progression.
 
+**High-Level User Flow:** [UI Mockup](https://claude.site/artifacts/171451d1-e86e-4fbb-8ff2-ff98f4ae87d5?fullscreen=true)
+  
 ## Architecture Diagrams
 ### Context Diagram (C1)
 - **Description:**
