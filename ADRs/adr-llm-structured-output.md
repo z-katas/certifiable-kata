@@ -1,6 +1,4 @@
-# Title
-
-ADR: Enforcing Structured LLM Outputs
+# ADR: Enforcing Structured LLM Outputs
 
 Date:  [2025-02-20]
 
