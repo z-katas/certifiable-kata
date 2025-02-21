@@ -49,12 +49,13 @@
 **Persona:** [Alex,Expert Architect](/business-requirements/exper-architect-persona.md)
 
 **Main Job:** Evaluate and grade short-answer responses efficiently.
-  
+
 **Backstory:** After completing their main project, the expert architect must evaluate Test 1 responses for **5-7 candidates per week**. With a maximum of 2 hours available per day, Alex logs into the application to begin the evaluation process.
-  
+
 **End Goal of the Main Job:** Ensure consistent, fair, and expert-level grading with structured and justifiable feedback.
-  
+
 **Job Steps(using universal job map):**
+
 1. **View candidate submissions** – Access all short-answer responses in the system.
 2. **Analyze AI-generated grading recommendations** – Review AI-suggested scores and feedback for accuracy.
 3. **Validate flagged responses** – Manually assess AI-flagged responses requiring expert review.
@@ -65,56 +66,21 @@
 8. **Submit final evaluation results** – Confirm scores and update certification records for candidate progression.
 
 **High-Level User Flow:** [UI Mockup](https://claude.site/artifacts/171451d1-e86e-4fbb-8ff2-ff98f4ae87d5?fullscreen=true)
-  
-## Architecture Diagrams
-### Context Diagram (C1)
-- **Description:**
-- **Diagram:**
-
-### Container Diagram (C2)
-- **Description:**
-- **Diagram:**
-
-## Constraints
-- **Technical Constraints:**
-- **Operational Constraints:**
-- **Security & Compliance Constraints:**
-
-## Architectural Decision Records (ADRs)
-- **ADR 1 - Title:**
-  - **Context:**
-  - **Decision:**
-  - **Consequences:**
-
-- **ADR 2 - Title:**
-  - **Context:**
-  - **Decision:**
-  - **Consequences:**
 
 ## Implementation Details
 
-### **Gen AI Technical Components & Architecture**
-- **Local Inference & Cloud Services:**
-  - Hybrid architecture utilizing **on-prem inference** for sensitive data and **cloud-based LLMs** for scalability.
-- **Fine-Tuning & Adaptation:**
-  - Custom-trained models leveraging **domain-specific fine-tuning** to improve grading and feedback accuracy.
-- **LLM Inference & Structured Outputs:**
-  - Implementation of **structured response generation** for candidate feedback and grading justifications.
-- **Prompt Engineering & Validation:**
-  - **Dynamic prompt orchestration** for AI models ensuring contextual accuracy.
-  - **Guardrails & validation mechanisms** to filter out misleading or biased responses.
-- **Information Retrieval & Search Engine:**
-  - **Vector-based search** using embeddings to improve knowledge retrieval for candidate responses.
-  - **Ranking models** to ensure relevant test question mapping.
-- **Observability & Performance Monitoring:**
-  - **Prompt & model evaluation pipelines** for continuous improvement.
-  - **LLM observability tools** to track model behavior and response drift.
-  - **Conversation analytics** for monitoring candidate interactions with AI-driven systems.
-- **Agent-Based Automation:**
-  - AI-driven **autonomous agents** to review test patterns and optimize grading workflows.
-  - **Adaptive AI agents** capable of iterating on responses based on real-time evaluation.
+Refer to [Test 1](/usecases/test1.md) for a detailed outline of the implementation/solution approach.
+
+**Manual Review** component in the outline of solution approach facilitates the above-mentioned User Journey.
+
+**ASAS Grader** automates the grading of short answers without human intervention
+
+**ASAS Judge** evaluates the automated grading done by **ASAS Grader** forwards the evaluation to **Manual Review** whenever it suspects that Grader has not done grading that meets the required standards.
+
+The output from the **Manual Review** is used as feedback by both the **Judge** and **Grader** to improve their output.
 
 ## Conclusion
+
 - **Summary of Changes:** AI-driven automation for grading, feedback, and certification content updates.
 - **Benefits of the New Architecture:** Increased scalability, faster turnaround, and reduced manual workload.
 - **Potential Risks & Mitigations:** AI bias monitoring, human oversight mechanisms, and periodic model retraining.
