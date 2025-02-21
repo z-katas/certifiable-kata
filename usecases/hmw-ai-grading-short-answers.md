@@ -10,7 +10,7 @@
 - Each submission requires **3 hours** of expert evaluation, limiting grading capacity to **200 candidates per week**.
 - With planned expansion to **2,000 candidates weekly**, grading workload would surge to **6,000 hours per week**, overwhelming available experts.
 - The **$300K per week** cost of manual grading makes scaling financially unsustainable.
-- Inconsistent grading across experts leads to **scoring variability and delays in feedback**, impacting candidate experience.
+- Grading inconsistencies, including negative bias (grading lower than deserved) that may harm candidates and positive bias (grading higher than deserved) that may impact Certifiable, Inc., contribute to scoring variability and delays in feedback, ultimately affecting the candidate experience.
 
 ## Problem Statement & Scope
 
@@ -33,10 +33,18 @@
 ### Business Assumptions
 
 - The **evaluation process and scoring criteria** are linked to the detailed [Test 1 Requirements Document](/business-requirements/test1-grading-process.md).
+- The number of Expert Software Architect Consultants and Designated Expert Software Architects remains constant.
+- Multiple choice grading is handled by the existing scalable architecture with no additional cost.
 - AI-driven automation **must not impact certification credibility**, ensuring continued recognition across industry standards.
 
 ### Technical Assumptions
 
+- We estimate the average capacity will increase to 10× the current capacity (i.e., the maximum of the 5–10× range).
+- The system will be designed for peak capacity, assumed to be 1.2× the average capacity (i.e., 20% above average), while considering cost factors.
+- AI-based grading is considered feasible as long as the cost of grading via AI is comparable to or lower than manual grading.
+- Stored grading data will be leveraged to enhance the performance of the new AI-powered ASAS.
+- The new ASAS solution will operate alongside the current manual process. Submissions not picked for manual grading will be processed by AI.
+- Any submission pending short answer grading for more than two days (unless explicitly marked otherwise) can be processed by AI.
 - **Grading data is structured**, with predefined evaluation criteria used by human experts.
 - **Current workflows include manual review interfaces** used by expert architects to evaluate responses and provide feedback.
 - **Historical grading records are available**, which can be used for AI model training.
@@ -71,18 +79,95 @@
 
 ![Test 1 grading UI screen](/assets/Test1-grading.png)
 
+## High-Level Solution Approach
+
+We will develop an ASAS solution that leverages Large Language Models (LLMs) to automatically grade short answer responses and generate candidate feedback. The solution consists of two key services:
+
+1. ASAS Grader: Grades short answer submissions and provides detailed feedback.
+2. ASAS Judge: Assigns a confidence score to the grading outcome, ensuring quality and consistency.
+
+**Workflow:**
+
+- The ASAS Judge provides a confidence score for the generated grading.
+- If the confidence score exceeds a configurable threshold, the result is finalized automatically.
+- Submissions with scores below the threshold are stored for manual review by Expert Software Architects.
+- The manual review outcomes feed back into the ASAS Judge to improve its confidence scoring over time.
+
+This hybrid approach ensures that the AI-generated results closely mimic manual grading.
+
+## ASAS Grader C2 Diagram
+
+The diagram below illustrates the core components of the AI Grader service:
+
+![ASAS Grader C2 Diagram](/assets/test1-grader-c2.jpg "ASAS Grader C2 Diagram")
+
+Note: Due to time constraints and brevity, C2 diagrams for the other components are omitted.
+
+## High-Level Data Flow Diagram
+
+Below is the high-level data flow diagram for Test 1:
+
+![Test 1 High Level Data Flow](/assets/test1-high-level-flow-diagram.jpg "Test 1 High Level Data Flow")
+
+Recent research ([Ref1](https://arxiv.org/abs/2409.20042), [Ref2](https://arxiv.org/abs/2408.03811)) shows that a Retrieval-Augmented Generation (RAG) approach combined with Few-Shot examples and Chain-of-Thought reasoning significantly improves performance in Automated Short Answer Scoring tasks across multiple LLMs—with no fine-tuning. This is the strategy we will adopt. Please refer to this [ADR](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md) for a more detailed analysis of this choice.
+
 
 ## Implementation Details
 
-Refer to [Test 1](/usecases/test1.md) for a detailed outline of the implementation/solution approach.
+## ASAS Grader
 
-**Manual Review** component in the outline of solution approach facilitates the above-mentioned User Journey.
+The ASAS Grader will execute the following steps:
 
-**ASAS Grader** automates the grading of short answers without human intervention
+1. Retrieve a short answer submission pending grading.
+2. Check for an existing entry in the ASAS database:
+   - If an entry exists, bypass further processing and finalize the grade.
+   - Otherwise, create a new entry and mark it as “being processed.”
+3. Use vector search (with caching and re-ranking) to fetch relevant positively and negatively graded submissions.
+4. Retrieve the necessary prompt template from an external Prompt Management System (e.g., Haystack, PromptHub, PromptLayer) that supports versioning and organization.
+5. Construct a RAG-based Few-Shot Example Chain-of-Thought prompt to instruct the LLM to evaluate the submission and generate detailed feedback.
+6. Filter the prompt using input guardrails to redact malicious or sensitive content.
+7. Publish the query to the LLM query queue and subscribe to the LLM response queue.
+8. Process the LLM response through output guardrails (to ensure valid structure, appropriate language, etc.).
+9. Store the grading result in the ASAS database with a status of “Awaiting Judgement.”
+10. Relevant ADRs
+    - [Prompt Orchestrator](/ADRs/adr-prompt-orchestrator.md)
+    - [Structured Output](/ADRs/adr-llm-structured-output.md)
+    - [Embedding Model](/ADRs/adr-llm-embedding-model.md)
+    - [Vector Store](/ADRs/adr-llm-vector-store.md)
+    - [Vector Search](/ADRs/adr-llm-vector-search.md)
+11. Other links
+    - [Example Test 1 Grading Process](/business-requirements/test1-grading-process.md) : Could be used for creating system prompt fot ASAS Grader
 
-**ASAS Judge** evaluates the automated grading done by **ASAS Grader** forwards the evaluation to **Manual Review** whenever it suspects that Grader has not done grading that meets the required standards.
+## ASAS Judge
 
-The output from the **Manual Review** is used as feedback by both the **Judge** and **Grader** to improve their output.
+The ASAS Judge is responsible for evaluating the quality of the AI-generated grading. It uses various LLM as Judge tools/frameworks to perform it's duties. Its workflow includes:
+
+1. Retrieve a grading submission awaiting judgment.
+2. Use the vector search to fetch relevant historical submissions.
+3. Retrieve the appropriate prompt template from an external Prompt Management System.
+4. Uses the selected LLM evaluation techniques (see [ADR](/ADRs/adr-llm-evaluation.md))
+5. (Optional) Publish the query to the LLM query queue and subscribe to the LLM response queue.
+6. Update the grading submission in the ASAS database with the computed confidence score.
+7. Compare the confidence score against a predefined, configurable threshold:
+   - If above the threshold, finalize the grading.
+   - If below, update the status to “Pending Manual Review.”
+8. Integrate the outcomes of manual review to continuously refine the judgment prompt.
+9. Relevant ADRs
+   - [Observability](/ADRs/adr-llm-observability.md)
+
+## AI Model Gateway
+
+The AI Model Gateway orchestrates communication between queued queries and the LLM models. Its responsibilities include:
+
+1. Pulling queries from the LLM query queue and performing generic guardrail checks.
+2. Looking up cached responses; if none exist, batching the query for processing.
+3. Identifying the appropriate model for each query batch and routing them accordingly.
+4. Updating the cache with optimized LLM outputs.
+5. Publishing responses to the LLM response queue.
+6. Relevant ADRs
+   - [AI Gateway](/ADRs/adr-using-ai-gateway.md)
+   - [LLM Deplyment](/ADRs/adr-llm-deployment.md)
+   - [Multi Model AI](/ADRs/adr-ai-multi-model-strategy.md)
 
 ## Conclusion
 
