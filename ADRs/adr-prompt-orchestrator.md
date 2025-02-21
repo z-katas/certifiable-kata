@@ -40,11 +40,11 @@ In developing our Automatic Grading System for short answers, proper orchestrati
 
 ## PrOACT
 
-### Problem:
+### Problem
 
 We need an orchestration framework to effectively manage and sequence LLM prompt interactions that accurately grade short answers while remaining modular, easy to integrate, and maintainable.
 
-### Objectives:
+### Objectives
 
 - Enable dynamic prompt chaining and context management.
 - Ensure ease of integration with various LLM backends (e.g., GPT variants, etc.).
@@ -52,20 +52,20 @@ We need an orchestration framework to effectively manage and sequence LLM prompt
 - Minimize latency and maximize system reliability.
 - Reduce development overhead for faster prototyping and deployment.
 
-### Alternatives Considered:
+### Alternatives Considered
 
 - LangChain  
 - PromptLayer  
 - In-House Custom Orchestrator
 - Emerging Frameworks like LlamaIndex
 
-### Constraints:
+### Constraints
 
 - Limited engineering resources available for developing and maintaining a fully custom solution.
 - Must integrate seamlessly within our existing microservices architecture.
 - The framework must support scalability as student usage grows.
 
-### Tradeoffs:
+### Tradeoffs
 
 - Relying on a third-party framework like LangChain can introduce external dependency risks and some constraints on customization, but it greatly accelerates development using well-tested components.
 - Using PromptLayer adds robust monitoring but may add latency and require additional tooling for prompt orchestration.

@@ -16,7 +16,6 @@ The platform needs a vector store to efficiently store and retrieve vectorized c
 2. **FAISS**: A popular, open-source library by Facebook for fast similarity search and clustering of dense vectors, well-suited for large-scale datasets but lacks native cloud capabilities.
 3. **Pinecone**: A fully managed, cloud-native vector store with high scalability and fast similarity search, but with higher operational costs and reliance on external services.
 
-
 ![vector store](/assets/vector-store.png "vector store")
 
 ### PrOACT

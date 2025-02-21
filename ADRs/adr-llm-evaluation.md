@@ -60,7 +60,9 @@ Certifiable inc system uses LLM mainly for evaluation of short answers in Test 1
    - **Cons:** Requires additional resources and workflow integration.  
 
 ### Evaluation Criteria
+
 The following criteria will be used to assess the effectiveness of each strategy:
+
 - **Accuracy:** How well the evaluation aligns with human judgment.
 - **Scalability:** Ability to handle large volumes of evaluations efficiently.
 - **Automation:** Degree of human involvement required.
@@ -81,6 +83,7 @@ The following criteria will be used to assess the effectiveness of each strategy
 | Human-in-the-Loop Evaluation | Very High     | Moderate      | Moderate     | Very High        | Very Strong                | Moderate     | Medium   | Very Strong   |
 
 ## Decision
+
 A **Hybrid Evaluation Strategy** will be implemented, combining:
 
 - **Automated Evaluation Metrics** for initial screening and efficiency.  
@@ -100,6 +103,7 @@ A **Hybrid Evaluation Strategy** will be implemented, combining:
   - Ensures fairness and bias mitigation in automated evaluations.  
 
 ## Tradeoffs - Mitigations
+
 - **Human Review Overhead:** Minimize human involvement to only edge cases and periodic audits.  
 - **Bias in LLM-based Evaluation:** Perform fairness audits and bias correction through iterative model updates.  
 - **Balancing Scalability and Accuracy:** Leverage automation for bulk processing while retaining human oversight for critical cases.  
@@ -107,4 +111,3 @@ A **Hybrid Evaluation Strategy** will be implemented, combining:
 - **Stress Testing for Robustness:** Regularly introduce adversarial test cases to validate system resilience.  
 
 This strategy ensures a balanced, scalable, and fair evaluation framework for LLM-based grading and question generation.
-
