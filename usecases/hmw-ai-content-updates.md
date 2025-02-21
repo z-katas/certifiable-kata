@@ -46,7 +46,7 @@
 
 
 ## Architectural Decision Records (ADRs)
-- [**ADR 1 - Architecture documents chunking strategy**](/ADRs/architecture-knowledge-chunking-strategy.md)
+- [**ADR 1 - Architecture documents chunking strategy**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)
 
 - **ADR 2 - Title:**
 
@@ -60,7 +60,7 @@
   patterns to come up with questions and case studies.
 - **LLM Inference & Structured Outputs:**
   - Implementation of **structured response generation** for candidate feedback and grading justifications.
-- [**Prompt Engineering & Validation:**](/ADRs/llm-guardrails.md)
+- [**Prompt Engineering & Validation:**](/ADRs/adr-llm-guardrails.md)
   - **Dynamic prompt orchestration** for AI models ensuring contextual accuracy.
   - **Guardrails & validation mechanisms** to filter out misleading or biased responses.
 - **Information Retrieval & Search Engine:**
