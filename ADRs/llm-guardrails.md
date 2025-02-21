@@ -22,6 +22,8 @@ To ensure grading integrity, fairness, and security, guardrails are required to 
 
 ## Alternatives
 
+![LLM guardrails](/assets/llm-guardrails.png "LLM guardrails")
+
 ### 1. Rule-Based Filters in Prompt (Explicit Constraints)
 - **Approach:** Hardcoded rules and regex-based filters to remove adversarial patterns before sending prompts to the LLM.
 - **Example Implementation:**

@@ -22,6 +22,8 @@ Certifiable inc system uses LLM mainly for evaluation of short answers in Test 1
 
 ### Alternatives
 
+![LLM evals techniques](/assets/LLM-evals-techniques.png "LLM evals techniques")
+
 1. **Manual Evaluation (Human Review)**  
    - Experts manually assess a sample of LLM-graded responses and generated questions.  
    - **Why Needed:** Provides a gold-standard reference to validate automated approaches.  

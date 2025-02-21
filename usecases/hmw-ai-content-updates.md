@@ -42,9 +42,10 @@
 
 ### **Gen AI Technical Components & Architecture**
 - **Local Inference & Cloud Services:**
-  - Hybrid architecture utilizing **on-prem inference** for sensitive data and **cloud-based LLMs** for scalability.
+  - A cheap **cloud-based LLMs** such as gpt 4 
 - **Fine-Tuning & Adaptation:**
-  - Custom-trained models leveraging **domain-specific fine-tuning** to improve grading and feedback accuracy.
+  - We don't need to fine tune our model as this is a generic usecase where we are accessing mostly public information about architecture
+  patterns to come up with questions and case studies.
 - **LLM Inference & Structured Outputs:**
   - Implementation of **structured response generation** for candidate feedback and grading justifications.
 - **Prompt Engineering & Validation:**
