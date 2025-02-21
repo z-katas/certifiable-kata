@@ -65,7 +65,12 @@
 7. **Modify feedback reports if necessary** – Ensure clarity and relevance before submission.
 8. **Submit final evaluation results** – Confirm scores and update certification records for candidate progression.
 
-**High-Level User Flow:** [UI Mockup](https://claude.site/artifacts/171451d1-e86e-4fbb-8ff2-ff98f4ae87d5?fullscreen=true)
+**High-Level User Flow:** [UI Mockup](https://claude.site/artifacts/f0f8e1fc-f904-4f28-9466-125f77e69127?fullscreen=true)
+
+**Key screen:**
+
+![Test 1 grading UI screen](/assets/Test1-grading.png)
+
 
 ## Implementation Details
 
