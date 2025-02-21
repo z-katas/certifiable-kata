@@ -68,7 +68,6 @@
 
 ![Test2 grading UI screen](/assets/Test2-grading.png)
 
-
   
 ## Architecture Grading Review:
 Once the grading is done by AI, software expert reviews the grading in this step instead of manually reviewing, this will save atleast 50-70% of the time spent by them. If the expert wishes to override the grading, they can and the final grading is fed back to AI data pipelines as they continously evolve for more accurate results.
@@ -82,16 +81,6 @@ Once the grading is done by AI, software expert reviews the grading in this step
 
 ![Test2 dataflow](/assets/casestudy-flow-diagram.png "Test2 dataflow")
 
-## Architectural Decision Records (ADRs)
-- **ADR 1 - Title:**
-  - **Context:**
-  - **Decision:**
-  - **Consequences:**
-
-- **ADR 2 - Title:**
-  - **Context:**
-  - **Decision:**
-  - **Consequences:**
 
 ## Implementation Details
 
