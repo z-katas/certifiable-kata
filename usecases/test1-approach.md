@@ -1,4 +1,4 @@
-# Test 1: Analysis
+# Test 1: Approach
 
 This document analyzes the current Test 1 grading process and outlines a new solution approach for scaling short answer grading using LLMs.
 
