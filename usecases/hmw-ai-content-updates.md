@@ -48,7 +48,7 @@
 ## Architectural Decision Records (ADRs)
 - [**ADR 1 - Architecture documents chunking strategy**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)
 
-- **ADR 2 - Title:**
+- [**ADR 2 - Strategy for generating new questions and case studies**](/ADRs/adr-new-questions-and-case-studies-strategy.md)
 
 ## Implementation Details
 
