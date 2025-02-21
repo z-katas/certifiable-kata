@@ -17,6 +17,27 @@ Test 2 evaluates a candidate’s **ability to architect a case study solution** 
 
 ## Test Content
 
+A typical architecture submission of a case study involves the following documents
+
+| 🗂 Document Type     | ⭐ Document Name               | 📋 Purpose |
+|---------------------|-----------------------------|------------|
+| **Business Docs**   | BRD                          | Define business goals & user needs |
+|                     | FRS                          | Define functional features & use cases |
+|                     | NFRs                         | Define performance, security, and compliance needs |
+| **Design Docs**     | ADRs                         | Justify architectural choices |
+|                     | HLAD / SDD                   | Define high-level system design |
+|                     | C4 Model Diagrams           | Visualize system architecture |
+|                     | DFDs                         | Show data flow & dependencies |
+|                     | Sequence Diagrams           | Show process flow in interactions |
+|                     | API Contracts               | Define API structure and behavior |
+|                     | Infra & Security Docs       | Define cloud infrastructure, security, and compliance |
+| **Implementation Docs** | CI/CD & DevOps Strategy  | Define deployment pipelines & best practices |
+|                     | Performance Reports         | Measure system scalability & speed |
+|                     | DR & BCP                     | Plan for failures & recovery |
+|                     | Migration Plan              | Ensure smooth transitions between architectures |
+|                     | Knowledge Base              | Assist in onboarding & troubleshooting |
+
+
 ### **Scoring Formula**
 
 Each artifact is graded based on a weighted scoring system. The final score is computed as follows:
@@ -25,9 +46,9 @@ Each artifact is graded based on a weighted scoring system. The final score is c
 
 Where each artifact's score is determined based on individual evaluation criteria, as detailed below.
 
-### **Candidate Submission Artifacts, Evaluation Criteria, and Weightage**
+### **Evaluation Criteria, and Weightage**
 
-Each candidate must submit the following artifacts as part of Test 2. Each artifact is evaluated based on **specific criteria**, and **justification for assigned scores** is provided.
+Each artifact category is evaluated based on **specific criteria**, and **justification for assigned scores** is provided.
 
 1. **Functional & Non-Functional Requirements Definition** *(Weight: 20%)*
 
