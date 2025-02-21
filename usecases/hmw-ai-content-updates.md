@@ -54,25 +54,22 @@
 
 ### **Gen AI Technical Components & Architecture**
 - **Local Inference & Cloud Services:**
-  - A cheap **cloud-based LLMs** such as gpt 4 
+  - A cheap **cloud-based LLMs** such as gpt 4omini 
 - **Fine-Tuning & Adaptation:**
   - We don't need to fine tune our model as this is a generic usecase where we are accessing mostly public information about architecture
   patterns to come up with questions and case studies.
 - **LLM Inference & Structured Outputs:**
   - Implementation of **structured response generation** for candidate feedback and grading justifications.
-- **Prompt Engineering & Validation:**
+- [**Prompt Engineering & Validation:**](/ADRs/llm-guardrails.md)
   - **Dynamic prompt orchestration** for AI models ensuring contextual accuracy.
   - **Guardrails & validation mechanisms** to filter out misleading or biased responses.
 - **Information Retrieval & Search Engine:**
-  - **Vector-based search** using embeddings to improve knowledge retrieval for candidate responses.
-  - **Ranking models** to ensure relevant test question mapping.
+  - **Vector-based search** using embeddings to improve knowledge retrieval for generating new aptitude test questions and case studies.
+  - **Search Engine** to retrieve latest architecture content including patterns, trends and techniques.
 - **Observability & Performance Monitoring:**
-  - **Prompt & model evaluation pipelines** for continuous improvement.
+  - **Prompt & model evaluation pipelines** 
   - **LLM observability tools** to track model behavior and response drift.
-  - **Conversation analytics** for monitoring candidate interactions with AI-driven systems.
-- **Agent-Based Automation:**
-  - AI-driven **autonomous agents** to review test patterns and optimize grading workflows.
-  - **Adaptive AI agents** capable of iterating on responses based on real-time evaluation.
+
 
 ## Conclusion
 - **Summary of Changes:** AI-driven automation for adding new aptitude test questions and case studies.
