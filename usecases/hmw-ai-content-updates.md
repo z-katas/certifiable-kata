@@ -72,7 +72,14 @@
 
 
 ## Conclusion
-- **Summary of Changes:** AI-driven automation for adding new aptitude test questions and case studies.
-- **Benefits of the New Architecture:** Increased scalability, faster turnaround, and reduced manual workload.
-- **Potential Risks & Mitigations:** AI bias monitoring, human oversight mechanisms, and periodic model retraining.
-- **Next Steps:** Pilot AI grading system, evaluate AI explainability, and refine model accuracy based on real-world data.
+
+- **Summary of Changes:** AI-driven automation for adding new aptitude test questions and case studies. We propose a robust system for expanding our proprietary architecture knowledge base with new questions and case studies, leveraging Retrieval Augmented Generation (RAG) for intelligent information retrieval.  The process begins with secure ingestion and chunking of new content from various formats (HTML, PDF, etc.).  These chunks are then converted into vector embeddings using a specialized model, enabling semantic search and retrieval.
+These embeddings are stored in a secure, high-performance vector store, optimized for scalability and speed.
+
+- **Benefits of the New Architecture:** 
+  - Automated generation of new architecture aptitude test questions and case studies, thereby reducing manual workload
+  - Continous update of knowledge base with latest architecture content
+  - Reduced Risk of Knowledge Loss due to expert turnovers
+  - Reduced "Shelf Life" of Leaked case studies 
+- **Potential Risks & Mitigations:** AI bias monitoring, human oversight mechanisms, LLM Hallucinations, Integration challenges
+- **Next Steps:** Phase wise implementation and Governance
