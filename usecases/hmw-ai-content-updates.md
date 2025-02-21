@@ -30,8 +30,20 @@
 
 ## Constraints
 - **Technical Constraints:** 
+  - Embedding model limitations around accuracy, relevancy and scalability
+    - Mitigation - optimizing the number of dimensions
+  - Vector store performance due to growing number of vectors
+    - Mitigation - Sharding, appropriate indexing strategy(e.g - HNSW)
+  - LLM model context window limitations and cost implications
+    - Mitigation - Passing summarized architecture context to LLM, self hosting open source models
 - **Operational Constraints:** 
+  - Expert Architect Involvement to review questions and case studies before including them in the tests
+    - Mitigation - Only show top rated new questions and case studies so as to reduce time spent by experts in reviewing questions  
+  
 - **Security & Compliance Constraints:**
+  - Access control: To restrict access to sensitive data.
+  - Data Masking and Anonymization: Data masking and anonymization techniques to protect sensitive information.
+
 
 ## Architectural Decision Records (ADRs)
 - [**ADR 1 - Architecture documents chunking strategy**](/ADRs/architecture-knowledge-chunking-strategy.md)
@@ -63,7 +75,7 @@
   - **Adaptive AI agents** capable of iterating on responses based on real-time evaluation.
 
 ## Conclusion
-- **Summary of Changes:** AI-driven automation for grading, feedback, and certification content updates.
+- **Summary of Changes:** AI-driven automation for adding new aptitude test questions and case studies.
 - **Benefits of the New Architecture:** Increased scalability, faster turnaround, and reduced manual workload.
 - **Potential Risks & Mitigations:** AI bias monitoring, human oversight mechanisms, and periodic model retraining.
 - **Next Steps:** Pilot AI grading system, evaluate AI explainability, and refine model accuracy based on real-world data.
