@@ -22,6 +22,10 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
 - **Srikanth**, [LinkedIn](https://www.linkedin.com/in/koraveni-srikanth/)
 - **Shashank**, [LinkedIn](https://www.linkedin.com/in/shashank-sheela-740746b4)
 
+
+**Check [Glossary](business-requirements/glossary.md) to understand more about certain terms.**
+
+
 # Introduction
 
 ## Background & Context
@@ -60,6 +64,7 @@ Following the success of the U.S. licensing program, **UK, Europe, and Asia have
   - Existing **300 experts working 15 hours per week** provide **4,500 hours total**.
   - Even with a **20% workload increase per expert** (18 hours per week), capacity reaches only **5,400 hours**, **3.5X lower than required**.
   - One-week turnaround time for each test requires **parallel grading**, posing **operational challenges**.
+- **Cost Burden:** Each candidate’s evaluation requires 11 hours of expert review, costing $550 per license (68% of the $800 certification fee). The high cost, limited expert availability, and rising demand pose major scalability, financial, and operational challenges.
 - **Other Expert Responsibilities:**
   - Provide detailed feedback to failed candidates via email.
   - Analyze, review, and update certification tests based on candidate performance trends.
