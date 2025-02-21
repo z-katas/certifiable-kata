@@ -9,18 +9,16 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
   - [Expansion Plans](#expansion-plans)
   - [Current Certification Process](#current-certification-process)
   - [Challenges in Expansion Plans](#challenges-in-expansion-plans)
-  - [Objectives](#objectives)
-    - [Functional Objectives](#functional-objectives)
+  - [Key Objectives](#key-objectives)
     - [Non-Functional Attributes](#non-functional-attributes)
-- [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)   
+- [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai) 
+- [Final thoughts](final-thoughts)  
   
 
 ## Team
 
-![Team](./images/team.png)
-
-- **Saketh Kumar**, [LinkedIn](https://www.linkedin.com/in/saketh-kumar-27b124126/)
 - **Avinash**, [LinkedIn](https://www.linkedin.com/in/avinashmarepalli/)
+- **Saketh Kumar**, [LinkedIn](https://www.linkedin.com/in/saketh-kumar-27b124126/)
 - **Srikanth**, [LinkedIn](https://www.linkedin.com/in/koraveni-srikanth/)
 - **Shashank**, [LinkedIn](https://www.linkedin.com/in/shashank-sheela-740746b4)
 
@@ -86,11 +84,54 @@ Each non-functional requirement aligns with a key business challenge:
 - **Reliability:** *Certification credibility is critical—misleading exams or inconsistent grading can undermine employer trust and industry acceptance.*
 
 # Automation use-cases using Gen AI
-- HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?
-- HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?
+  Note - HMW - How Might We
+- ### **HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?**
+  
+  Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of this usecase
+
+  **Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform a RAG that uses existing historical correct and incorrect answers along with candidate's answer as context to LLM to output the grade. Evaluations     with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects.
+  
+  **C2 Diagram:**
+
+  ![ASAS Grader C2 Diagram](/assets/test1-grader-c2.jpg "ASAS Grader C2 Diagram")
+
+  **Benefits of the new architecture:** TBD
+ 
+- ### **HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?**
+  
+  Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of this usecase
+
+  **Solution approach:** The AI-driven grading system for Test 2 is designed to handle the scalability and complexity of evaluating case study submissions. The process begins with automated content segregation, where different artifacts such as requirements, architectural   
+   decisions, and diagrams are categorized for structured evaluation. A multi-model AI strategy is employed to assess each artifact using specialized AI analyzers, ensuring grading consistency and accuracy. The system leverages an AI gateway to securely interact with the LLMs.
+  
+  **C2 Diagram:**
+
+  ![Test2 case study](/assets/test2c2.png "Test2 case study")
+
+  **Benefits of the new architecture:** TBD
+
+- ### **HMW automate the identification of emerging software architecture trends and generate expert-level certification questions to assist architects in updating the certification database efficiently?**
+  
+  Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this usecase
+  
+  **Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a web search + RAG LLM architecture pattern. Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store     following semantic chunking. The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include   them in the tests if they are satisfactory.
+  
+  **C2 Diagram:**
+
+  ![test 1 and test 2 content updates](/assets/new-questions-c2.png "test 1 and test 2 content updates")
+
+  **Benefits of the new architecture:** TBD
+
+**(TBD - Other usecases)**
 - HMW generate AI-assisted structured feedback reports for expert architects so that candidates receive detailed insights more efficiently?
-- HMW monitor software architecture trends for expert architects so that certification content remains aligned with evolving industry standards?
 - HMW automate test content evaluation for expert architects so that improvements are continuously implemented based on candidate performance trends?
 - HMW implement AI-based consistency checks for expert architects so that grading discrepancies are minimized across multiple reviewers?
 - HMW develop AI-driven mechanisms for expert architects so that new case studies can be created and rotated periodically to prevent exam content leaks?
+
+
+## Final thoughts
+- (TBD) cost benefit
+- (TBD) limitations with Gen AI
+- (TBD) ideal next steps
+
 
