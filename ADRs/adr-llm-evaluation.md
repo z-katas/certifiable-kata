@@ -10,15 +10,15 @@ Accepted
 
 ‍LLM evaluations, or evals for short, help assess the performance of a large language model to ensure outputs are accurate, safe, and aligned with user needs. The term applies in two key contexts:
 
-Evaluation of the LLM itself.
-Evaluation of systems built with LLMs.
+1. Evaluation of the LLM itself.
+2. Evaluation of systems built with LLMs.
 
 When evaluating an LLM directly, the focus is on its raw abilities. There are hundreds of LLM benchmarks, each with its own set of test cases. However, while these benchmarks are great for choosing models and tracking industry progress, they’re not very useful for evaluating real-world products. They test broad capabilities, not the specific inputs the system might handle. They also focus on the LLM alone, but our product will involve other components. LLM product evaluation assesses the full system's performance for its specific task.
 This includes not just the LLM, but everything else: the prompts, the logic connecting them, the knowledge databases used to augment the answers, etc.
 
 The testing of a LLM based system differs from a traditional software system as they produce probabilistic outputs i.e generate different outputs for identical inputs. The challenges include - non deterministic behaviour, wide range of inputs, prompt injections, jail breaks, hallucinations etc.
 
-Certifiable inc system uses LLM mainly for evaluation of short answers in Test 1, case study submissions in Test 2 and adding new questions to the aptitude test database and new case studies to case study database.T# LLM Evaluation Strategy for Automatic Grading and Question Generation. To ensure accurate and fair automatic grading of text-based answers and architecture case studies using an LLM, as well as the generation of new questions based on emerging architecture patterns and trends, a robust evaluation strategy is required. The evaluation must balance accuracy, scalability, interpretability, and fairness while maintaining cost-effectiveness.
+Certifiable inc system uses LLM mainly for evaluation of short answers in Test 1, case study submissions in Test 2 and adding new questions to the aptitude test database and new case studies to case study database. To ensure accurate and fair automatic grading of text-based answers and architecture case studies using an LLM, as well as the generation of new questions based on emerging architecture patterns and trends, a robust evaluation strategy is required. The evaluation must balance accuracy, scalability, interpretability, and fairness while maintaining cost-effectiveness.
 
 ### Alternatives
 
