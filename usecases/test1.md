@@ -74,7 +74,7 @@ Below is the high-level data flow diagram for Test 1:
 
 ![Test 1 High Level Data Flow](/assets/test1-high-level-flow-diagram.jpg "Test 1 High Level Data Flow")
 
-Recent research ([Ref1](https://arxiv.org/abs/2409.20042), [Ref2](https://arxiv.org/abs/2408.03811)) shows that a Retrieval-Augmented Generation (RAG) approach combined with Few-Shot examples and Chain-of-Thought reasoning significantly improves performance in Automated Short Answer Scoring tasks across multiple LLMs—with no fine-tuning. This is the strategy we will adopt.
+Recent research ([Ref1](https://arxiv.org/abs/2409.20042), [Ref2](https://arxiv.org/abs/2408.03811)) shows that a Retrieval-Augmented Generation (RAG) approach combined with Few-Shot examples and Chain-of-Thought reasoning significantly improves performance in Automated Short Answer Scoring tasks across multiple LLMs—with no fine-tuning. This is the strategy we will adopt. Please refer to this [ADR](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md) for a more detailed analysis of this choice.
 
 ## Short Answer Grade ETL Service
 
@@ -108,25 +108,24 @@ The ASAS Grader will execute the following steps:
     - [Vector Store](/ADRs/adr-llm-vector-store.md)
     - [Vector Search](/ADRs/adr-llm-vector-search.md)
 11. Other links
-    - [Example Test 1 Grading Process](/business-requirements/test1-grading-process.md) : Could be used for creating system prompt fot ASAS Grader 
-
+    - [Example Test 1 Grading Process](/business-requirements/test1-grading-process.md) : Could be used for creating system prompt fot ASAS Grader
 
 ## ASAS Judge
 
-The ASAS Judge is responsible for evaluating the quality of the AI-generated grading. Its workflow includes:
+The ASAS Judge is responsible for evaluating the quality of the AI-generated grading. It uses various LLM as Judge tools/frameworks to perform it's duties. Its workflow includes:
 
 1. Retrieve a grading submission awaiting judgment.
 2. Use the vector search to fetch relevant historical submissions.
 3. Retrieve the appropriate prompt template from an external Prompt Management System.
-4. Construct a RAG-based Few-Shot Example Chain-of-Thought prompt that instructs the LLM to assess the confidence of the grading and feedback.
-5. Publish the query to the LLM query queue and subscribe to the LLM response queue.
+4. Uses the selected LLM evaluation techniques (see [ADR](/ADRs/adr-llm-evaluation.md))
+5. (Optional) Publish the query to the LLM query queue and subscribe to the LLM response queue.
 6. Update the grading submission in the ASAS database with the computed confidence score.
 7. Compare the confidence score against a predefined, configurable threshold:
    - If above the threshold, finalize the grading.
    - If below, update the status to “Pending Manual Review.”
 8. Integrate the outcomes of manual review to continuously refine the judgment prompt.
 9. Relevant ADRs
-   - [Observability](/ADRs/adr-llm-observability.md) 
+   - [Observability](/ADRs/adr-llm-observability.md)
 
 ## AI Model Gateway
 
@@ -141,7 +140,6 @@ The AI Model Gateway orchestrates communication between queued queries and the L
    - [AI Gateway](/ADRs/adr-using-ai-gateway.md)
    - [LLM Deplyment](/ADRs/adr-llm-deployment.md)
    - [Multi Model AI](/ADRs/adr-ai-multi-model-strategy.md)
-
 
 ## ASAS Grader C2 Diagram
 
