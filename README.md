@@ -95,7 +95,7 @@ Each non-functional requirement aligns with a key business challenge:
   
   Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of this usecase
 
-  **Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform a RAG that uses existing historical correct and incorrect answers along with candidate's answer as context to LLM to output the grade. Evaluations with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects. The new approach allows for the output of the platform to scale to meet the expected growth while ensuring the results closely mimic manual grading. **Splitting the Grader and Judge into separate components**([**ADR**](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md)) allows us to improve/test one component while keeping the other component constant.
+  **Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform **a RAG that uses existing historical correct** and incorrect answers along with candidate's answer as **context to LLM to output the grade**. Evaluations with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects. The new approach allows for the output of the platform to scale to meet the expected growth while ensuring the results closely mimic manual grading. **Splitting the Grader and Judge into separate components**([**ADR**](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md)) allows us to improve/test one component while keeping the other component constant.
 
   **ASAS Grader C2 Diagram:**
 
@@ -106,7 +106,7 @@ Each non-functional requirement aligns with a key business challenge:
   Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of this usecase
 
   **Solution approach:** The AI-driven grading system for Test 2 is designed to handle the scalability and complexity of evaluating case study submissions. The process begins with **automated content segregation**, where different artifacts such as requirements, architectural   
-   decisions, and diagrams are categorized for structured evaluation. [**A multi-model AI strategy**]([**ADR**](/ADRs/adr-ai-multi-model-strategy.md)) is employed to assess each artifact using **specialized AI analyzers**, ensuring grading consistency and accuracy. The system leverages an **AI gateway**([**ADR**](/ADRs/adr-using-ai-gateway.md)) to securely interact with the LLMs.
+   decisions, and diagrams are categorized for structured evaluation. **A multi-model AI strategy**([**ADR**](/ADRs/adr-ai-multi-model-strategy.md)) is employed to assess each artifact using **specialized AI analyzers**, ensuring grading consistency and accuracy. The system leverages an **AI gateway**([**ADR**](/ADRs/adr-using-ai-gateway.md)) to securely interact with the LLMs.
   
   **C2 Diagram:**
 
@@ -116,7 +116,7 @@ Each non-functional requirement aligns with a key business challenge:
   
   Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this usecase
   
-  **Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a web search + RAG LLM architecture pattern ([**ADR**](/ADRs/adr-new-questions-and-case-studies-strategy.md)). Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store following semantic chunking([**ADR**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)). The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include them in the tests if they are satisfactory.
+  **Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a **web search + RAG LLM architecture pattern** ([**ADR**](/ADRs/adr-new-questions-and-case-studies-strategy.md)). Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store following **semantic chunking**([**ADR**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)). The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include them in the tests if they are satisfactory.
   
   **C2 Diagram:**
 
