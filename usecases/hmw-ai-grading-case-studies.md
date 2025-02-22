@@ -76,11 +76,45 @@ Once the grading is done by AI, software expert reviews the grading in this step
 
 ![Test2 case study](/assets/test2c2.png "Test2 case study")
 
+# **AI Components in the Architecture**  
+
+## **1. AI Case Study Grader**  
+- Uses **vector databases** to store and retrieve case study embeddings.  Refer to this [ADR](/ADRs/adr-llm-vector-store.md) for vector store and this [ADR](/ADRs/adr-llm-vector-search.md) for vector search  
+- Evaluates architecture documents using specialized AI graders:  
+  - **Content Segregator** (classifies document types)  
+  - **ADR Grader** (assesses architectural decisions)  
+  - **API Grader** (validates API contracts)  
+  - **C4 Grader** (analyzes architecture diagrams)  
+  - **DFD Grader** (evaluates data flow diagrams)  
+  - **Infra/Security Grader** (checks infrastructure and security compliance)  
+
+## **2. Data Pipeline Workflow**  
+- Creates **embeddings** from case study documents for efficient AI processing. please refer to this [ADR](/ADRs/adr-llm-embedding-model.md)
+- It also retrieves embeddings from reference architecture created while case study creation for better grading.  
+
+## **3. AI Gateway**  
+- Provides AI observability, logging, and security.  
+- Manages **multi-LLM endpoints** to access different AI models.  
+- Implements **prompt caching** and **guardrails** for AI responses.  
+- Includes a **prompt firewall** to ensure safe and optimized AI queries.  
+
+## **4. Foundation Models**  
+- Integrates multiple AI models (e.g., OpenAI, Anthropic) to process and grade case study submissions.  
+
+## **Purpose**  
+The AI components **automate case study evaluation** by classifying, grading, and validating architecture documents using advanced **LLMs, vector databases, and embeddings**. 
+
+- For the deployment of AI components refer to this [ADR](/ADRs/adr-llm-deployment.md)
+- For the usage of AI Gateway refer to this [ADR](/ADRs/adr-using-ai-gateway.md)
 
 ### Data flow diagram:
 
 ![Test2 dataflow](/assets/casestudy-flow-diagram.png "Test2 dataflow")
 
+- The architecture submissions are directly fed to document segregator, detailed analysis below
+- The documents are then sent to document analyzer and AI grading system
+- Software expert will act as Human in the loop, reviewing AI given grades 
+- Rest of the dataflow remain the same, for email notifications and certification  
 
 ## Implementation Details
 
