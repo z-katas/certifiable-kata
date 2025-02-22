@@ -123,7 +123,7 @@ Each non-functional requirement aligns with a key business challenge:
   
   Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this usecase
   
-  **Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a web search + RAG LLM architecture pattern. Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store     following semantic chunking. The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include   them in the tests if they are satisfactory.
+  **Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a **web search + RAG LLM architecture pattern**. Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store following semantic chunking. The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include them in the tests if they are satisfactory.
   
   **C2 Diagram:**
 
