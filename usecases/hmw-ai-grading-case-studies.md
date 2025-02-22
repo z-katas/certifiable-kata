@@ -269,7 +269,15 @@ This structured AI evaluation ensures that each document is assessed using the b
 Each document in the case study will be evaluated using different AI architecture patterns. The overall architecture follows a multi-model strategy.
 
 ## Conclusion
-- **Summary of Changes:** AI-driven automation for grading, feedback, and certification content updates.
+- **Summary of Changes:** 
+  - Automated content segregation categorizes different artifacts in candidate submissions.
+  - AI-assisted benchmarking provides structured evaluation against predefined grading criteria.
+  - Human-in-the-loop (HITL) validation ensures AI-graded scores align with expert expectations.
 - **Benefits of the New Architecture:** Increased scalability, faster turnaround, and reduced manual workload.
-- **Potential Risks & Mitigations:** AI bias monitoring, human oversight mechanisms, and periodic model retraining.
-- **Next Steps:** Pilot AI grading system, evaluate AI explainability, and refine model accuracy based on real-world data.
+  - Efficient Case Study Evaluation – Reduces grading workload while maintaining assessment depth.
+  - Consistency in Scoring – AI-driven grading mitigates expert subjectivity in evaluations.
+  - Scalability – Supports increased candidate volumes without compromising grading accuracy.
+- **Potential Risks & Mitigations:**
+  - Complexity of Architecture Grading – AI models trained on real-world architectural patterns to ensure comprehensive evaluations.
+  - Over-Reliance on Automation – Human experts retain final decision-making authority on ambiguous or complex submissions.
+  - Security & Compliance – AI processing ensures data privacy, aligning with regulatory standards like GDPR and ISO 27001.
