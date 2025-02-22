@@ -87,7 +87,7 @@ Ensure that **certification content reflects the latest industry advancements** 
 
 ### **Job Steps (using universal job map):**
 1. **Configure trend sources and search parameters** – Architects define sources and prompts for AI-based industry research.
-2. **View AI-generated trend feed** – AI scrapes and presents insights from preconfigured sources.
+2. **View AI-generated trend feed** – AI scrapes and presents insights from preconfigured sources[TBD].
 3. **Review system-generated certification questions** – AI suggests MCQs, short-answer questions, and case study prompts.
 4. **Assess AI-generated reasoning** – Validate AI's justification for trend relevance and question generation.
 5. **Modify AI-generated content if necessary** – Experts refine AI-suggested questions and answers.
