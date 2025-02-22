@@ -11,8 +11,9 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
   - [Challenges in Expansion Plans](#challenges-in-expansion-plans)
   - [Key Objectives](#key-objectives)
     - [Non-Functional Attributes](#non-functional-attributes)
-- [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai) 
-- [Final thoughts](final-thoughts)  
+- [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)
+- [Architecture characteristics](#architecture-characteristics) 
+- [Final thoughts](#final-thoughts)  
   
 
 ## Team
@@ -85,8 +86,8 @@ Each non-functional requirement aligns with a key business challenge:
 
 - **Scalability:** *As the software architecture industry is projected to grow by 21% globally and certification demand increases 5-10X, the system must scale to accommodate the surge in applicants.*
 - **Cost Efficiency:** *AI implementation costs must be optimized to prevent overruns while supporting Certifiable, Inc.'s strategic expansion. AI adoption should not exceed a 30% increase in grading expenses.*
-- **Accuracy:** *As a market leader, Certifiable, Inc. must maintain grading precision. Inaccurate evaluations could impact candidate careers and damage the company’s reputation.*
-- **Reliability:** *Certification credibility is critical—misleading exams or inconsistent grading can undermine employer trust and industry acceptance.*
+- **Accuracy:** *As a market leader, Certifiable, Inc. must maintain grading precision. Inaccurate evaluations could impact candidate careers and damage the company’s reputation. 
+- **Credibility:** *Certification credibility is critical—misleading exams or inconsistent grading can undermine employer trust and industry acceptance.*
 
 # Automation use-cases using Gen AI
   Note - HMW - How Might We
@@ -94,42 +95,33 @@ Each non-functional requirement aligns with a key business challenge:
   
   Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of this usecase
 
-  **Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform a RAG that uses existing historical correct and incorrect answers along with candidate's answer as context to LLM to output the grade. Evaluations with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects.
-
-  **High Level Diagram**
-
-  ![Test 1 High Level Diagram](/assets/test1-high-level-flow-diagram.jpg "Test 1 High Level Diagram")
+  **Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform a RAG that uses existing historical correct and incorrect answers along with candidate's answer as context to LLM to output the grade. Evaluations with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects. The new approach allows for the output of the platform to scale to meet the expected growth while ensuring the results closely mimic manual grading. **Splitting the Grader and Judge into separate components**([**ADR**](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md)) allows us to improve/test one component while keeping the other component constant.
 
   **ASAS Grader C2 Diagram:**
 
   ![ASAS Grader C2 Diagram](/assets/test1-grader-c2.jpg "ASAS Grader C2 Diagram")
 
-  **Benefits of the new architecture:** The new approach allows for the output of the platform to scale to meet the expected growth while ensuring the results closely mimic manual grading. Splitting the Grader and Judge into separate components allows us to improve/test one component while keeping the other component constant.
-
 - ### **HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?**
   
   Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of this usecase
 
-  **Solution approach:** The AI-driven grading system for Test 2 is designed to handle the scalability and complexity of evaluating case study submissions. The process begins with automated content segregation, where different artifacts such as requirements, architectural   
-   decisions, and diagrams are categorized for structured evaluation. A multi-model AI strategy is employed to assess each artifact using specialized AI analyzers, ensuring grading consistency and accuracy. The system leverages an AI gateway to securely interact with the LLMs.
+  **Solution approach:** The AI-driven grading system for Test 2 is designed to handle the scalability and complexity of evaluating case study submissions. The process begins with **automated content segregation**, where different artifacts such as requirements, architectural   
+   decisions, and diagrams are categorized for structured evaluation. [**A multi-model AI strategy**]([**ADR**](/ADRs/adr-ai-multi-model-strategy.md)) is employed to assess each artifact using **specialized AI analyzers**, ensuring grading consistency and accuracy. The system leverages an **AI gateway**([**ADR**](/ADRs/adr-using-ai-gateway.md)) to securely interact with the LLMs.
   
   **C2 Diagram:**
 
   ![Test2 case study](/assets/test2c2.png "Test2 case study")
 
-  **Benefits of the new architecture:** TBD
-
 - ### **HMW automate the identification of emerging software architecture trends and generate expert-level certification questions to assist architects in updating the certification database efficiently?**
   
   Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this usecase
   
-  **Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a **web search + RAG LLM architecture pattern**. Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store following semantic chunking. The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include them in the tests if they are satisfactory.
+  **Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a web search + RAG LLM architecture pattern ([**ADR**](/ADRs/adr-new-questions-and-case-studies-strategy.md)). Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store following semantic chunking([**ADR**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)). The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include them in the tests if they are satisfactory.
   
   **C2 Diagram:**
 
   ![test 1 and test 2 content updates](/assets/new-questions-c2.png "test 1 and test 2 content updates")
 
-  **Benefits of the new architecture:** TBD
 
 **(TBD - Other usecases)**
 - HMW generate AI-assisted structured feedback reports for expert architects so that candidates receive detailed insights more efficiently?
@@ -137,24 +129,33 @@ Each non-functional requirement aligns with a key business challenge:
 - HMW implement AI-based consistency checks for expert architects so that grading discrepancies are minimized across multiple reviewers?
 - HMW develop AI-driven mechanisms for expert architects so that new case studies can be created and rotated periodically to prevent exam content leaks?
 
+## Architecture characteristics
+
 ### Existing architecture characteristics
 
-1. Data integrity - Test questions, submissions and grades are stored without any integrity issues and there is no data loss
-2. Accuracy - Accuracy of grading MCQs as well as short answer aptitude questions and case study submissions
-3. Interoperability - Ensures that different systems and components can communicate effectively with each other, facilitating smooth integration across various platforms. Also includes the interactions between experts and the system.
-
+- **Data integrity** - Ensures that test questions, candidate submissions, and grades are securely stored without integrity issues or data loss.
+- **Accuracy** - Guarantees precise grading for MCQs, short-answer aptitude questions, and case study submissions, maintaining evaluation reliability.
+- **Interoperability** - Enables seamless communication across different systems and components, ensuring smooth integration between the certification platform and expert evaluators.
 
 ### New architecture characteristics(in addition to existing)
 
-1. Scalability - The proposed LLM based architecture scales well so as to support the increased demand of 5-10x without degradation of performance and accuracy. Key aspects here includes auto scaling cloud based LLM and vector stores.
-2. Observability - LLMs inherently involve biases, hallucinations and relevancy issues, therefore, we need LLM observability to monitoring of LLM inputs and outputs to ensure reliable functioning of the system, the proposed evals, guardrails and Observability tools within AI gateway handles these needs
-3. Cost - With the help of LLMs, the grading time of short answer questions and case studies will come down drastically, there by reducing the number of manual hours need to be spent by expert software architects and the costs associated with grading.
-4. Evolvability - The proposed architecture supports easy updates to grading models, question formats, and evaluation criteria as educational standards and AI capabilities evolve.
-
+- **Scalability** - The LLM-based architecture is designed to handle a 5-10X increase in demand while maintaining grading accuracy and performance. Auto-scaling cloud-based LLMs and vector stores ensure efficient resource utilization.
+- **Cost Efficiency** - AI-driven grading significantly reduces manual evaluation hours, cutting down expert workload and associated costs. A detailed cost analysis is yet to be finalized.
+- **Accuracy** -  Retrieval-Augmented Generation (RAG) leverages a continuously updated vector store of manually graded answers to provide contextual references, improving grading consistency.
+- **Credibility** - Human-in-the-loop validation ensures that low-confidence AI predictions are manually reviewed, refining grading accuracy over time.
+- **Observability** -  AI systems introduce challenges such as bias, hallucinations, and relevance issues. LLM observability tools within the AI gateway actively monitor inputs and outputs, ensuring reliable system performance.
+- **Explainability** - LLM-generated grading scoring & feedback must be transparent and justifiable, allowing expert architects to understand AI-driven grading decisions, enhancing overall productivity.
+- **Evolvability** - The architecture supports continuous updates to grading models, question formats, and evaluation criteria, ensuring adaptability as educational standards and AI capabilities evolve.
 
 ## Final thoughts
-- (TBD) cost benefit
-- (TBD) limitations with Gen AI
-- (TBD) ideal next steps
+**Limitations**
+- **Scalability of Manual Review** – The system relies on human reviewers for low-confidence cases, which can become a bottleneck as submission volume grows.
+- **LLM Hallucinations and Biases** – Despite using RAG, LLMs may still generate inaccurate or biased grading decisions, requiring ongoing monitoring and corrections.
+- **Contextual Understanding Gaps** – While AI can process structured evaluation criteria, it may struggle with nuanced architectural decisions, making human oversight essential for complex cases.
+- **Productionization** - LLM-based application deployment is still evolving, with new cost-effective methodologies emerging rapidly, requiring continuous adaptation to ensure scalability and efficiency.
+ 
+**Next Steps: Phased Rollout Strategy**
+- **Pilot & A/B Testing:** Run AI and human grading in parallel to compare accuracy, refine AI models, and track grading consistency.
+- **AI-First with Expert Oversight:** AI handles primary grading, with human validation for low-confidence cases and structured feedback improvements.
 
 
