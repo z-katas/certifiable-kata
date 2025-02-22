@@ -86,7 +86,7 @@ Each non-functional requirement aligns with a key business challenge:
 
 - **Scalability:** *As the software architecture industry is projected to grow by 21% globally and certification demand increases 5-10X, the system must scale to accommodate the surge in applicants.*
 - **Cost Efficiency:** *AI implementation costs must be optimized to prevent overruns while supporting Certifiable, Inc.'s strategic expansion. AI adoption should not exceed a 30% increase in grading expenses.*
-- **Accuracy:** *As a market leader, Certifiable, Inc. must maintain grading precision. Inaccurate evaluations could impact candidate careers and damage the company’s reputation. 
+- **Accuracy:** *As a market leader, Certifiable, Inc. must maintain grading precision. Inaccurate evaluations could impact candidate careers and damage the company’s reputation.* 
 - **Credibility:** *Certification credibility is critical—misleading exams or inconsistent grading can undermine employer trust and industry acceptance.*
 
 # Automation use-cases using Gen AI
