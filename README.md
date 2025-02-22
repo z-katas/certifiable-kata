@@ -137,6 +137,20 @@ Each non-functional requirement aligns with a key business challenge:
 - HMW implement AI-based consistency checks for expert architects so that grading discrepancies are minimized across multiple reviewers?
 - HMW develop AI-driven mechanisms for expert architects so that new case studies can be created and rotated periodically to prevent exam content leaks?
 
+### Existing architecture characteristics
+
+1. Data integrity - Test questions, submissions and grades are stored without any integrity issues and there is no data loss
+2. Accuracy - Accuracy of grading MCQs as well as short answer aptitude questions and case study submissions
+3. Interoperability - Ensures that different systems and components can communicate effectively with each other, facilitating smooth integration across various platforms. Also includes the interactions between experts and the system.
+
+
+### New architecture characteristics(in addition to existing)
+
+1. Scalability - The proposed LLM based architecture scales well so as to support the increased demand of 5-10x without degradation of performance and accuracy. Key aspects here includes auto scaling cloud based LLM and vector stores.
+2. Observability - LLMs inherently involve biases, hallucinations and relevancy issues, therefore, we need LLM observability to monitoring of LLM inputs and outputs to ensure reliable functioning of the system, the proposed evals, guardrails and Observability tools within AI gateway handles these needs
+3. Cost - With the help of LLMs, the grading time of short answer questions and case studies will come down drastically, there by reducing the number of manual hours need to be spent by expert software architects and the costs associated with grading.
+4. Evolvability - The proposed architecture supports easy updates to grading models, question formats, and evaluation criteria as educational standards and AI capabilities evolve.
+
 
 ## Final thoughts
 - (TBD) cost benefit
