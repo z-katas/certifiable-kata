@@ -81,6 +81,10 @@
 
 ## High-Level Solution Approach
 
+Below is the high-level diagram for Test 1. ( see [Implementation Details](#implementation-details))
+
+![Test 1 High Level Data Flow](/assets/test1-high-level-flow-diagram.jpg "Test 1 High Level Data Flow")
+
 We will develop an ASAS solution that leverages Large Language Models (LLMs) to automatically grade short answer responses and generate candidate feedback. The solution consists of two key services:
 
 1. ASAS Grader: Grades short answer submissions and provides detailed feedback.
@@ -93,26 +97,19 @@ We will develop an ASAS solution that leverages Large Language Models (LLMs) to 
 - Submissions with scores below the threshold are stored for manual review by Expert Software Architects.
 - The manual review outcomes feed back into the ASAS Judge to improve its confidence scoring over time.
 
-This hybrid approach ensures that the AI-generated results closely mimic manual grading.
+This hybrid approach ensures that the AI-generated results closely mimic manual grading. Splitting the Grader and Judge into separate components allows us improve/test one component while keeping the other component constant.
 
 ## ASAS Grader C2 Diagram
 
-The diagram below illustrates the core components of the AI Grader service:
+The diagram below illustrates the core components of the AI Grader service. ( see [Implementation Details](#implementation-details))
 
 ![ASAS Grader C2 Diagram](/assets/test1-grader-c2.jpg "ASAS Grader C2 Diagram")
 
 Note: Due to time constraints and brevity, C2 diagrams for the other components are omitted.
 
-## High-Level Data Flow Diagram
-
-Below is the high-level data flow diagram for Test 1:
-
-![Test 1 High Level Data Flow](/assets/test1-high-level-flow-diagram.jpg "Test 1 High Level Data Flow")
+## Implementation Details
 
 Recent research ([Ref1](https://arxiv.org/abs/2409.20042), [Ref2](https://arxiv.org/abs/2408.03811)) shows that a Retrieval-Augmented Generation (RAG) approach combined with Few-Shot examples and Chain-of-Thought reasoning significantly improves performance in Automated Short Answer Scoring tasks across multiple LLMs—with no fine-tuning. This is the strategy we will adopt. Please refer to this [ADR](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md) for a more detailed analysis of this choice.
-
-
-## Implementation Details
 
 ## ASAS Grader
 

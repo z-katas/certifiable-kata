@@ -94,14 +94,18 @@ Each non-functional requirement aligns with a key business challenge:
   
   Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of this usecase
 
-  **Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform a RAG that uses existing historical correct and incorrect answers along with candidate's answer as context to LLM to output the grade. Evaluations     with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects.
-  
-  **C2 Diagram:**
+  **Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform a RAG that uses existing historical correct and incorrect answers along with candidate's answer as context to LLM to output the grade. Evaluations with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects.
+
+  **High Level Diagram**
+
+  ![Test 1 High Level Diagram](/assets/test1-high-level-flow-diagram.jpg "Test 1 High Level Diagram")
+
+  **ASAS Grader C2 Diagram:**
 
   ![ASAS Grader C2 Diagram](/assets/test1-grader-c2.jpg "ASAS Grader C2 Diagram")
 
-  **Benefits of the new architecture:** TBD
- 
+  **Benefits of the new architecture:** The new approach allows for the output of the platform to scale to meet the expected growth while ensuring the results closely mimic manual grading. Splitting the Grader and Judge into separate components allows us to improve/test one component while keeping the other component constant.
+
 - ### **HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?**
   
   Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of this usecase
