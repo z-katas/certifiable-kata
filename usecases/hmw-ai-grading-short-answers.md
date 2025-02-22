@@ -168,7 +168,16 @@ The AI Model Gateway orchestrates communication between queued queries and the L
 
 ## Conclusion
 
-- **Summary of Changes:** AI-driven automation for grading, feedback, and certification content updates.
-- **Benefits of the New Architecture:** Increased scalability, faster turnaround, and reduced manual workload.
-- **Potential Risks & Mitigations:** AI bias monitoring, human oversight mechanisms, and periodic model retraining.
+- **Summary of Changes:**
+   - AI-driven automation replaces manual grading, significantly reducing the time required for evaluating short-answer responses.
+   - Structured feedback generation ensures candidates receive detailed, consistent explanations for their scores.
+   - Confidence-based review mechanism allows experts to validate AI-generated grades when necessary.
+- **Benefits of the New Architecture:**
+   - Scalability – Enables grading for thousands of candidates per week without increasing expert workload.
+   - Faster Turnaround – Reduces grading time per response, ensuring candidates receive results in hours instead of days.
+   - Reduced Manual Workload – Experts focus on validation and edge cases rather than routine grading.
+- **Potential Risks & Mitigations:**
+   - AI Bias & Inconsistencies – Implementing bias-detection mechanisms and benchmarking AI evaluations against historical grading patterns.
+   - Quality Assurance – Expert oversight ensures AI-generated scores align with certification standards.
+   - System Adaptability – AI models are periodically retrained using new grading patterns to maintain relevance and accuracy.
 - **Next Steps:** Pilot AI grading system, evaluate AI explainability, and refine model accuracy based on real-world data.
