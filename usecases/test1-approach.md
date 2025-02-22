@@ -66,7 +66,7 @@ Workflow:
 - Submissions with scores below the threshold are stored for manual review by Expert Software Architects.
 - The manual review outcomes feed back into the ASAS Judge to improve its confidence scoring over time.
 
-This hybrid approach ensures that the AI-generated results closely mimic manual grading.
+This hybrid approach ensures that the AI-generated results closely mimic manual grading.Splitting the Grader and Judge into separate components allows us improve/test one component while keeping the other component constant.
 
 ## High-Level Data Flow Diagram
 
