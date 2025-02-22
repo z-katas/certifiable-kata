@@ -101,24 +101,83 @@ Ensure that **certification content reflects the latest industry advancements** 
 
 
 ## Architecture Diagrams
+
 ### Container Diagram (C2)
-- **Description:** Containers and interactions
-- **Diagram:**
+
 ![test 1 and test 2 content updates](/assets/new-questions-c2.png "test 1 and test 2 content updates")
+New questions and case studies are automatically created using:
+
+- Web search
+- Large Language Models (LLMs)
+- Embedding models
+- Vector databases
+
+**Key Components and Data Flow**
+
+**1. AI Gateway**
+
+- Acts as the interface between the system and the LLM.
+- Uses prompt guards and evaluations to ensure quality control of generated content.
+
+**2. Architecture Knowledge Ingestion Service**
+
+- Fetches data from targeted web searches to specific sites and internal documents stored in object store.
+- Performs data cleanup and transformation.
+- Stores refined information in an Architecture Knowledge Base Vector Store.
+
+**3. Case Study Preparation Service**
+
+- Uses cleaned and structured data to generate new case studies.
+- Passes case studies to the Case Study Maintenance Service.
+
+**4. Case Study Maintenance Service**
+
+- Maintains an updated repository of case studies in a Case Study Database.
+
+**5. Aptitude Test Question Preparation Service**
+
+- Generates MCQ-based aptitude test questions based on:
+  - Existing knowledge from the vector store
+  - LLM-generated insights
+- Stores generated questions in the Aptitude Test Questions Database.
+
+**6. Aptitude Test Maintenance Service**
+
+- Maintains valid and updated aptitude test questions(MCQs and short answer questions) in an Aptitude Test Database.
+
+**7. Expert User Interface & Admin API Gateway**
+
+- Designated architect Experts can review and manage test questions, case studies.
+- Connected via an Admin API Gateway.
+
 ### Flow Diagram
+
 - **Description:** Flow involving chunking of documents, storing in vector store and retrieival by the expert Architect to update the tests
 - **Diagram:**
 ![test 1 and test 2 content updates](/assets/New-test1-and-test2-questions.png "test 1 and test 2 content updates")
 
+- Document Ingestion and Chunking: The process starts with ingesting documents (HTML, PDF, TXT) which are then broken down into smaller, manageable chunks. This is essential for processing large documents and ensuring relevant sections are used for question and case study generation. Chunking strategy discussed in [ADR](/ADRs/adr-architecture-knowledge-chunking-strategy.md).
+
+- Embedding Generation and Vector Storage: The document chunks are fed into an embedding model, creating vector representations. These vectors, capturing the semantic meaning of the text, are stored in a vector store. This allows for efficient similarity searches later on.
+
+- Knowledge Retrieval and LLM Interaction: When the Aptitude quesiton preparation service or case study preparation service requests a question or case study, the system queries the vector store to retrieve relevant document chunks based on semantic similarity. These chunks are then used as context for the Generative AI Model (LLM). The LLM processes this information to generate questions, case studies.
+
+- Aptitude question preparation Service: For test1 MCQs and short answer questions, the system triggers Aptitude question preparation Service on a schedule or on demand. This service interacts with the LLM to generate questions and stores them in an Aptitude test questions database. These questions are pulled by Aptitude test maintenance service when designated expert architects tries to view them in User interface. Designated Expert Architects can drop or modify or add these questions to the tests. The tests are then stored in Aptitude test database
+
+- Case Study preparation Service: For test 2 i.e case study-based exam, the system triggers Case Study preparation Service on a schedule or on demand. This service works in conjunction with the LLM to create case studies, which are then stored in a Case Study Database. These case studies are pulled by Case study maintenance service when designated expert architects tries to view them in User interface. Similar to questions, expert architects can edit, drop or include them in the test.
+
+- Feedback Loop and Iteration: Both the question and case study generation processes involve expert review, allowing for feedback and improvement. The system can also learn from user interactions and refine its search and generation capabilities over time. This iterative process ensures the quality and relevance of the generated content[TBD].
+
 ## Constraints
-- **Technical Constraints:** 
+
+- **Technical Constraints:**
   - Embedding model limitations around accuracy, relevancy and scalability
     - Mitigation - optimizing the number of dimensions
   - Vector store performance due to growing number of vectors
     - Mitigation - Sharding, appropriate indexing strategy(e.g - HNSW)
   - LLM model context window limitations and cost implications
     - Mitigation - Passing summarized architecture context to LLM, self hosting open source models
-- **Operational Constraints:** 
+- **Operational Constraints:**
   - Expert Architect Involvement to review questions and case studies before including them in the tests
     - Mitigation - Only show top rated new questions and case studies so as to reduce time spent by experts in reviewing questions  
   
@@ -126,8 +185,8 @@ Ensure that **certification content reflects the latest industry advancements** 
   - Access control: To restrict access to sensitive data.
   - Data Masking and Anonymization: Data masking and anonymization techniques to protect sensitive information.
 
-
 ## Architectural Decision Records (ADRs)
+
 - [**ADR 1 - Architecture documents chunking strategy**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)
 
 - [**ADR 2 - Strategy for generating new questions and case studies**](/ADRs/adr-new-questions-and-case-studies-strategy.md)
@@ -135,8 +194,9 @@ Ensure that **certification content reflects the latest industry advancements** 
 ## Implementation Details
 
 ### **Gen AI Technical Components & Architecture**
+
 - **Local Inference & Cloud Services:**
-  - A cheap **cloud-based LLMs** such as gpt 4omini 
+  - A cheap **cloud-based LLMs** such as gpt 4omini
 - **Fine-Tuning & Adaptation:**
   - We don't need to fine tune our model as this is a generic usecase where we are accessing mostly public information about architecture
   patterns to come up with questions and case studies.
@@ -149,19 +209,18 @@ Ensure that **certification content reflects the latest industry advancements** 
   - **Vector-based search** using embeddings to improve knowledge retrieval for generating new aptitude test questions and case studies.
   - **Search Engine** to retrieve latest architecture content including patterns, trends and techniques.
 - **Observability & Performance Monitoring:**
-  - **Prompt & model evaluation pipelines** 
+  - **Prompt & model evaluation pipelines**
   - **LLM observability tools** to track model behavior and response drift.
-
 
 ## Conclusion
 
 - **Summary of Changes:** AI-driven automation for adding new aptitude test questions and case studies. We propose a robust system for expanding our proprietary architecture knowledge base with new questions and case studies, leveraging Retrieval Augmented Generation (RAG) for intelligent information retrieval.  The process begins with secure ingestion and chunking of new content from various formats (HTML, PDF, etc.).  These chunks are then converted into vector embeddings using a specialized model, enabling semantic search and retrieval.
 These embeddings are stored in a secure, high-performance vector store, optimized for scalability and speed.
 
-- **Benefits of the New Architecture:** 
+- **Benefits of the New Architecture:**
   - Automated generation of new architecture aptitude test questions and case studies, thereby reducing manual workload
   - Continous update of knowledge base with latest architecture content
   - Reduced Risk of Knowledge Loss due to expert turnovers
-  - Reduced "Shelf Life" of Leaked case studies 
+  - Reduced "Shelf Life" of Leaked case studies
 - **Potential Risks & Mitigations:** AI bias monitoring, human oversight mechanisms, LLM Hallucinations, Integration challenges
 - **Next Steps:** Phase wise implementation and Governance
