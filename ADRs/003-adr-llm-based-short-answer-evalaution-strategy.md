@@ -1,6 +1,4 @@
-# Title
-
-Evaluating LLM-Based Strategies for Automating Short-Answer Grading
+# ADR-003: Evaluating LLM-Based Strategies for Automating Short-Answer Grading
 
 ## Status
 

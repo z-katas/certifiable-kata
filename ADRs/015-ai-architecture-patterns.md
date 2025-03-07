@@ -1,4 +1,4 @@
-# Architecture Patterns and Anti-Patterns in AI
+# ADR-015: Architecture Patterns and Anti-Patterns in AI
 
 ## Introduction
 Artificial Intelligence (AI) has rapidly evolved, leading to a variety of architectural patterns and anti-patterns that impact system design. This document explores the best practices (patterns) and common pitfalls (anti-patterns) in AI system architecture, ensuring that AI-driven solutions are scalable, maintainable, and efficient.

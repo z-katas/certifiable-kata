@@ -79,7 +79,7 @@ Once the grading is done by AI, software expert reviews the grading in this step
 # **AI Components in the Architecture**  
 
 ## **1. AI Case Study Grader**  
-- Uses **vector databases** to store and retrieve case study embeddings.  Refer to this [ADR](/ADRs/adr-llm-vector-store.md) for vector store and this [ADR](/ADRs/adr-llm-vector-search.md) for vector search  
+- Uses **vector databases** to store and retrieve case study embeddings.  Refer to this [ADR](/ADRs/014-adr-llm-vector-store.md) for vector store and this [ADR](/ADRs/013-adr-llm-vector-search.md) for vector search  
 - Evaluates architecture documents using specialized AI graders:  
   - **Content Segregator** (classifies document types)  
   - **ADR Grader** (assesses architectural decisions)  
@@ -89,7 +89,7 @@ Once the grading is done by AI, software expert reviews the grading in this step
   - **Infra/Security Grader** (checks infrastructure and security compliance)  
 
 ## **2. Data Pipeline Workflow**  
-- Creates **embeddings** from case study documents for efficient AI processing. please refer to this [ADR](/ADRs/adr-llm-embedding-model.md)
+- Creates **embeddings** from case study documents for efficient AI processing. please refer to this [ADR](/ADRs/008-adr-llm-embedding-model.md)
 - It also retrieves embeddings from reference architecture created while case study creation for better grading.  
 
 ## **3. AI Gateway**  
@@ -104,8 +104,8 @@ Once the grading is done by AI, software expert reviews the grading in this step
 ## **Purpose**  
 The AI components **automate case study evaluation** by classifying, grading, and validating architecture documents using advanced **LLMs, vector databases, and embeddings**. 
 
-- For the deployment of AI components refer to this [ADR](/ADRs/adr-llm-deployment.md)
-- For the usage of AI Gateway refer to this [ADR](/ADRs/adr-using-ai-gateway.md)
+- For the deployment of AI components refer to this [ADR](/ADRs/007-adr-llm-deployment.md)
+- For the usage of AI Gateway refer to this [ADR](/ADRs/001-adr-using-ai-gateway.md)
 
 ### Data flow diagram:
 
@@ -180,7 +180,7 @@ Before applying AI, prepare the documents:
 
 Document Analyzer:
 --------------------
-The output from content segregator is processed through various AI analyzers for each content document type. We have used multi model strategy for the same, refere to this [ADR](/ADRs/adr-ai-multi-model-strategy.md). All the interactions to the external foundational LLMs are done through an AI gateway, please refer to this [ADR](/ADRs/adr-using-ai-gateway.md). The Architecture is graded by AI through various benchmarking scores and submitted for manual review (Human in the loop).
+The output from content segregator is processed through various AI analyzers for each content document type. We have used multi model strategy for the same, refere to this [ADR](/ADRs/002-adr-ai-multi-model-strategy.md). All the interactions to the external foundational LLMs are done through an AI gateway, please refer to this [ADR](/ADRs/001-adr-using-ai-gateway.md). The Architecture is graded by AI through various benchmarking scores and submitted for manual review (Human in the loop).
 
 # AI Evaluation Strategy for Case Study Documents
 

@@ -1,4 +1,4 @@
-# Document Chunking Strategy for Knowledge Base Vector Store
+# ADR-006: Document Chunking Strategy for Knowledge Base Vector Store
 
 Date: [2025-02-14]
 

@@ -1,4 +1,4 @@
-# Strategy for Question and Case Study Generation
+# ADR-004: Strategy for Question and Case Study Generation
 
 Date: [2025-02-20]  
 

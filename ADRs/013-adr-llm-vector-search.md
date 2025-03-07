@@ -1,4 +1,4 @@
-# LLM Vector Search Algorithm Decision
+# ADR-013: LLM Vector Search Algorithm Decision
 
 Date: [2025-02-14]
 

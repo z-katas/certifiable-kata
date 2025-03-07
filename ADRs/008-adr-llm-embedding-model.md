@@ -1,4 +1,4 @@
-# LLM Embedding Model Decision
+# ADR-008: LLM Embedding Model Decision
 
 Date:  [2025-02-14]
 

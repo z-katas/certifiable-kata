@@ -156,7 +156,7 @@ New questions and case studies are automatically created using:
 - **Diagram:**
 ![test 1 and test 2 content updates](/assets/New-test1-and-test2-questions.png "test 1 and test 2 content updates")
 
-- Document Ingestion and Chunking: The process starts with ingesting documents (HTML, PDF, TXT) which are then broken down into smaller, manageable chunks. This is essential for processing large documents and ensuring relevant sections are used for question and case study generation. Chunking strategy discussed in [ADR](/ADRs/adr-architecture-knowledge-chunking-strategy.md).
+- Document Ingestion and Chunking: The process starts with ingesting documents (HTML, PDF, TXT) which are then broken down into smaller, manageable chunks. This is essential for processing large documents and ensuring relevant sections are used for question and case study generation. Chunking strategy discussed in [ADR](/ADRs/006-adr-architecture-knowledge-chunking-strategy.md).
 
 - Embedding Generation and Vector Storage: The document chunks are fed into an embedding model, creating vector representations. These vectors, capturing the semantic meaning of the text, are stored in a vector store. This allows for efficient similarity searches later on.
 
@@ -187,9 +187,9 @@ New questions and case studies are automatically created using:
 
 ## Architectural Decision Records (ADRs)
 
-- [**ADR 1 - Architecture documents chunking strategy**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)
+- [**ADR 1 - Architecture documents chunking strategy**](/ADRs/006-adr-architecture-knowledge-chunking-strategy.md)
 
-- [**ADR 2 - Strategy for generating new questions and case studies**](/ADRs/adr-new-questions-and-case-studies-strategy.md)
+- [**ADR 2 - Strategy for generating new questions and case studies**](/ADRs/004-adr-new-questions-and-case-studies-strategy.md)
 
 ## Implementation Details
 
@@ -204,13 +204,13 @@ New questions and case studies are automatically created using:
   - Implementation of **structured response generation** for candidate feedback and grading justifications.
 - **Prompt Engineering & Validation:**
   - **Dynamic prompt orchestration** for AI models ensuring contextual accuracy.
-  - **Guardrails & validation mechanisms** to filter out misleading or biased responses. Strategy discussed in [Guardrials ADR](/ADRs/adr-llm-guardrails.md)
+  - **Guardrails & validation mechanisms** to filter out misleading or biased responses. Strategy discussed in [Guardrials ADR](/ADRs/010-adr-llm-guardrails.md)
 - **Information Retrieval & Search Engine:**
   - **Vector-based search** using embeddings to improve knowledge retrieval for generating new aptitude test questions and case studies.
   - **Search Engine** to retrieve latest architecture content including patterns, trends and techniques.
 - **Observability & Performance Monitoring:**
-  - **Prompt & model evaluation pipelines** discussed in [evals ADR](/ADRs/adr-llm-evaluation.md)
-  - **LLM observability tools** to track model behavior and response drift. Discussed in [Observability ADR](/ADRs/adr-llm-observability.md)
+  - **Prompt & model evaluation pipelines** discussed in [evals ADR](/ADRs/009-adr-llm-evaluation.md)
+  - **LLM observability tools** to track model behavior and response drift. Discussed in [Observability ADR](/ADRs/011-adr-llm-observability.md)
 
 ## Conclusion
 

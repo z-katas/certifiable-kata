@@ -109,7 +109,7 @@ Note: Due to time constraints and brevity, C2 diagrams for the other components 
 
 ## Implementation Details
 
-Recent research ([Ref1](https://arxiv.org/abs/2409.20042), [Ref2](https://arxiv.org/abs/2408.03811)) shows that a Retrieval-Augmented Generation (RAG) approach combined with Few-Shot examples and Chain-of-Thought reasoning significantly improves performance in Automated Short Answer Scoring tasks across multiple LLMs—with no fine-tuning. This is the strategy we will adopt. Please refer to this [ADR](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md) for a more detailed analysis of this choice.
+Recent research ([Ref1](https://arxiv.org/abs/2409.20042), [Ref2](https://arxiv.org/abs/2408.03811)) shows that a Retrieval-Augmented Generation (RAG) approach combined with Few-Shot examples and Chain-of-Thought reasoning significantly improves performance in Automated Short Answer Scoring tasks across multiple LLMs—with no fine-tuning. This is the strategy we will adopt. Please refer to this [ADR](/ADRs/003-adr-llm-based-short-answer-evalaution-strategy.md) for a more detailed analysis of this choice.
 
 ## ASAS Grader
 
@@ -127,11 +127,11 @@ The ASAS Grader will execute the following steps:
 8. Process the LLM response through output guardrails (to ensure valid structure, appropriate language, etc.).
 9. Store the grading result in the ASAS database with a status of “Awaiting Judgement.”
 10. Relevant ADRs
-    - [Prompt Orchestrator](/ADRs/adr-prompt-orchestrator.md)
-    - [Structured Output](/ADRs/adr-llm-structured-output.md)
-    - [Embedding Model](/ADRs/adr-llm-embedding-model.md)
-    - [Vector Store](/ADRs/adr-llm-vector-store.md)
-    - [Vector Search](/ADRs/adr-llm-vector-search.md)
+    - [Prompt Orchestrator](/ADRs/005-adr-prompt-orchestrator.md)
+    - [Structured Output](/ADRs/012-adr-llm-structured-output.md)
+    - [Embedding Model](/ADRs/008-adr-llm-embedding-model.md)
+    - [Vector Store](/ADRs/014-adr-llm-vector-store.md)
+    - [Vector Search](/ADRs/013-adr-llm-vector-search.md)
 11. Other links
     - [Example Test 1 Grading Process](/business-requirements/test1-grading-process.md) : Could be used for creating system prompt fot ASAS Grader
 
@@ -142,7 +142,7 @@ The ASAS Judge is responsible for evaluating the quality of the AI-generated gra
 1. Retrieve a grading submission awaiting judgment.
 2. Use the vector search to fetch relevant historical submissions.
 3. Retrieve the appropriate prompt template from an external Prompt Management System.
-4. Uses the selected LLM evaluation techniques (see [ADR](/ADRs/adr-llm-evaluation.md))
+4. Uses the selected LLM evaluation techniques (see [ADR](/ADRs/009-adr-llm-evaluation.md))
 5. (Optional) Publish the query to the LLM query queue and subscribe to the LLM response queue.
 6. Update the grading submission in the ASAS database with the computed confidence score.
 7. Compare the confidence score against a predefined, configurable threshold:
@@ -150,7 +150,7 @@ The ASAS Judge is responsible for evaluating the quality of the AI-generated gra
    - If below, update the status to “Pending Manual Review.”
 8. Integrate the outcomes of manual review to continuously refine the judgment prompt.
 9. Relevant ADRs
-   - [Observability](/ADRs/adr-llm-observability.md)
+   - [Observability](/ADRs/011-adr-llm-observability.md)
 
 ## AI Model Gateway
 
@@ -162,9 +162,9 @@ The AI Model Gateway orchestrates communication between queued queries and the L
 4. Updating the cache with optimized LLM outputs.
 5. Publishing responses to the LLM response queue.
 6. Relevant ADRs
-   - [AI Gateway](/ADRs/adr-using-ai-gateway.md)
-   - [LLM Deplyment](/ADRs/adr-llm-deployment.md)
-   - [Multi Model AI](/ADRs/adr-ai-multi-model-strategy.md)
+   - [AI Gateway](/ADRs/001-adr-using-ai-gateway.md)
+   - [LLM Deplyment](/ADRs/007-adr-llm-deployment.md)
+   - [Multi Model AI](/ADRs/002-adr-ai-multi-model-strategy.md)
 
 ## Conclusion
 

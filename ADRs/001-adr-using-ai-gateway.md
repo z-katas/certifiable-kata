@@ -1,6 +1,4 @@
-# Architecture Decision Record (ADR)
-
-## Title: AI Gateway for LLM Observability, Governance and more
+# ADR-001: AI Gateway for LLM Observability, Governance and more
 
 **Status:** Accepted
 

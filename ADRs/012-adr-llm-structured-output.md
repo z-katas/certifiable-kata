@@ -1,4 +1,4 @@
-# ADR: Enforcing Structured LLM Outputs
+# ADR-012: Enforcing Structured LLM Outputs
 
 Date:  [2025-02-20]
 

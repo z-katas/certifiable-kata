@@ -1,6 +1,4 @@
-# Architecture Decision Record (ADR)
-
-## Title: Multi-Model AI Strategy
+# ADR-002: Multi-Model AI Strategy
 
 **Status:** Accepted
 

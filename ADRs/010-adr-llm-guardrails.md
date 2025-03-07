@@ -1,4 +1,4 @@
-# ADR: Guardrails for LLM-Based Grading System
+# ADR-010: Guardrails for LLM-Based Grading System
 
 Date: [2025-02-20]
 

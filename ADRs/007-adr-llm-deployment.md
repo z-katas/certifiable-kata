@@ -1,4 +1,4 @@
-# LLM Deployment Model Decision
+# ADR-007: LLM Deployment Model Decision
 
 Date: [2025-02-13]
 

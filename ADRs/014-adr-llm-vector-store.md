@@ -1,4 +1,4 @@
-# Vector Store Decision
+# ADR-014: Vector Store Decision
 
 Date: [2025-02-14]
 
