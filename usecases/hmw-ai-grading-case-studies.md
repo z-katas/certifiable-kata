@@ -302,6 +302,16 @@ This structured AI evaluation ensures that each document is assessed using the b
 
 Each document in the case study will be evaluated using different AI architecture patterns. The overall architecture follows a multi-model strategy.
 
+## Case study Judge and Human in the loop
+
+The Case study Judge is responsible for evaluating the quality of the AI-generated grading and provides a confidence score. Expert grader will review the AI generated confidence score and if it's low, expert will review the submission, following are detailed steps :
+
+1. Retrieve a case study submission awaiting confidence score.
+2. Use an external LLM to evaluate the confidence score of the case study grade given by other LLMs.
+3. If the confidence score is low, human in the loop will kick in, expert grader will take over the submission.
+4. Expert grader will flag inappropriate grading if any given by AI, this is then sent to vector store as feedback loop.
+5. Once expert verifies all the grading, it is sent for final grade submission and then to certification database.
+ 
 ## Conclusion
 - **Summary of Changes:** 
   - Automated content segregation categorizes different artifacts in candidate submissions.
