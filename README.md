@@ -6,18 +6,23 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
 
 ## Table of Contents
 - [Team](#team)
-- [Introduction](#introduction)
-  - [Background & Context](#background--context)
-  - [Expansion Plans](#expansion-plans)
+- [Problem definition](#problem-definition)
+  - [Context](#context)
   - [Current Certification Process](#current-certification-process)
   - [Challenges in Expansion Plans](#challenges-in-expansion-plans)
-  - [Key Objectives](#key-objectives)
-    - [Non-Functional Attributes](#non-functional-attributes)
-- [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)
-- [Architecture characteristics](#architecture-characteristics) 
-- [Final thoughts](#final-thoughts)  
-
- 
+  - [Key Objectives](#key-objective)
+  - [Constraints](#constraints)
+- [Solution](#solution)
+  - [Business outcomes achieved](#business-outcomes-achieved)
+  - [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)
+  - [Non-functional characteristics](#non-functional-characteristics)
+  - [Detailed architecture designs](#detailed-architecture-designs)
+  - [LLM app stack](#architecture-characteristics)
+  - [Limitations]
+  - [Fitness functions]
+- [Final thoughts](#final-thoughts)
+  - [Roadmap]
+  - [Glossary]  
 
 ## Team
  ![Team](/assets/team.png "team")
@@ -27,12 +32,9 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
 - [**Shashank**](https://www.linkedin.com/in/shashank-sheela-740746b4) , Technical Product Manager
 - [**Vijayakumaran**](https://www.linkedin.com/in/vijayakumaran-c-v/) , UX designer
 
-**Check [Glossary](business-requirements/glossary.md) to understand more about certain terms.**
+# Problem definition
 
-
-# Problem defintion
-
-## Introduction
+## Context
 
 The **Software Architecture Licensing Board (SALB)** was formed in the U.S. to regulate and accredit software architecture certification providers. Like doctors and lawyers, IT professionals must obtain official certifications to practice as software architects.
 
@@ -74,11 +76,11 @@ Failed candidates receive detailed feedback, while successful ones are added to 
   - Incorporate new industry techniques, practices, and patterns into certification content.
   - Modify and create new case studies for Test 2 to maintain exam integrity and prevent leaks.
 
-## Key Objectives
+## Key Objective
 
 “How might we **adopt Generative AI** to automate manual processes for expert architects so that their **productivity** is increased, **operational costs** are reduced, and **overall efficiency** is significantly improved to confidently handle a 10X growth in candidate demand?”
 
-### Constraints
+## Constraints
 These are some constraints explicitly mentioned in the requirement.
 
 - **Seamless Integration:** *Seamlessly integrate AI-driven components into the existing system, ensuring compatibility, scalability, and minimal disruption to current operations.*
@@ -102,47 +104,52 @@ These are some constraints explicitly mentioned in the requirement.
 ## Non-functional characteristics
    <IMAGE>
 
-## Detailed designs of usecases
+## Detailed architecture designs
   
-- ### **HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?**
+### **HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?**
   
-  Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of this usecase
+Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of this usecase
 
-  **Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform **a RAG that uses existing historical correct** and incorrect answers along with candidate's answer as **context to LLM to output the grade**. Evaluations with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects. The new approach allows for the output of the platform to scale to meet the expected growth while ensuring the results closely mimic manual grading. **Splitting the Grader and Judge into separate components**([**ADR**](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md)) allows us to improve/test one component while keeping the other component constant.
+**Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform **a RAG that uses existing historical correct** and incorrect answers along with candidate's answer as **context to LLM to output the grade**. Evaluations with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects. The new approach allows for the output of the platform to scale to meet the expected growth while ensuring the results closely mimic manual grading. **Splitting the Grader and Judge into separate components**([**ADR**](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md)) allows us to improve/test one component while keeping the other component constant.
+
+**Data flow:**
+ 
+![ASAS Grader dataflow diagram](/assets/short-answer-grading-dataflow.gif "ASAS Grader dataflow diagram")
+
+**C2 Diagram:**
+
+![ASAS Grader C2 Diagram](/assets/test1-grader-c2.jpg "ASAS Grader C2 Diagram")
 
 
-
-  **C2 Diagram:**
-
-  ![ASAS Grader C2 Diagram](/assets/test1-grader-c2.jpg "ASAS Grader C2 Diagram")
-
-- ### **HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?**
+### **HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?**
   
-  Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of this usecase
+Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of this usecase
 
-  **Solution approach:** The AI-driven grading system for Test 2 is designed to handle the scalability and complexity of evaluating case study submissions. The process begins with **automated content segregation**, where different artifacts such as requirements, architectural   
+**Solution approach:** The AI-driven grading system for Test 2 is designed to handle the scalability and complexity of evaluating case study submissions. The process begins with **automated content segregation**, where different artifacts such as requirements, architectural   
    decisions, and diagrams are categorized for structured evaluation. **A multi-model AI strategy**([**ADR**](/ADRs/adr-ai-multi-model-strategy.md)) is employed to assess each artifact using **specialized AI analyzers**, ensuring grading consistency and accuracy. The system leverages an **AI gateway**([**ADR**](/ADRs/adr-using-ai-gateway.md)) to securely interact with the LLMs.
+
+**Data flow:**
+ 
+![Casestudy Grader dataflow diagram](/assets/casestudy-grading-dataflow.gif "Casestudy Grader dataflow diagram")
   
-  **C2 Diagram:**
+**C2 Diagram:**
 
-  ![Test2 case study](/assets/test2c2.png "Test2 case study")
+![Test2 case study](/assets/test2c2.png "Test2 case study")
 
-- ### **HMW automate the identification of emerging software architecture trends and generate expert-level certification questions to assist architects in updating the certification database efficiently?**
+### **HMW automate the identification of emerging software architecture trends and generate expert-level certification questions to assist architects in updating the certification database efficiently?**
   
-  Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this usecase
+Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this usecase
   
-  **Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a **web search + RAG LLM architecture pattern** ([**ADR**](/ADRs/adr-new-questions-and-case-studies-strategy.md)). Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store following **semantic chunking**([**ADR**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)). The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include them in the tests if they are satisfactory.
+**Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a **web search + RAG LLM architecture pattern** ([**ADR**](/ADRs/adr-new-questions-and-case-studies-strategy.md)). Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store following **semantic chunking**([**ADR**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)). The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include them in the tests if they are satisfactory.
   
-  **C2 Diagram:**
+**Data flow:**
+ 
+![Content monitoring dataflow diagram](/assets/content-monitoring-dataflow.gif "Content monitoring dataflow diagram")
 
-  ![test 1 and test 2 content updates](/assets/new-questions-c2.png "test 1 and test 2 content updates")
+**C2 Diagram:**
 
+![test 1 and test 2 content updates](/assets/new-questions-c2.png "test 1 and test 2 content updates")
 
-**(TBD - Other usecases)**
-- HMW generate AI-assisted structured feedback reports for expert architects so that candidates receive detailed insights more efficiently?
-- HMW automate test content evaluation for expert architects so that improvements are continuously implemented based on candidate performance trends?
-- HMW implement AI-based consistency checks for expert architects so that grading discrepancies are minimized across multiple reviewers?
-- HMW develop AI-driven mechanisms for expert architects so that new case studies can be created and rotated periodically to prevent exam content leaks?
 
 ## Architecture characteristics
 
@@ -162,14 +169,18 @@ These are some constraints explicitly mentioned in the requirement.
 - **Explainability** - LLM-generated grading scoring & feedback must be transparent and justifiable, allowing expert architects to understand AI-driven grading decisions, enhancing overall productivity.
 - **Evolvability** - The architecture supports continuous updates to grading models, question formats, and evaluation criteria, ensuring adaptability as educational standards and AI capabilities evolve.
 
-## Final thoughts
 **Limitations**
 - **Scalability of Manual Review** – The system relies on human reviewers for low-confidence cases, which can become a bottleneck as submission volume grows.
 - **LLM Hallucinations and Biases** – Despite using RAG, LLMs may still generate inaccurate or biased grading decisions, requiring ongoing monitoring and corrections.
 - **Contextual Understanding Gaps** – While AI can process structured evaluation criteria, it may struggle with nuanced architectural decisions, making human oversight essential for complex cases.
 - **Productionization** - LLM-based application deployment is still evolving, with new cost-effective methodologies emerging rapidly, requiring continuous adaptation to ensure scalability and efficiency.
+
+# Final thoughts
+
+### Glossary
+ [Glossary](business-requirements/glossary.md) to understand more about certain terms.
  
-**Next Steps: Phased Rollout Strategy**
+### Next Steps: Phased Rollout Strategy
 - **Pilot & A/B Testing:** Run AI and human grading in parallel to compare accuracy, refine AI models, and track grading consistency.
 - **AI-First with Expert Oversight:** AI handles primary grading, with human validation for low-confidence cases and structured feedback improvements.
 
