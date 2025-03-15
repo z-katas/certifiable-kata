@@ -1,4 +1,6 @@
-# ZAItects - Certifiable, Inc | O'Reilly Architectural Kata (Winter 2025)
+ ![Cover picture](/assets/readme-cover-picture-latest.svg "cover picture")
+
+# ZAItects - Certifiable, Inc | O'Reilly Architectural Katas (Winter 2025)
 
 A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge**.
 
@@ -14,59 +16,59 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
 - [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)
 - [Architecture characteristics](#architecture-characteristics) 
 - [Final thoughts](#final-thoughts)  
-  
+
+ 
 
 ## Team
-
-- **Avinash**, [LinkedIn](https://www.linkedin.com/in/avinashmarepalli/)
-- **Saketh Kumar**, [LinkedIn](https://www.linkedin.com/in/saketh-kumar-27b124126/)
-- **Srikanth**, [LinkedIn](https://www.linkedin.com/in/koraveni-srikanth/)
-- **Shashank**, [LinkedIn](https://www.linkedin.com/in/shashank-sheela-740746b4)
-
+ ![Team](/assets/team.png "team")
+- [**Avinash**](https://www.linkedin.com/in/avinashmarepalli/) , Senior Tech lead
+- [**Saketh Kumar**](https://www.linkedin.com/in/saketh-kumar-27b124126/) , Associate Architect
+- [**Srikanth**](https://www.linkedin.com/in/koraveni-srikanth/) , Senior Tech lead
+- [**Shashank**](https://www.linkedin.com/in/shashank-sheela-740746b4) , Technical Product Manager
+- [**Vijayakumaran**](https://www.linkedin.com/in/vijayakumaran-c-v/) , UX designer
 
 **Check [Glossary](business-requirements/glossary.md) to understand more about certain terms.**
 
 
-# Introduction
+# Problem defintion
 
-## Background & Context
+## Introduction
 
-The **Software Architecture Licensing Board (SALB)** was established in the U.S. to regulate and accredit companies that administer certification exams for software architects. This legislation mandates that IT professionals and existing software architects must obtain official certification, similar to doctors and lawyers. **Certifiable, Inc.** is one of the few accredited companies that offer these certifications, with **200 candidates per week** currently seeking certification. The company employs **300 expert software architects**, of whom **5 are designated experts** with the authority to modify and update certification tests.
+The **Software Architecture Licensing Board (SALB)** was formed in the U.S. to regulate and accredit software architecture certification providers. Like doctors and lawyers, IT professionals must obtain official certifications to practice as software architects.
 
-## Expansion Plans
+Certifiable Inc., a leading accredited provider in the US, certifies **200 candidates** per week with **300 expert architects** grading the tests."
 
-Following the success of the U.S. licensing program, **UK, Europe, and Asia have adopted similar laws**, requiring software architecture certification for employment. Rather than establishing independent certification programs, these regions have agreed to **leverage U.S.-based accredited companies** like Certifiable, Inc. to administer exams. The **certification cost remains fixed at $800**, as mandated by the SALB, and is applicable globally.
+With new legislation requiring certifications in the UK, Europe, and Asia, demand is set to **surge by 5-10X**. These regions will rely on U.S.-based companies, like Certifiable Inc., to manage certifications, each priced globally at **$800**, as standardized by SALB
+
 
 ## Current Certification Process
 
-1. **Test 1: Aptitude Test**
-   - Multiple choice questions (**auto-graded**).
-   - Short answer questions - Graded manually by experts within **1 week**. Requires 3-hour review per candidate.
-   - **80% required** to proceed to Test 2.
+Certifiable Inc.'s certification process includes two tests. **Test 1 (Aptitude Test)** consists of auto-graded multiple-choice questions and **manually graded short answers**, **taking 3 hours per candidate** and completed within a week. 
 
-2. **Test 2: Architecture Submission**
-   - Candidates submit a **case study-based architecture design** (randomly assigned from 5 options).
-   - **Graded manually** by expert software architects (requires **8-hour review per candidate**).
-   - **80% required** to pass and receive certification.
+Candidates scoring 80% or higher advance to **Test 2 (Architecture Submission)**, where they submit a case study **manually graded by expert architects** that takes **8 hours per candidate**.
 
-3. **Certification Database & Verification**
-   - Successful candidates' details are **stored in a certification database**.
-   - Employers can verify candidates via the **SoftArchCert verification portal**.
-   - Candidates that fail either test receive **detailed feedback** from expert software architects and can reapply. Candidates who pass Test 1 only need to retake Test 2.
+Failed candidates receive detailed feedback, while successful ones are added to the certification database, allowing employers to verify credentials via the SoftArchCert portal.
 
 ## Challenges in Expansion Plans
-
-- **Candidate Growth:** Expanding from **200 per week** to **1,000 - 2,000 per week**, with a **21% projected increase over four years**.
-- **New Grading Workload:**
-  - **Test 1 short answers:** **6,000 expert hours per week**.
-  - **Test 2 case study review:** **12,800 expert hours per week** (assuming 80% move forward).
-  - **Total workload:** ~**19,000 expert hours per week**, costing **$1M+ per week** at **$50/hour**.
-- **Expert Availability:**
-  - Existing **300 experts working 15 hours per week** provide **4,500 hours total**.
-  - Even with a **20% workload increase per expert** (18 hours per week), capacity reaches only **5,400 hours**, **3.5X lower than required**.
-  - One-week turnaround time for each test requires **parallel grading**, posing **operational challenges**.
-- **Cost Burden:** Each candidate’s evaluation requires 11 hours of expert review, costing $550 per license (68% of the $800 certification fee). The high cost, limited expert availability, and rising demand pose major scalability, financial, and operational challenges.
-- **Other Expert Responsibilities:**
+ 
+- **New demand estimates:**
+  - Expanding from **200 per week** to **1,000 - 2,000 per week**, with a **21% projected increase over four years**.
+  - **Test 1 short answers:** **6,000 expert hours per week** & **Test 2 case study review:** **12,800 expert hours per week** (assuming 80% move forward).
+  - **Total workload:** ~**19,000 expert hours per week**
+- **Expert workload:**
+  - Even if current experts work **18 hours/week**, capacity reaches 5,400 hrs/week, **still 3.5X lower than** required.
+  - Need at least **550 experts** who can work **35 hrs average per week** on to meet the new demand.
+  - 1-week TAT for each test requires parallel grading, posing operational challenges.
+  
+  ![New workload](/assets/demand-chart.png "new workload")
+  
+- **Cost Burden:**
+  - Manual grading would cost over **$1M+ per week ($50/hour X 19,000+ hours)**
+  - Each candidate’s evaluation requires 11 hours of expert review, costing **$550 per license (68% of the $800 certification fee)**
+- **Grading inconsistencies & Fraud detection:**
+  - Inconsistent manual grading can lead to **negative bias (unfair penalties)** or **positive bias (unqualified certifications)**, impacting **credibility**.
+  - Lack of automated **fraud detection** increases the risk of impersonation, answer manipulation, and certification fraud, threatening **exam integrity**.
+- **Other manual processes:**
   - Provide detailed feedback to failed candidates via email.
   - Analyze, review, and update certification tests based on candidate performance trends.
   - Incorporate new industry techniques, practices, and patterns into certification content.
@@ -74,30 +76,43 @@ Following the success of the U.S. licensing program, **UK, Europe, and Asia have
 
 ## Key Objectives
 
-With the anticipated **5-10X increase** in certification requests, Certifiable, Inc. must optimize its processes to sustain growth. The company aims to leverage **Generative AI** to address the challenges highlighted above.
+“How might we **adopt Generative AI** to automate manual processes for expert architects so that their **productivity** is increased, **operational costs** are reduced, and **overall efficiency** is significantly improved to confidently handle a 10X growth in candidate demand?”
 
-- **Identify AI Opportunities:** Evaluate areas where **Generative AI** can replace or enhance manual grading and assessment processes.
-- **Design Solutions:** Design Generative AI services that automate identified manual processes while adhering to established AI architecture patterns and avoiding known anti-patterns.
-- **Redesign Architecture for AI Integration:** Seamlessly integrate AI-driven components into the existing system, ensuring **compatibility, scalability, and minimal disruption** to current operations.
+### Constraints
+These are some constraints explicitly mentioned in the requirement.
 
-### Non-Functional Attributes
-
-Each non-functional requirement aligns with a key business challenge:
-
+- **Seamless Integration:** *Seamlessly integrate AI-driven components into the existing system, ensuring compatibility, scalability, and minimal disruption to current operations.*
 - **Scalability:** *As the software architecture industry is projected to grow by 21% globally and certification demand increases 5-10X, the system must scale to accommodate the surge in applicants.*
 - **Cost Efficiency:** *AI implementation costs must be optimized to prevent overruns while supporting Certifiable, Inc.'s strategic expansion. AI adoption should not exceed a 30% increase in grading expenses.*
 - **Accuracy:** *As a market leader, Certifiable, Inc. must maintain grading precision. Inaccurate evaluations could impact candidate careers and damage the company’s reputation.* 
 - **Credibility:** *Certification credibility is critical—misleading exams or inconsistent grading can undermine employer trust and industry acceptance.*
 
-# Automation use-cases using Gen AI
-  Note - HMW - How Might We
+# Solution
+
+## Business outcomes achieved
+- 5.5x Increase in expert process capacity
+- 68% Lower cost per certification
+- 85% Reduction in manual review requirements
+
+## Automation use-cases using Gen AI 
+   We priortized 3 use-cases for this excercise
+
+  ![HMW](/assets/how-might-we.jpg "HMW")
+
+## Non-functional characteristics
+   <IMAGE>
+
+## Detailed designs of usecases
+  
 - ### **HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?**
   
   Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of this usecase
 
   **Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform **a RAG that uses existing historical correct** and incorrect answers along with candidate's answer as **context to LLM to output the grade**. Evaluations with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects. The new approach allows for the output of the platform to scale to meet the expected growth while ensuring the results closely mimic manual grading. **Splitting the Grader and Judge into separate components**([**ADR**](/ADRs/adr-llm-based-short-answer-evalaution-strategy.md)) allows us to improve/test one component while keeping the other component constant.
 
-  **ASAS Grader C2 Diagram:**
+
+
+  **C2 Diagram:**
 
   ![ASAS Grader C2 Diagram](/assets/test1-grader-c2.jpg "ASAS Grader C2 Diagram")
 
