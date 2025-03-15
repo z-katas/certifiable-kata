@@ -1,0 +1,376 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <!-- Definitions -->
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0F3F9" />
+      <stop offset="100%" stop-color="#E1E6F4" />
+    </linearGradient>
+    
+    <linearGradient id="blockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3E57A3" />
+      <stop offset="100%" stop-color="#5C76C1" />
+    </linearGradient>
+    
+    <linearGradient id="blockTopGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7795F8" />
+      <stop offset="100%" stop-color="#5C76C1" />
+    </linearGradient>
+    
+    <linearGradient id="genaiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5C76C1" />
+      <stop offset="100%" stop-color="#7795F8" />
+    </linearGradient>
+    
+    <linearGradient id="genaiTopGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#99AFFD" />
+      <stop offset="100%" stop-color="#7795F8" />
+    </linearGradient>
+    
+    <linearGradient id="successGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#2DB477" />
+      <stop offset="100%" stop-color="#3BCE8C" />
+    </linearGradient>
+    
+    <!-- Shadows -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-opacity="0.2" />
+    </filter>
+    
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.15" />
+    </filter>
+    
+    <!-- Glow for Gen AI block -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- Pattern for blocks -->
+    <pattern id="blockPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#5C76C1" opacity="0.05" />
+      <path d="M0,0 L40,40 M40,0 L0,40" stroke="#7795F8" stroke-width="0.5" opacity="0.1" />
+    </pattern>
+    
+    <!-- Grid pattern for foundation -->
+    <pattern id="gridPattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="none" />
+      <path d="M0,0 L20,0 M0,0 L0,20" stroke="#3E57A3" stroke-width="0.5" opacity="0.2" />
+    </pattern>
+  </defs>
+  
+  <!-- Background with subtle texture -->
+  <rect width="1200" height="600" fill="url(#bgGradient)" />
+  <rect width="1200" height="600" fill="url(#gridPattern)" opacity="0.3" />
+  
+  <!-- Abstract background pattern -->
+  <g opacity="0.07">
+    <path d="M0,150 Q300,100 600,200 T1200,150" stroke="#3E57A3" stroke-width="3" fill="none" />
+    <path d="M0,250 Q300,200 600,300 T1200,250" stroke="#3E57A3" stroke-width="3" fill="none" />
+    <path d="M0,350 Q300,300 600,400 T1200,350" stroke="#3E57A3" stroke-width="3" fill="none" />
+    <path d="M0,450 Q300,400 600,500 T1200,450" stroke="#3E57A3" stroke-width="3" fill="none" />
+  </g>
+  
+  <!-- Subtle light effect -->
+  <radialGradient id="lightEffect" cx="30%" cy="30%" r="70%" fx="30%" fy="30%">
+    <stop offset="0%" stop-color="white" stop-opacity="0.05" />
+    <stop offset="100%" stop-color="white" stop-opacity="0" />
+  </radialGradient>
+  <rect width="1200" height="600" fill="url(#lightEffect)" />
+  
+  <!-- Grid foundation -->
+  <g transform="translate(600, 450)">
+    <rect x="-370" y="0" width="740" height="30" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+    <rect x="-370" y="-5" width="740" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+    
+    <!-- Grid lines -->
+    <g opacity="0.2">
+      <line x1="-350" y1="0" x2="-350" y2="-300" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="-250" y1="0" x2="-250" y2="-300" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="-150" y1="0" x2="-150" y2="-300" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="-50" y1="0" x2="-50" y2="-300" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="50" y1="0" x2="50" y2="-300" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="150" y1="0" x2="150" y2="-300" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="250" y1="0" x2="250" y2="-300" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="350" y1="0" x2="350" y2="-300" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      
+      <line x1="-350" y1="-75" x2="350" y2="-75" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="-350" y1="-150" x2="350" y2="-150" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="-350" y1="-225" x2="350" y2="-225" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+      <line x1="-350" y1="-300" x2="350" y2="-300" stroke="#3E57A3" stroke-width="1" stroke-dasharray="5,5" />
+    </g>
+  </g>
+  
+  <!-- Building blocks structure -->
+  <!-- Base layer -->
+  <g transform="translate(600, 450)">
+    <!-- Layer 1 - foundation blocks -->
+    <g>
+      <rect x="-310" y="-45" width="130" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="-310" y="-50" width="130" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="-310" y="-45" width="130" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <g>
+      <rect x="-170" y="-45" width="130" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="-170" y="-50" width="130" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="-170" y="-45" width="130" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <g>
+      <rect x="-30" y="-45" width="130" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="-30" y="-50" width="130" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="-30" y="-45" width="130" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <g>
+      <rect x="110" y="-45" width="130" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="110" y="-50" width="130" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="110" y="-45" width="130" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <!-- Layer 2 -->
+    <g>
+      <rect x="-260" y="-90" width="110" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="-260" y="-95" width="110" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="-260" y="-90" width="110" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <g>
+      <rect x="-140" y="-90" width="110" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="-140" y="-95" width="110" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="-140" y="-90" width="110" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <g>
+      <rect x="30" y="-90" width="110" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="30" y="-95" width="110" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="30" y="-90" width="110" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <g>
+      <rect x="150" y="-90" width="110" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="150" y="-95" width="110" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="150" y="-90" width="110" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <!-- Layer 3 -->
+    <g>
+      <rect x="-210" y="-135" width="110" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="-210" y="-140" width="110" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="-210" y="-135" width="110" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <!-- Gen AI Block - highlighted -->
+    <g>
+      <rect x="-90" y="-135" width="180" height="45" rx="5" fill="url(#genaiGradient)" filter="url(#glow)" />
+      <rect x="-90" y="-140" width="180" height="10" rx="5" fill="url(#genaiTopGradient)" opacity="0.9" />
+      
+      <!-- Circuit pattern inside -->
+      <g opacity="0.3">
+        <line x1="-80" y1="-120" x2="-40" y2="-120" stroke="white" stroke-width="1" />
+        <line x1="-40" y1="-120" x2="-40" y2="-105" stroke="white" stroke-width="1" />
+        <line x1="-40" y1="-105" x2="0" y2="-105" stroke="white" stroke-width="1" />
+        
+        <line x1="-20" y1="-130" x2="-20" y2="-110" stroke="white" stroke-width="1" />
+        <line x1="-20" y1="-110" x2="40" y2="-110" stroke="white" stroke-width="1" />
+        
+        <line x1="20" y1="-125" x2="70" y2="-125" stroke="white" stroke-width="1" />
+        <line x1="70" y1="-125" x2="70" y2="-115" stroke="white" stroke-width="1" />
+        
+        <circle cx="-80" cy="-120" r="3" fill="white" />
+        <circle cx="0" cy="-105" r="3" fill="white" />
+        <circle cx="-20" cy="-130" r="3" fill="white" />
+        <circle cx="40" cy="-110" r="3" fill="white" />
+        <circle cx="20" cy="-125" r="3" fill="white" />
+        <circle cx="70" cy="-115" r="3" fill="white" />
+      </g>
+      
+      <text x="0" y="-108" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">Gen AI</text>
+    </g>
+    
+    <g>
+      <rect x="100" y="-135" width="110" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="100" y="-140" width="110" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="100" y="-135" width="110" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <!-- Layer 4 -->
+    <g>
+      <rect x="-160" y="-180" width="140" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="-160" y="-185" width="140" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="-160" y="-180" width="140" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <g>
+      <rect x="20" y="-180" width="140" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="20" y="-185" width="140" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="20" y="-180" width="140" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+    
+    <!-- Top layer -->
+    <g>
+      <rect x="-70" y="-225" width="140" height="45" rx="5" fill="url(#blockGradient)" filter="url(#shadow)" />
+      <rect x="-70" y="-230" width="140" height="10" rx="5" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="-70" y="-225" width="140" height="45" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+  </g>
+  
+  <!-- Team members building the architecture -->
+  <!-- Person 1 - carrying a block -->
+  <g transform="translate(350, 350)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="30" rx="15" ry="5" fill="#3E57A3" opacity="0.1" />
+    
+    <!-- Body -->
+    <circle cx="0" cy="-30" r="15" fill="#F0F3F9" stroke="#5C76C1" stroke-width="2" />
+    <circle cx="0" cy="-35" r="6" fill="#5C76C1" />
+    <line x1="0" y1="-23" x2="0" y2="5" stroke="#5C76C1" stroke-width="5" stroke-linecap="round" />
+    <line x1="0" y1="-15" x2="-15" y2="-5" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="-15" x2="15" y2="-5" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="5" x2="-10" y2="25" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="5" x2="10" y2="25" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Block being carried -->
+    <g>
+      <rect x="-30" y="-30" width="60" height="30" rx="3" fill="url(#blockGradient)" filter="url(#softShadow)" />
+      <rect x="-30" y="-33" width="60" height="6" rx="3" fill="url(#blockTopGradient)" opacity="0.7" />
+      <rect x="-30" y="-30" width="60" height="30" fill="url(#blockPattern)" opacity="0.7" />
+    </g>
+  </g>
+  
+  <!-- Person 2 - placing a block -->
+  <g transform="translate(430, 260)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="35" rx="15" ry="5" fill="#3E57A3" opacity="0.1" />
+    
+    <!-- Body -->
+    <circle cx="0" cy="-30" r="15" fill="#F0F3F9" stroke="#5C76C1" stroke-width="2" />
+    <circle cx="0" cy="-35" r="6" fill="#5C76C1" />
+    <line x1="0" y1="-23" x2="0" y2="10" stroke="#5C76C1" stroke-width="5" stroke-linecap="round" />
+    <line x1="0" y1="-10" x2="-25" y2="0" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="-10" x2="20" y2="-5" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="10" x2="-10" y2="30" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="10" x2="10" y2="30" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+  </g>
+  
+  <!-- Person 3 - positioning on top -->
+  <g transform="translate(570, 220)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="30" rx="15" ry="5" fill="#3E57A3" opacity="0.1" />
+    
+    <!-- Body -->
+    <circle cx="0" cy="-30" r="15" fill="#F0F3F9" stroke="#5C76C1" stroke-width="2" />
+    <circle cx="0" cy="-35" r="6" fill="#5C76C1" />
+    <line x1="0" y1="-23" x2="0" y2="5" stroke="#5C76C1" stroke-width="5" stroke-linecap="round" />
+    <line x1="0" y1="-10" x2="-15" y2="5" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="-10" x2="25" y2="0" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="5" x2="-10" y2="25" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="5" x2="10" y2="25" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+  </g>
+  
+  <!-- Person 4 - checking plans -->
+  <g transform="translate(340, 430)">
+    <!-- Shadow -->
+    <ellipse cx="5" cy="30" rx="20" ry="5" fill="#3E57A3" opacity="0.1" />
+    
+    <!-- Body -->
+    <circle cx="0" cy="-30" r="15" fill="#F0F3F9" stroke="#5C76C1" stroke-width="2" />
+    <circle cx="0" cy="-35" r="6" fill="#5C76C1" />
+    <line x1="0" y1="-23" x2="0" y2="5" stroke="#5C76C1" stroke-width="5" stroke-linecap="round" />
+    <line x1="0" y1="-15" x2="-15" y2="-5" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="-15" x2="15" y2="-5" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="5" x2="-10" y2="25" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    <line x1="0" y1="5" x2="10" y2="25" stroke="#5C76C1" stroke-width="4" stroke-linecap="round" />
+    
+    <!-- Blueprint/plan -->
+    <rect x="20" y="-20" width="40" height="30" rx="3" fill="#F0F3F9" stroke="#5C76C1" stroke-width="1" filter="url(#softShadow)" />
+    <line x1="25" y1="-15" x2="55" y2="-15" stroke="#5C76C1" stroke-width="1" />
+    <line x1="25" y1="-5" x2="50" y2="-5" stroke="#5C76C1" stroke-width="1" />
+    <line x1="25" y1="5" x2="55" y2="5" stroke="#5C76C1" stroke-width="1" />
+    
+    <!-- Mini architecture diagram on blueprint -->
+    <path d="M30,-13 L35,-10 L40,-13 M35,-10 L35,-3" stroke="#7795F8" stroke-width="0.8" />
+    <rect x="45" y="-13" width="5" height="5" fill="#7795F8" opacity="0.6" />
+  </g>
+  
+  <!-- Success measurements on the right -->
+  <g transform="translate(900, 300)">
+    <!-- Glass panel effect for chart -->
+    <rect x="-90" y="-90" width="180" height="180" rx="10" fill="#F0F3F9" opacity="0.7" filter="url(#shadow)" />
+    <rect x="-90" y="-90" width="180" height="180" rx="10" fill="white" opacity="0.3" />
+    <rect x="-90" y="-90" width="180" height="180" rx="10" stroke="#5C76C1" stroke-width="1" opacity="0.5" />
+    
+    <!-- Chart grid -->
+    <g opacity="0.4">
+      <line x1="-80" y1="80" x2="80" y2="80" stroke="#5C76C1" stroke-width="1" />
+      <line x1="-80" y1="40" x2="80" y2="40" stroke="#5C76C1" stroke-width="1" />
+      <line x1="-80" y1="0" x2="80" y2="0" stroke="#5C76C1" stroke-width="1" />
+      <line x1="-80" y1="-40" x2="80" y2="-40" stroke="#5C76C1" stroke-width="1" />
+      <line x1="-80" y1="-80" x2="80" y2="-80" stroke="#5C76C1" stroke-width="1" />
+      
+      <line x1="-80" y1="-80" x2="-80" y2="80" stroke="#5C76C1" stroke-width="1" />
+      <line x1="-40" y1="-80" x2="-40" y2="80" stroke="#5C76C1" stroke-width="1" />
+      <line x1="0" y1="-80" x2="0" y2="80" stroke="#5C76C1" stroke-width="1" />
+      <line x1="40" y1="-80" x2="40" y2="80" stroke="#5C76C1" stroke-width="1" />
+      <line x1="80" y1="-80" x2="80" y2="80" stroke="#5C76C1" stroke-width="1" />
+    </g>
+    
+    <!-- Growth line -->
+    <path d="M-80,60 L-40,40 L0,15 L40,-20 L80,-60" stroke="url(#successGradient)" stroke-width="6" fill="none" stroke-linecap="round" />
+    
+    <!-- Fill under the growth line -->
+    <path d="M-80,60 L-40,40 L0,15 L40,-20 L80,-60 L80,80 L-80,80 Z" fill="url(#successGradient)" opacity="0.3" />
+    
+    <!-- Data points -->
+    <circle cx="-80" cy="60" r="7" fill="#3BCE8C" stroke="white" stroke-width="2" />
+    <circle cx="-40" cy="40" r="7" fill="#3BCE8C" stroke="white" stroke-width="2" />
+    <circle cx="0" cy="15" r="7" fill="#3BCE8C" stroke="white" stroke-width="2" />
+    <circle cx="40" cy="-20" r="7" fill="#3BCE8C" stroke="white" stroke-width="2" />
+    <circle cx="80" cy="-60" r="7" fill="#3BCE8C" stroke="white" stroke-width="2" />
+    
+    <!-- Success checkmark with glow -->
+    <filter id="checkmarkGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <circle cx="80" cy="-60" r="16" fill="#3BCE8C" />
+    <path d="M70,-60 L78,-52 L90,-64" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#checkmarkGlow)" />
+  </g>
+  
+  <!-- Second success visualization (metrics) -->
+  <!-- Second success visualization (metrics) -->
+<g transform="translate(900, 490)">
+  <!-- Glass panel effect -->
+  <rect x="-90" y="-60" width="180" height="120" rx="10" fill="#F0F3F9" opacity="0.7" filter="url(#shadow)" />
+  <rect x="-90" y="-60" width="180" height="120" rx="10" fill="white" opacity="0.3" />
+  <rect x="-90" y="-60" width="180" height="120" rx="10" stroke="#5C76C1" stroke-width="1" opacity="0.5" />
+  
+  <!-- Metric bars with properly fitted text -->
+  <g>
+    <rect x="-75" y="-45" width="150" height="18" rx="9" fill="#3BCE8C" opacity="0.2" />
+    <rect x="-75" y="-45" width="130" height="18" rx="9" fill="url(#successGradient)" />
+    <text x="-65" y="-32" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">Efficiency</text>
+  </g>
+  
+  <g>
+    <rect x="-75" y="-20" width="150" height="18" rx="9" fill="#3BCE8C" opacity="0.2" />
+    <rect x="-75" y="-20" width="110" height="18" rx="9" fill="url(#successGradient)" />
+    <text x="-65" y="-7" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">Accuracy</text>
+  </g>
+  
+  <g>
+    <rect x="-75" y="5" width="150" height="18" rx="9" fill="#3BCE8C" opacity="0.2" />
+    <rect x="-75" y="5" width="135" height="18" rx="9" fill="url(#successGradient)" />
+    <text x="-65" y="18" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">Scalability</text>
+  </g>
+  
+  <g>
+    <rect x="-75" y="30" width="150" height="18" rx="9" fill="#3BCE8C" opacity="0.2" />
+    <rect x="-75" y="30" width="115" height="18" rx="9" fill="url(#successGradient)" />
+    <text x="-65" y="43" font-family="Arial, sans-serif" font-size="12" fill="white" font-weight="bold">Productivity</text>
+  </g>
+</g>
+</svg>
