@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Definitions -->
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0F3F9" />
+      <stop offset="100%" stop-color="#E1E6F4" />
+    </linearGradient>
+    
+    <linearGradient id="successGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#2DB477" />
+      <stop offset="100%" stop-color="#3BCE8C" />
+    </linearGradient>
+    
+    <linearGradient id="teamGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7795F8" />
+      <stop offset="100%" stop-color="#B1C3FB" />
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- Data flow animation -->
+    <linearGradient id="dataFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7795F8" stop-opacity="0.8">
+        <animate attributeName="offset" values="0;1" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="10%" stop-color="#7795F8" stop-opacity="0">
+        <animate attributeName="offset" values="0.1;1.1" dur="3s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+    
+    <linearGradient id="dataFlowGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3BCE8C" stop-opacity="0.8">
+        <animate attributeName="offset" values="0;1" dur="3s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="10%" stop-color="#3BCE8C" stop-opacity="0">
+        <animate attributeName="offset" values="0.1;1.1" dur="3s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)" />
+  
+  <!-- Abstract network pattern -->
+  <g opacity="0.1">
+    <path d="M0,150 Q300,100 600,200 T1200,150" stroke="#3E57A3" stroke-width="2" fill="none" />
+    <path d="M0,250 Q300,200 600,300 T1200,250" stroke="#3E57A3" stroke-width="2" fill="none" />
+    <path d="M0,350 Q300,300 600,400 T1200,350" stroke="#3E57A3" stroke-width="2" fill="none" />
+    <path d="M0,450 Q300,400 600,500 T1200,450" stroke="#3E57A3" stroke-width="2" fill="none" />
+    
+    <!-- Cross connections -->
+    <path d="M200,100 L200,500" stroke="#3E57A3" stroke-width="1" fill="none" />
+    <path d="M400,100 L400,500" stroke="#3E57A3" stroke-width="1" fill="none" />
+    <path d="M600,100 L600,500" stroke="#3E57A3" stroke-width="1" fill="none" />
+    <path d="M800,100 L800,500" stroke="#3E57A3" stroke-width="1" fill="none" />
+    <path d="M1000,100 L1000,500" stroke="#3E57A3" stroke-width="1" fill="none" />
+  </g>
+  
+  <!-- Business platform/foundation -->
+  <rect x="200" y="400" width="800" height="30" rx="5" fill="#3E57A3" />
+  
+  <!-- Main visualization elements -->
+  <g>
+    <!-- Team of people on the left -->
+    <g transform="translate(300, 330)">
+      <!-- Team circle background -->
+      <circle cx="0" cy="0" r="100" fill="#3E57A3" opacity="0.15" />
+      
+      <!-- Team members -->
+      <!-- Member 1 -->
+      <g transform="translate(-50, -20)">
+        <circle cx="0" cy="0" r="25" fill="#F0F3F9" stroke="#5C76C1" stroke-width="2" />
+        <circle cx="0" cy="-8" r="10" fill="#5C76C1" />
+        <path d="M-12,5 C-12,15 12,15 12,5" stroke="#5C76C1" stroke-width="3" fill="none" />
+      </g>
+      
+      <!-- Member 2 -->
+      <g transform="translate(20, -40)">
+        <circle cx="0" cy="0" r="25" fill="#F0F3F9" stroke="#5C76C1" stroke-width="2" />
+        <circle cx="0" cy="-8" r="10" fill="#5C76C1" />
+        <path d="M-12,5 C-12,15 12,15 12,5" stroke="#5C76C1" stroke-width="3" fill="none" />
+      </g>
+      
+      <!-- Member 3 -->
+      <g transform="translate(40, 15)">
+        <circle cx="0" cy="0" r="25" fill="#F0F3F9" stroke="#5C76C1" stroke-width="2" />
+        <circle cx="0" cy="-8" r="10" fill="#5C76C1" />
+        <path d="M-12,5 C-12,15 12,15 12,5" stroke="#5C76C1" stroke-width="3" fill="none" />
+      </g>
+      
+      <!-- Member 4 -->
+      <g transform="translate(-30, 40)">
+        <circle cx="0" cy="0" r="25" fill="#F0F3F9" stroke="#5C76C1" stroke-width="2" />
+        <circle cx="0" cy="-8" r="10" fill="#5C76C1" />
+        <path d="M-12,5 C-12,15 12,15 12,5" stroke="#5C76C1" stroke-width="3" fill="none" />
+      </g>
+      
+      <!-- Connecting the team -->
+      <path d="M-50,-20 L20,-40 L40,15 L-30,40 Z" stroke="#7795F8" stroke-width="2" fill="none" />
+    </g>
+    
+    <!-- AI System in center -->
+    <g transform="translate(600, 280)">
+      <!-- System Hexagon -->
+      <polygon points="0,-80 70,-40 70,40 0,80 -70,40 -70,-40" fill="#3E57A3" filter="url(#glow)" />
+      
+      <!-- Brain visualization inside -->
+      <g transform="scale(0.8)">
+        <circle cx="0" cy="0" r="40" fill="#5C76C1" />
+        
+        <!-- Neural network nodes -->
+        <circle cx="-20" cy="-20" r="7" fill="#7795F8" />
+        <circle cx="20" cy="-20" r="7" fill="#7795F8" />
+        <circle cx="-30" cy="0" r="7" fill="#7795F8" />
+        <circle cx="30" cy="0" r="7" fill="#7795F8" />
+        <circle cx="-20" cy="20" r="7" fill="#7795F8" />
+        <circle cx="20" cy="20" r="7" fill="#7795F8" />
+        
+        <!-- Neural connections -->
+        <line x1="-20" y1="-20" x2="20" y2="-20" stroke="#B1C3FB" stroke-width="2" />
+        <line x1="-30" y1="0" x2="30" y2="0" stroke="#B1C3FB" stroke-width="2" />
+        <line x1="-20" y1="20" x2="20" y2="20" stroke="#B1C3FB" stroke-width="2" />
+        <line x1="-20" y1="-20" x2="-30" y2="0" stroke="#B1C3FB" stroke-width="2" />
+        <line x1="-30" y1="0" x2="-20" y2="20" stroke="#B1C3FB" stroke-width="2" />
+        <line x1="20" y1="-20" x2="30" y2="0" stroke="#B1C3FB" stroke-width="2" />
+        <line x1="30" y1="0" x2="20" y2="20" stroke="#B1C3FB" stroke-width="2" />
+        <line x1="-20" y1="-20" x2="20" y2="20" stroke="#B1C3FB" stroke-width="2" opacity="0.5" />
+        <line x1="20" y1="-20" x2="-20" y2="20" stroke="#B1C3FB" stroke-width="2" opacity="0.5" />
+      </g>
+    </g>
+    
+    <!-- Business outcomes on right -->
+    <g transform="translate(900, 280)">
+      <!-- Growth graph backdrop -->
+      <rect x="-80" y="-80" width="160" height="160" rx="10" fill="#3E57A3" opacity="0.15" />
+      
+      <!-- Chart grid -->
+      <g opacity="0.5">
+        <line x1="-70" y1="70" x2="70" y2="70" stroke="#5C76C1" stroke-width="1" />
+        <line x1="-70" y1="35" x2="70" y2="35" stroke="#5C76C1" stroke-width="1" />
+        <line x1="-70" y1="0" x2="70" y2="0" stroke="#5C76C1" stroke-width="1" />
+        <line x1="-70" y1="-35" x2="70" y2="-35" stroke="#5C76C1" stroke-width="1" />
+        <line x1="-70" y1="-70" x2="70" y2="-70" stroke="#5C76C1" stroke-width="1" />
+        
+        <line x1="-70" y1="-70" x2="-70" y2="70" stroke="#5C76C1" stroke-width="1" />
+        <line x1="-35" y1="-70" x2="-35" y2="70" stroke="#5C76C1" stroke-width="1" />
+        <line x1="0" y1="-70" x2="0" y2="70" stroke="#5C76C1" stroke-width="1" />
+        <line x1="35" y1="-70" x2="35" y2="70" stroke="#5C76C1" stroke-width="1" />
+        <line x1="70" y1="-70" x2="70" y2="70" stroke="#5C76C1" stroke-width="1" />
+      </g>
+      
+      <!-- Growth line -->
+      <path d="M-70,50 L-35,30 L0,10 L35,-20 L70,-50" stroke="url(#successGradient)" stroke-width="5" fill="none" stroke-linecap="round" />
+      
+      <!-- Fill under the growth line -->
+      <path d="M-70,50 L-35,30 L0,10 L35,-20 L70,-50 L70,70 L-70,70 Z" fill="url(#successGradient)" opacity="0.3" />
+      
+      <!-- Data points -->
+      <circle cx="-70" cy="50" r="6" fill="#3BCE8C" />
+      <circle cx="-35" cy="30" r="6" fill="#3BCE8C" />
+      <circle cx="0" cy="10" r="6" fill="#3BCE8C" />
+      <circle cx="35" cy="-20" r="6" fill="#3BCE8C" />
+      <circle cx="70" cy="-50" r="6" fill="#3BCE8C" />
+      
+      <!-- Success checkmark -->
+      <circle cx="70" cy="-50" r="15" fill="#3BCE8C" />
+      <path d="M60,-50 L68,-42 L80,-54" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    </g>
+  </g>
+  
+  <!-- Connecting flows -->
+  <!-- Team to AI (collaboration) -->
+  <g>
+    <!-- Main connection path -->
+    <path d="M400,330 C450,280 500,280 550,280" stroke="#7795F8" stroke-width="4" fill="none" />
+    
+    <!-- Data flowing along this path -->
+    <rect x="400" y="330" width="150" height="4" fill="url(#dataFlow)" rx="2" transform="rotate(-45 400 330)" />
+  </g>
+  
+  <!-- AI to Business results -->
+  <g>
+    <!-- Main connection path -->
+    <path d="M670,280 C720,280 770,280 820,280" stroke="#3BCE8C" stroke-width="4" fill="none" />
+    
+    <!-- Data flowing along this path -->
+    <rect x="670" y="280" width="150" height="4" fill="url(#dataFlowGreen)" rx="2" />
+  </g>
+  
+  <!-- Each connects to the platform -->
+  <path d="M300,330 L300,400" stroke="#7795F8" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+  <path d="M600,360 L600,400" stroke="#7795F8" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+  <path d="M900,360 L900,400" stroke="#3BCE8C" stroke-width="3" fill="none" stroke-dasharray="5,5" />
+  
+  <!-- Light rays from top centered on AI -->
+  <g opacity="0.1">
+    <path d="M500,0 L550,200" stroke="#3E57A3" stroke-width="40" fill="none" opacity="0.2" />
+    <path d="M600,0 L600,200" stroke="#3E57A3" stroke-width="60" fill="none" opacity="0.2" />
+    <path d="M700,0 L650,200" stroke="#3E57A3" stroke-width="40" fill="none" opacity="0.2" />
+  </g>
+</svg>
