@@ -10,25 +10,26 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
   - [Context](#context)
   - [Current Certification Process](#current-certification-process)
   - [Challenges in Expansion Plans](#challenges-in-expansion-plans)
-  - [Key Objectives](#key-objective)
-  - [Constraints](#constraints)
+  - [Key Objective](#key-objective)
+  - [Business Constraints](#business-constraints)
 - [Solution](#solution)
   - [Business outcomes achieved](#business-outcomes-achieved)
   - [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)
   - [Non-functional characteristics](#non-functional-characteristics)
   - [Detailed architecture designs](#detailed-architecture-designs)
-  - [LLM app stack](#architecture-characteristics)
-  - [Limitations]
-  - [Fitness functions]
+  - [Limitations with adoption of Gen AI](#limitations-with-adoption-of-gen-ai)
+  - [Productionizing an LLM-Powered System](#productionizing-an-llm-powered-system)
 - [Final thoughts](#final-thoughts)
-  - [Roadmap]
-  - [Glossary]  
+  - [Anti Patterns](#anti-patterns)
+  - [Glossary](#glossary)
+  - [Roadmap](#roadmap)
+  - [Our learnings](#our-learnings)  
 
 ## Team
  ![Team](/assets/team.png "team")
-- [**Avinash**](https://www.linkedin.com/in/avinashmarepalli/) , Senior Tech lead
-- [**Saketh Kumar**](https://www.linkedin.com/in/saketh-kumar-27b124126/) , Associate Architect
-- [**Srikanth**](https://www.linkedin.com/in/koraveni-srikanth/) , Senior Tech lead
+- [**Avinash**](https://www.linkedin.com/in/avinashmarepalli/) , Senior Tech Lead
+- [**Saketh Kumar**](https://www.linkedin.com/in/saketh-kumar-27b124126/) , Senior Tech Lead
+- [**Srikanth**](https://www.linkedin.com/in/koraveni-srikanth/) , Senior Tech Lead
 - [**Shashank**](https://www.linkedin.com/in/shashank-sheela-740746b4) , Technical Product Manager
 - [**Vijayakumaran**](https://www.linkedin.com/in/vijayakumaran-c-v/) , UX designer
 
@@ -80,8 +81,8 @@ Failed candidates receive detailed feedback, while successful ones are added to 
 
 “How might we **adopt Generative AI** to automate manual processes for expert architects so that their **productivity** is increased, **operational costs** are reduced, and **overall efficiency** is significantly improved to confidently handle a 10X growth in candidate demand?”
 
-## Constraints
-These are some constraints explicitly mentioned in the requirement.
+## Business Constraints
+These are some constraints explicitly mentioned in the requirements.
 
 - **Seamless Integration:** *Seamlessly integrate AI-driven components into the existing system, ensuring compatibility, scalability, and minimal disruption to current operations.*
 - **Scalability:** *As the software architecture industry is projected to grow by 21% globally and certification demand increases 5-10X, the system must scale to accommodate the surge in applicants.*
@@ -169,19 +170,58 @@ Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this 
 - **Explainability** - LLM-generated grading scoring & feedback must be transparent and justifiable, allowing expert architects to understand AI-driven grading decisions, enhancing overall productivity.
 - **Evolvability** - The architecture supports continuous updates to grading models, question formats, and evaluation criteria, ensuring adaptability as educational standards and AI capabilities evolve.
 
-**Limitations**
+## Limitations with adoption of Gen AI
 - **Scalability of Manual Review** – The system relies on human reviewers for low-confidence cases, which can become a bottleneck as submission volume grows.
 - **LLM Hallucinations and Biases** – Despite using RAG, LLMs may still generate inaccurate or biased grading decisions, requiring ongoing monitoring and corrections.
 - **Contextual Understanding Gaps** – While AI can process structured evaluation criteria, it may struggle with nuanced architectural decisions, making human oversight essential for complex cases.
 - **Productionization** - LLM-based application deployment is still evolving, with new cost-effective methodologies emerging rapidly, requiring continuous adaptation to ensure scalability and efficiency.
 
+## Productionizing an LLM-Powered System
+Building a scalable, reliable, and secure LLM-powered system requires carefully aligned elements, here’s how we designed them for production readiness.
+![llm-app-stack](/assets/Emerging-LLM-App-Stack.png "llm-app-stack")
+- **LLM app stack:** This reference architecture outlines key systems, tools, and design patterns for effectively building LLM-powered applications.
+  - Implemented a new pattern([**ADR-001: AI Gateway**](/ADRs/001-adr-using-ai-gateway.md)) that includes governance,observability etc
+  - **Prompt orchestrator([ADR-005](/ADRs/005-adr-prompt-orchestrator.md)) : LangChain**
+  - **Guardrails([ADR-010](/ADRs/010-adr-llm-guardrails.md)) : hybrid approach with the rule based filters**
+  - **LLM Observability([ADR-011](/ADRs/011-adr-llm-observability.md)) - Langwatch**
+- **LLM Evals([ADR-009](/ADRs/009-adr-llm-evaluation.md)):** Implement a Hybrid Evaluation Strategy, combining Automated Metrics for efficiency, Rubric-Based LLM Evaluation for consistency, LLM as a Judge for deep analysis, and Human-in-the-Loop Review for fairness and quality control.
+- [**Fitness functions**](/usecases/fitness-functions.md) - Identified and created strategy for few fitness functions such as accuracy,efficiency,credibility etc
+- **LLM Security ([ADR-016](ADRs/016-adr-llm-security-owasp.md))** - The OWASP Top 10 vulnerabilities for LLM security highlight key risks  such as prompt injection, model poisoning, and data leakage.
+- Governance
+- **LLM Deployment Model ([ADR-007](ADRs/007-adr-llm-deployment.md))** - Adopt a Hybrid Deployment Model, processing sensitive candidate data on-premises for privacy while leveraging cloud-based LLMs for scalable, cost-efficient NLP tasks, ensuring security and compliance."
+
+
 # Final thoughts
 
-### Glossary
- [Glossary](business-requirements/glossary.md) to understand more about certain terms.
+## Anti patterns
+**Agentic AI**, while powerful, is not always the best choice. For our solution, we deliberately avoided this approach due to the following reasons:
+- **Well-Defined Workflows:** Our system follows structured, predictable steps where deterministic AI models are more efficient and reliable.
+- **Low Error Tolerance:** Agents, being probabilistic, can occasionally make incorrect decisions—unacceptable in a high-stakes certification process.
+- **Cost & Performance Constraints:** Running an agent-based system demands high computational resources, increasing costs and latency without clear benefits.
+- **Ensuring Accuracy & Compliance:** Instead of relying on autonomous AI agents, we integrated structured AI models with human-in-the-loop oversight, ensuring fairness, precision, and regulatory compliance.
+
+## Glossary
+[Glossary](business-requirements/glossary.md) to understand more about certain terms.
  
-### Next Steps: Phased Rollout Strategy
+## Roadmap
+Next Steps: Phased Rollout Strategy
 - **Pilot & A/B Testing:** Run AI and human grading in parallel to compare accuracy, refine AI models, and track grading consistency.
 - **AI-First with Expert Oversight:** AI handles primary grading, with human validation for low-confidence cases and structured feedback improvements.
+
+## Our Learnings
+Through this journey of productionizing an LLM-powered certification system, we gained critical insights that shaped our solution and align directly with our AI adoption goals
+
+🛠️ **New AI Architectural Patterns & Design Approaches:**
+  - We recognized that Agentic AI is not suitable for structured, high-accuracy workflows like certification grading, as it introduces unnecessary complexity, cost, and potential inaccuracies
+  - Implemented AI Gateway, LLM as a Judge, and Human-in-the-Loop to ensure accuracy, validation, and seamless integration.
+  - Explored how non-core functionalities (e.g., content generation, fraud detection) can be solved differently using AI.
+
+🎯 **Gen AI Fitness Functions & Risk Mitigation:**
+  - Understood the importance of fitness functions in LLM-based applications to handle risks like bias, hallucinations, and inconsistencies.
+  - Learned that Evals (AI evaluation methods) are crucial and require multiple approaches based on accuracy, fairness, and usability needs.
+
+📐 **Gen AI’s Impact on System Architecture & Scalability:**
+  - Redesigned workflows to integrate AI seamlessly, ensuring scalability, observability, and compliance without disrupting existing processes.
+  - Developed a Hybrid Deployment Model—on-premises for privacy-sensitive data, cloud for scalable AI processing.
 
 
