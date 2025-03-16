@@ -99,15 +99,17 @@ We will develop an ASAS solution that leverages Large Language Models (LLMs) to 
 
 This hybrid approach ensures that the AI-generated results closely mimic manual grading. Splitting the Grader and Judge into separate components allows us improve/test one component while keeping the other component constant.
 
-## ASAS Grader C2 Diagram
+## ASAS Grader Preliminary C3 Diagram
 
 The diagram below illustrates the core components of the AI Grader service. ( see [Implementation Details](#implementation-details))
 
-![ASAS Grader C2 Diagram](/assets/test1-grader-c2.jpg "ASAS Grader C2 Diagram")
+![ASAS Grader Preliminary C3 Diagram](/assets/test1-grader-c3.jpg "ASAS Grader Preliminary C3 Diagram")
 
-Note: Due to time constraints and brevity, C2 diagrams for the other components are omitted.
+Note: Due to time constraints and brevity, C3 diagrams for the other components are omitted.
 
 ## Implementation Details
+
+Below is a summarised version of the analysis. A more thorough version could be found [here](/usecases/test1-approach.md)
 
 Recent research ([Ref1](https://arxiv.org/abs/2409.20042), [Ref2](https://arxiv.org/abs/2408.03811)) shows that a Retrieval-Augmented Generation (RAG) approach combined with Few-Shot examples and Chain-of-Thought reasoning significantly improves performance in Automated Short Answer Scoring tasks across multiple LLMs—with no fine-tuning. This is the strategy we will adopt. Please refer to this [ADR](/ADRs/003-adr-llm-based-short-answer-evalaution-strategy.md) for a more detailed analysis of this choice.
 
