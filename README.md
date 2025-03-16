@@ -93,7 +93,7 @@ These are some constraints explicitly mentioned in the requirements.
 # Solution
 
 ## Business outcomes achieved
-Refer [detailed cost & efficiency](/usecases/cost-analysis.md) analysis 
+Refer [detailed cost & efficiency](/other_design_docs/cost-analysis.md) analysis 
 ### Productivity - 5x increase (19K to 3.7K avg expert hrs/week)
 ### Cost - 80% lower ($940K to $190K grading costs/ week)
 ### Efficiency - 4X improvement in overall efficiency
@@ -172,7 +172,7 @@ Building a scalable, reliable, and secure LLM-powered system requires carefully 
   - **Guardrails([ADR-010](/ADRs/010-adr-llm-guardrails.md)) : hybrid approach with the rule based filters**
   - **LLM Observability([ADR-011](/ADRs/011-adr-llm-observability.md)) - Langwatch**
 - **LLM Evals([ADR-009](/ADRs/009-adr-llm-evaluation.md)):** Implement a Hybrid Evaluation Strategy, combining Automated Metrics for efficiency, Rubric-Based LLM Evaluation for consistency, LLM as a Judge for deep analysis, and Human-in-the-Loop Review for fairness and quality control.
-- [**Fitness functions**](/usecases/fitness-functions.md) - Identified and created strategy for few fitness functions such as accuracy,efficiency,credibility etc
+- [**Fitness functions**](/other_design_docs/fitness-functions.md) - Identified and created strategy for few fitness functions such as accuracy,efficiency,credibility etc
 - **LLM Security ([ADR-016](ADRs/016-adr-llm-security-owasp.md))** - The OWASP Top 10 vulnerabilities for LLM security highlight key risks  such as prompt injection, model poisoning, and data leakage.
 - Governance
 - **LLM Deployment Model ([ADR-007](ADRs/007-adr-llm-deployment.md))** - Adopt a Hybrid Deployment Model, processing sensitive candidate data on-premises for privacy while leveraging cloud-based LLMs for scalable, cost-efficient NLP tasks, ensuring security and compliance."
