@@ -67,7 +67,7 @@ Failed candidates receive detailed feedback, while successful ones are added to 
   
 - **Cost Burden:**
   - Manual grading would cost over **$1M+ per week ($50/hour X 19,000+ hours)**
-  - Each candidate’s evaluation requires 11 hours of expert review, costing **$550 per license (68% of the $800 certification fee)**
+  - Each candidate’s evaluation requires 11 hours of expert review, costing **$470 per license on average (58% of the $800 certification fee)**
 - **Grading inconsistencies & Fraud detection:**
   - Inconsistent manual grading can lead to **negative bias (unfair penalties)** or **positive bias (unqualified certifications)**, impacting **credibility**.
   - Lack of automated **fraud detection** increases the risk of impersonation, answer manipulation, and certification fraud, threatening **exam integrity**.
