@@ -109,7 +109,8 @@ Refer [detailed cost & efficiency](/other_design_docs/cost-analysis.md) analysis
 
    **Additional characteristics with Gen AI adoption**
    ![Gen AI assisted system architectural characteristics](/assets/genai-assisted-system.png "Gen AI assisted system architectural characteristics")
-   
+
+   Refer [detailed architectural characteristics analysis](/other_design_docs/architecture-characteristics.md)
 
 ## Detailed architecture designs
   
