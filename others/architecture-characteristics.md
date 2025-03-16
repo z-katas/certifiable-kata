@@ -1,5 +1,17 @@
 ## Architecture characteristics Analysis
 
+
+### Updated Architectural characteristics vs Existing Architectural Characteristics
+
+![Existing architectural characteristics](/assets/existing-architectural-characteristics.png "Existing architectural characteristics")
+
+
+![Gen AI assisted system architectural characteristics](/assets/genai-assisted-system.png "Gen AI assisted system architectural characteristics")
+
+* We have performed the exercises to identify the top architectural characteristics in the existing SoftArchCert system that doesn't involve any AI elements and the updated system that is assisted with gen ai.
+* Since, in the existing system, the responsbility of ensuring a fair grading process of short answers and case studies is with the expert architects, the system's top architectural characteristics are data integrity, usability and availability.
+* In the gen ai assisted system, since the grading process has been delegated to LLM applications and corresponding components, the architectural characteristics of accuracy, workflow and explainability become extremely important for the success of the system.
+
 ### AI Usecases
 
 1. *Implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster.*
@@ -46,13 +58,3 @@
 
 Note - We considered Security, Privacy and Observability as implicit characteristics and identified top 3 from the remaining set.
 
-### Updated Architectural characteristics vs Existing Architectural Characteristics
-
-![Existing architectural characteristics](/assets/existing-architectural-characteristics.png "Existing architectural characteristics")
-
-
-![Gen AI assisted system architectural characteristics](/assets/genai-assisted-system.png "Gen AI assisted system architectural characteristics")
-
-* We have performed the exercises to identify the top architectural characteristics in the existing SoftArchCert system that doesn't involve any AI elements and the updated system that is assisted with gen ai.
-* Since, in the existing system, the responsbility of ensuring a fair grading process of short answers and case studies is with the expert architects, the system's top architectural characteristics are data integrity, usability and availability.
-* In the gen ai assisted system, since the grading process has been delegated to LLM applications and corresponding components, the architectural characteristics of accuracy, workflow and explainability become extremely important for the success of the system.
