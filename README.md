@@ -103,7 +103,7 @@ Refer [detailed cost & efficiency](/usecases/cost-analysis.md) analysis
 
   ![HMW](/assets/how-might-we.jpg "HMW")
 
-## NArchitecture characteristics
+## Architecture characteristics
    **Existing system**
    ![Existing architectural characteristics](/assets/existing-architectural-characteristics.png "Existing architectural characteristics")
 
