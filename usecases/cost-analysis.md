@@ -71,6 +71,6 @@ Assuming 20% of candidate's submissions involve human evaluation, the hours put 
 #### **Total costs with Gen AI assited capabilities**  
 
 | Scaling Factor | Numer of Candidates per week |Expert Cost ($) | LLM Cost ($)| Overall Cost| Cost per candidate |
-|---------------|----------------|----------------|-----------------|-----------------|
+|---------------|----------------|----------------|-----------------|-----------------|-----------------|
 | **5x**        | 1000| $94,550       | | $1350       | 95900 | $95.90
 | **10x**       | 2000| $188,000      | $2700         | 190700 | $95.35
