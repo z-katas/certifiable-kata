@@ -1,5 +1,12 @@
 ## Cost Analysis
 
+- A **hybrid approach** (Gen AI + experts for review) is a **cost-effective alternative** .
+- Gen AI assisted evaluation is almost 5 times cheaper and 5 times efficiency wise compared to entirely manual evaluation( **$95 vs $470** and **1.88hr per candidate vs 9.4hr per candidate**) 
+- The **Human Review Factor** is assumed to be 0.2 for the sake for this calculation, but is expected to come down further because of continous feedback loop that improves existing knowledge base with human graded answers and feedback
+- Even at **10x scaling**, LLM costs remain under $4,000 while expert costs exceed $1M. 
+- Even considering the build costs(costs of developing new LLM applications, setup) and run costs(LLM token costs, cloud costs of new services, knowledge base maintenance), the cost incurred per candidate is to be quite low as compared to the cost of the test.
+
+
 Below analysis was done considering the costs and number of candidates per week
 
 ### **Current Costs (200 candidates per week)**
@@ -7,7 +14,7 @@ Below analysis was done considering the costs and number of candidates per week
 - Test 1:  
   - Requires **600 hours** (200 candidates per week and 3hrs for each short answer).  
 - Test 2:  
-  - Requires **1280 hours per person**, at 80% test 1 pass rate and 8hrs for each case study evaluation (200 * 0.8 * 8)
+  - Requires **1280 hours** at 80% test 1 pass rate and 8hrs for each case study evaluation (200 * 0.8 * 8)
 
 | Total Time (hrs) | Expert Cost ($) | Cost per candidate|
 |---------------|----------------| ----------------|
@@ -16,22 +23,22 @@ Below analysis was done considering the costs and number of candidates per week
 ### **Scaling Up Costs (5x and 10x)**
 
 - Test 1 Scaling:  
-  - 5x: \( 600*5 = 3000 \) hours  
-  - 10x: \( 600*10 = 6000 \) hours  
+  - 5x: 600*5 = 3000 hours  
+  - 10x: 600*10 = 6000 hours  
 - Test 2 Scaling:  
-  - 5x: \( 1280*5 = 6400 \) hours  
-  - 10x: \( 1280*10 = 12800 \) hours  
+  - 5x: 1280*5 = 6400 hours  
+  - 10x: 1280*10 = 12800 hours  
 
-#### **Total Time and Expert Costs per week**
+#### **Total Expert Time and Costs per week**
 
-| Scaling Factor | Numer of Candidates per week | Total Time (hrs) | Expert Cost ($) | With 21% Growth ($) | Cost per candidate|
+| Scaling Factor | Numer of Candidates per week | Total Time (hrs) | Expert Cost ($)  | Cost per candidate|
 |---------------|--------------|---------------|----------------|-----------------|-----------------|
-| **5x**       |    1000    | 9400 hrs       | $470,000       | $568,700        | $388.43
-| **10x**      | 2000   | 18800 hrs      | $940,000       | $1,137,400      | $470
+| **5x**       |    1000    | 9400 hrs       | $470,000        | $470
+| **10x**      | 2000   | 18800 hrs      | $940,000        | $470
 
 ### **Costs with Gen AI assisted evaluation**
 
-Assuming 20% of candidate's submissions involve human evaluation, the hours put in by
+Assuming 20% of candidate's submissions involve human evaluation, the hours put in by experts for:
 
 - Test 1 Review: 
   - 5x: 200 * 0.2 * 3 * 5 = 600 hours  
@@ -40,12 +47,12 @@ Assuming 20% of candidate's submissions involve human evaluation, the hours put 
   - 5x: 200 * 0.2 * 0.8 * 8 * 5 = 1280 hours  
   - 10x:  200 * 0.2 * 0.8 * 8 * 10 = 2560 hours  
 
-#### **Total Review Time and Expert Costs**
+#### **Total Expert Review Time and Costs**
 
-| Scaling Factor | Review Time (hrs) | Expert Cost ($) | With 21% Growth ($) |
-|---------------|----------------|-----------------|------------------|
-| **5x**       | 1880 hrs       | $94,500        | $114,345        |
-| **10x**      | 3760 hrs       | $188,000       | $227,480        |
+| Scaling Factor | Review Time (hrs) | Expert Cost ($) |
+|---------------|----------------|-----------------|
+| **5x**       | 1880 hrs       | $94,500        |
+| **10x**      | 3760 hrs       | $188,000       |
 
 #### **LLM Costs (Automated Evaluation)**
 
@@ -63,15 +70,7 @@ Assuming 20% of candidate's submissions involve human evaluation, the hours put 
 
 #### **Total costs with Gen AI assited capabilities**  
 
-| Scaling Factor | Numer of Candidates per week |Expert Cost ($) | With 21% Growth ($) | Cost per candidate |
+| Scaling Factor | Numer of Candidates per week |Expert Cost ($) | LLM Cost ($)| Overall Cost| Cost per candidate |
 |---------------|----------------|----------------|-----------------|-----------------|
-| **5x**        | 1000| $95,850       | $115,978.5        | $95.35
-| **10x**       | 2000| $190,700       | $230,747      | $95.35
-
-### **Summary**
-
-- Gen AI assisted evaluation is atleast 4 times cheaper than entirely manual evaluation( **$95 vs $470**)
-- The **Human Review Factor** is assumed to be 0.2 for the sake for this calculation, but is expected to come down further because of continous feedback loop that improves existing knowledge base with human graded answers and feedback
-- Even at **10x scaling**, LLM costs remain under $4,000 while expert costs exceed $1M. 
-- Even considering the build costs(costs of developing new LLM applications, setup) and run costs(LLM token costs, cloud costs of new services, knowledge base maintenance), the cost incurred per candidate is to be quite low as compared to the cost of the test.
-- A **hybrid approach** (Gen AI + experts for review) is a **cost-effective alternative**.
+| **5x**        | 1000| $94,550       | | $1350       | 95900 | $95.90
+| **10x**       | 2000| $188,000      | $2700         | 190700 | $95.35
