@@ -15,7 +15,7 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
 - [Solution](#solution)
   - [Business outcomes achieved](#business-outcomes-achieved)
   - [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)
-  - [Non-functional characteristics](#non-functional-characteristics)
+  - [Architecture characteristics](#architecture-characteristics)
   - [Detailed architecture designs](#detailed-architecture-designs)
   - [Limitations with adoption of Gen AI](#limitations-with-adoption-of-gen-ai)
   - [Productionizing an LLM-Powered System](#productionizing-an-llm-powered-system)
@@ -93,17 +93,23 @@ These are some constraints explicitly mentioned in the requirements.
 # Solution
 
 ## Business outcomes achieved
-- 5.5x Increase in expert process capacity
-- 68% Lower cost per certification
-- 85% Reduction in manual review requirements
+Refer [detailed cost & efficiency](/usecases/cost-analysis.md) analysis 
+### Productivity - 5x increase (19K to 3.7K avg expert hrs/week)
+### Cost - 80% lower ($940K to $190K grading costs/ week)
+### Efficiency - 4X improvement in overall efficiency
 
 ## Automation use-cases using Gen AI 
    We priortized 3 use-cases for this excercise
 
   ![HMW](/assets/how-might-we.jpg "HMW")
 
-## Non-functional characteristics
-   <IMAGE>
+## NArchitecture characteristics
+   **Existing system**
+   ![Existing architectural characteristics](/assets/existing-architectural-characteristics.png "Existing architectural characteristics")
+
+   **Additional characteristics with Gen AI adoption**
+   ![Gen AI assisted system architectural characteristics](/assets/genai-assisted-system.png "Gen AI assisted system architectural characteristics")
+   
 
 ## Detailed architecture designs
   
@@ -151,25 +157,6 @@ Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this 
 
 ![test 1 and test 2 content updates](/assets/new-questions-c2.png "test 1 and test 2 content updates")
 
-
-## Architecture characteristics
-
-### Existing architecture characteristics
-
-- **Data integrity** - Ensures that test questions, candidate submissions, and grades are securely stored without integrity issues or data loss.
-- **Accuracy** - Guarantees precise grading for MCQs, short-answer aptitude questions, and case study submissions, maintaining evaluation reliability.
-- **Interoperability** - Enables seamless communication across different systems and components, ensuring smooth integration between the certification platform and expert evaluators.
-
-### New architecture characteristics(in addition to existing)
-
-- **Scalability** - The LLM-based architecture is designed to handle a 5-10X increase in demand while maintaining grading accuracy and performance. Auto-scaling cloud-based LLMs and vector stores ensure efficient resource utilization.
-- **Cost Efficiency** - AI-driven grading significantly reduces manual evaluation hours, cutting down expert workload and associated costs. A detailed cost analysis is yet to be finalized.
-- **Accuracy** -  Retrieval-Augmented Generation (RAG) leverages a continuously updated vector store of manually graded answers to provide contextual references, improving grading consistency.
-- **Credibility** - Human-in-the-loop validation ensures that low-confidence AI predictions are manually reviewed, refining grading accuracy over time.
-- **Observability** -  AI systems introduce challenges such as bias, hallucinations, and relevance issues. LLM observability tools within the AI gateway actively monitor inputs and outputs, ensuring reliable system performance.
-- **Explainability** - LLM-generated grading scoring & feedback must be transparent and justifiable, allowing expert architects to understand AI-driven grading decisions, enhancing overall productivity.
-- **Evolvability** - The architecture supports continuous updates to grading models, question formats, and evaluation criteria, ensuring adaptability as educational standards and AI capabilities evolve.
-
 ## Limitations with adoption of Gen AI
 - **Scalability of Manual Review** – The system relies on human reviewers for low-confidence cases, which can become a bottleneck as submission volume grows.
 - **LLM Hallucinations and Biases** – Despite using RAG, LLMs may still generate inaccurate or biased grading decisions, requiring ongoing monitoring and corrections.
@@ -194,19 +181,22 @@ Building a scalable, reliable, and secure LLM-powered system requires carefully 
 # Final thoughts
 
 ## Anti patterns
-**Agentic AI**, while powerful, is not always the best choice. For our solution, we deliberately avoided this approach due to the following reasons:
+**Agentic AI**, while powerful, is not always the best choice. For our solution for the 3 use cases identified, we deliberately avoided this approach due to the following reasons:
 - **Well-Defined Workflows:** Our system follows structured, predictable steps where deterministic AI models are more efficient and reliable.
 - **Low Error Tolerance:** Agents, being probabilistic, can occasionally make incorrect decisions—unacceptable in a high-stakes certification process.
 - **Cost & Performance Constraints:** Running an agent-based system demands high computational resources, increasing costs and latency without clear benefits.
 - **Ensuring Accuracy & Compliance:** Instead of relying on autonomous AI agents, we integrated structured AI models with human-in-the-loop oversight, ensuring fairness, precision, and regulatory compliance.
+- Agentic pattern will be best suitable for the analytics use case - HMW automate test content evaluation for expert architects so that improvements are continuously implemented based on candidate performance trends?
+
 
 ## Glossary
 [Glossary](business-requirements/glossary.md) to understand more about certain terms.
  
 ## Roadmap
-Next Steps: Phased Rollout Strategy
-- **Pilot & A/B Testing:** Run AI and human grading in parallel to compare accuracy, refine AI models, and track grading consistency.
-- **AI-First with Expert Oversight:** AI handles primary grading, with human validation for low-confidence cases and structured feedback improvements.
+Approach: Phased Rollout Strategy
+- **MVP:** Run AI and human grading in parallel to compare accuracy, refine AI models, and track grading consistency.
+- **Growth:** AI handles primary grading, with human validation for low-confidence cases and structured feedback improvements.
+- **Matured:** Achieve high-accuracy AI grading, with minimal human involvement focused on oversight.
 
 ## Our Learnings
 Through this journey of productionizing an LLM-powered certification system, we gained critical insights that shaped our solution and align directly with our AI adoption goals
