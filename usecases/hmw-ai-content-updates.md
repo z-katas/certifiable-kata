@@ -69,7 +69,7 @@ New questions and case studies are automatically created using:
 
 - **Description:** Flow involving chunking of documents, storing in vector store and retrieival by the expert Architect to update the tests
 - **Diagram:**
-![test 1 and test 2 content updates](/assets/New-test1-and-test2-questions.png "test 1 and test 2 content updates")
+![Content monitoring dataflow diagram](/assets/content-monitoring-dataflow.gif "Content monitoring dataflow diagram")
 
 - Document Ingestion and Chunking: The process starts with ingesting documents (HTML, PDF, TXT) which are then broken down into smaller, manageable chunks. This is essential for processing large documents and ensuring relevant sections are used for question and case study generation. Chunking strategy discussed in [ADR](/ADRs/006-adr-architecture-knowledge-chunking-strategy.md).
 
