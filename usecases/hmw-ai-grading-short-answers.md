@@ -16,7 +16,7 @@ Refer here for [detailed business requirements](/business-requirements/short-ans
 
 Below is the high-level diagram for Test 1. ( see [Implementation Details](#implementation-details))
 
-![Test 1 High Level Data Flow](/assets/test1-high-level-flow-diagram.jpg "Test 1 High Level Data Flow")
+![ASAS Grader dataflow diagram](/assets/short-answer-grading-dataflow.gif "ASAS Grader dataflow diagram")
 
 We will develop an ASAS solution that leverages Large Language Models (LLMs) to automatically grade short answer responses and generate candidate feedback. The solution consists of two key services:
 
