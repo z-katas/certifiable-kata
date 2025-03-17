@@ -5,8 +5,10 @@
 A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge**.
 
 ## Table of Contents
-- [Team](#team)
-- [Glossary](#glossary)
+- [ZAItects - Certifiable, Inc | O'Reilly Architectural Katas (Winter 2025)](#zaitects---certifiable-inc--oreilly-architectural-katas-winter-2025)
+  - [Table of Contents](#table-of-contents)
+  - [Team](#team)
+  - [Glossary](#glossary)
 - [Problem definition](#problem-definition)
   - [Context](#context)
   - [Current Certification Process](#current-certification-process)
@@ -15,12 +17,15 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
   - [Business Constraints](#business-constraints)
 - [Solution](#solution)
   - [Business outcomes achieved](#business-outcomes-achieved)
+    - [Productivity - 5x increase (19K to 3.7K avg expert hrs/week)](#productivity---5x-increase-19k-to-37k-avg-expert-hrsweek)
+    - [Cost - 80% lower ($940K to $190K grading costs/ week)](#cost---80-lower-940k-to-190k-grading-costs-week)
+    - [Efficiency - 4X improvement in overall efficiency](#efficiency---4x-improvement-in-overall-efficiency)
   - [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)
   - [Architecture characteristics](#architecture-characteristics)
   - [Detailed architecture designs](#detailed-architecture-designs)
-    - [**Short answer grading use case**](#short-answer-grading-use-case)
-    - [**Case study grading use case**](#case-study-grading-use-case)
-    - [**Generate certification questions as per new trends use case**](#generate-certification-questions-as-per-new-trends-use-case)
+    - [Short answer grading use case](#short-answer-grading-use-case)
+    - [Case study grading use case](#case-study-grading-use-case)
+    - [Generate certification questions as per new trends use case](#generate-certification-questions-as-per-new-trends-use-case)
   - [Limitations with adoption of Gen AI](#limitations-with-adoption-of-gen-ai)
   - [Productionizing an LLM-Powered System](#productionizing-an-llm-powered-system)
 - [Final thoughts](#final-thoughts)
@@ -148,8 +153,19 @@ Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of
   
 Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of this usecase
 
-**Solution approach:** The AI-driven grading system for Test 2 is designed to handle the scalability and complexity of evaluating case study submissions. The process begins with **automated content segregation**, where different artifacts such as requirements, architectural   
-   decisions, and diagrams are categorized for structured evaluation. **A multi-model AI strategy**([**ADR**](/ADRs/adr-ai-multi-model-strategy.md)) is employed to assess each artifact using **specialized AI analyzers**, ensuring grading consistency and accuracy. The system leverages an **AI gateway**([**ADR**](/ADRs/adr-using-ai-gateway.md)) to securely interact with the LLMs.
+**Solution approach:** 
+
+- **AI-driven grading system for Test 2** designed for scalability and complexity in evaluating case study submissions.  
+- **Automated content segregation** categorizes artifacts such as:  
+  - Requirements  
+  - Architectural decisions  
+  - C2/C4 Diagrams  
+  - Security/Infrastructure
+  - Data Flow diagrams etc.,
+- **Multi-model AI strategy [ADR-002](/ADRs/002-adr-ai-multi-model-strategy.md)** used to assess each artifact with specialized AI analyzers.  
+- **Ensures grading consistency and accuracy** through tailored AI evaluation models **[ADR-009](/ADRs/009-adr-llm-evaluation.md)**.  
+- **AI gateway [ADR-001](/ADRs/001-adr-using-ai-gateway.md) integration** securely facilitates interactions with LLMs.  
+
 
 **Data flow:**
  
@@ -165,7 +181,7 @@ Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of 
   
 Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this usecase
   
-**Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a **web search + RAG LLM architecture pattern** ([**ADR**](/ADRs/adr-new-questions-and-case-studies-strategy.md)). Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store following **semantic chunking**([**ADR**](/ADRs/adr-architecture-knowledge-chunking-strategy.md)). The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include them in the tests if they are satisfactory.
+**Solution approach:** The generaton of new questions in test 1 and case studies in test 2 can be automated using a **web search + RAG LLM architecture pattern** ([**ADR-004**](/ADRs/004-adr-new-questions-and-case-studies-strategy.md)). Latest architecture techniques, patterns and trends are ingested with targeted web search and stored in a vector store following **semantic chunking**([**ADR-006**](/ADRs/006-adr-architecture-knowledge-chunking-strategy.md)). The questions can be generated on demand or on schedule by passing pre-configured prompts and retrieved relevant architecture context to LLM to come up the questions. Designated expert architects can review the questions on user interface and include them in the tests if they are satisfactory.
   
 **Data flow:**
  
@@ -191,9 +207,9 @@ Building a scalable, reliable, and secure LLM-powered system requires carefully 
   - **LLM Observability([ADR-011](/ADRs/011-adr-llm-observability.md)) - Langwatch**
 - **LLM Evals([ADR-009](/ADRs/009-adr-llm-evaluation.md)):** Implement a Hybrid Evaluation Strategy, combining Automated Metrics for efficiency, Rubric-Based LLM Evaluation for consistency, LLM as a Judge for deep analysis, and Human-in-the-Loop Review for fairness and quality control.
 - [**Fitness functions**](/other_design_docs/fitness-functions.md) - Identified and created strategy for few fitness functions such as accuracy,efficiency,credibility etc
-- **LLM Security ([ADR-016](ADRs/016-adr-llm-security-owasp.md))** - The OWASP Top 10 vulnerabilities for LLM security highlight key risks  such as prompt injection, model poisoning, and data leakage.
+- **LLM Security ([ADR-016](/ADRs/016-adr-llm-security-owasp.md))** - The OWASP Top 10 vulnerabilities for LLM security highlight key risks  such as prompt injection, model poisoning, and data leakage.
 - **Governance([ADR-017](/ADRs/017-adr-llm-governance.md))** - Difference governance strategies mentioned for context retrieval and prohibiting unauthorized access.
-- **LLM Deployment Model ([ADR-007](ADRs/007-adr-llm-deployment.md))** - Adopt a Hybrid Deployment Model, processing sensitive candidate data on-premises for privacy while leveraging cloud-based LLMs for scalable, cost-efficient NLP tasks, ensuring security and compliance."
+- **LLM Deployment Model ([ADR-007](/ADRs/007-adr-llm-deployment.md))** - Adopt a Hybrid Deployment Model, processing sensitive candidate data on-premises for privacy while leveraging cloud-based LLMs for scalable, cost-efficient NLP tasks, ensuring security and compliance."
 
 
 # Final thoughts
