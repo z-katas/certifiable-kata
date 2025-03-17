@@ -51,7 +51,7 @@ The AI components **automate case study evaluation** by classifying, grading, an
 
 ### Data flow diagram:
 
-![Test2 dataflow](/assets/casestudy-flow-diagram.png "Test2 dataflow")
+![Casestudy Grader dataflow diagram](/assets/casestudy-grading-dataflow.gif "Casestudy Grader dataflow diagram")
 
 - The architecture submissions are directly fed to document segregator, detailed analysis below
 - The documents are then sent to document analyzer and AI grading system
