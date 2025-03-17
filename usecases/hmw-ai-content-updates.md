@@ -214,6 +214,8 @@ New questions and case studies are automatically created using:
 
 ### Prompting techniques
 
+![rag details](../assets/aicontentupdatesragdetails.drawio.png)
+
 Prompt engineering is a test-driven and iterative process that can enhance model performance. When creating prompts, it is important to clearly define the objectives and expected outcomes for each prompt and systematically test them to identify areas of improvement.
 
 The following diagram shows the prompt engineering workflow:
