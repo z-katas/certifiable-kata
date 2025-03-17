@@ -3,6 +3,8 @@
 ## Phase 1: Pilot & A/B Testing (Validation & Refinement)
 **Objective:** Validate AI performance against human grading and refine models before full deployment.
 
+![Phased Roll out Strategy](/assets/rollout-strategy.png)
+
 ### Approach
 - AI and human grading run in parallel to measure accuracy and refine AI decisions.
 - Implement AI grading pipelines with confidence scoring to flag uncertain cases.
