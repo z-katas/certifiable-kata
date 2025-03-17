@@ -9,29 +9,6 @@ As the certification process requirements are not explicitly detailed, we assume
 
 Refer here for [detailed business requirements](/business-requirements/ai-content-updates-requirements.md)
 
-## New User Journey / Golden Path using Jobs to be Done Framework
-
-### **Persona:**  
-[Chris,Designated Expert Architect](business-requirements/references/designated-expert-architect-persona.md)
-
-### **Main Job:**  
-Identify industry-relevant trends and generate expert-level certification questions efficiently.
-
-### **Backstory:**  
-Alex is responsible for keeping certification content **up to date** by ensuring **new software architecture trends** are incorporated into certification exams. Manually searching for industry trends, identifying relevant topics, and formulating certification questions is **time-consuming and inefficient**. AI-assisted automation is needed to streamline this process.
-
-### **End Goal of the Main Job:**  
-Ensure that **certification content reflects the latest industry advancements** by efficiently **identifying relevant trends and generating expert-validated certification questions**.
-
-### **Job Steps (using universal job map):**
-1. **Configure trend sources and search parameters** – Architects define sources and prompts for AI-based industry research.
-2. **View AI-generated trend feed** – AI scrapes and presents insights from preconfigured sources[TBD].
-3. **Review system-generated certification questions** – AI suggests MCQs, short-answer questions, and case study prompts.
-4. **Assess AI-generated reasoning** – Validate AI's justification for trend relevance and question generation.
-5. **Modify AI-generated content if necessary** – Experts refine AI-suggested questions and answers.
-6. **Finalize and approve questions** – Validated questions are integrated into the certification database.
-7. **Monitor AI learning improvements** – AI adjusts its trend analysis and question generation based on expert feedback.
-
 **High level user flow:** [UI Mockup](https://claude.site/artifacts/043388db-7e9e-4716-8b82-8d5ca315adbc?fullscreen=true)
 
 **Key screen:** 
