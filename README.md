@@ -5,9 +5,8 @@
 A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge**.
 
 ## Table of Contents
-- [ZAItects - Certifiable, Inc | O'Reilly Architectural Katas (Winter 2025)](#zaitects---certifiable-inc--oreilly-architectural-katas-winter-2025)
-  - [Table of Contents](#table-of-contents)
-  - [Team](#team)
+- [Team](#team)
+- [Glossary](#glossary)
 - [Problem definition](#problem-definition)
   - [Context](#context)
   - [Current Certification Process](#current-certification-process)
@@ -16,20 +15,16 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
   - [Business Constraints](#business-constraints)
 - [Solution](#solution)
   - [Business outcomes achieved](#business-outcomes-achieved)
-    - [Productivity - 5x increase (19K to 3.7K avg expert hrs/week)](#productivity---5x-increase-19k-to-37k-avg-expert-hrsweek)
-    - [Cost - 80% lower ($940K to $190K grading costs/ week)](#cost---80-lower-940k-to-190k-grading-costs-week)
-    - [Efficiency - 4X improvement in overall efficiency](#efficiency---4x-improvement-in-overall-efficiency)
   - [Automation use-cases using Gen AI](#automation-use-cases-using-gen-ai)
   - [Architecture characteristics](#architecture-characteristics)
   - [Detailed architecture designs](#detailed-architecture-designs)
-    - [**HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?**](#hmw-implement-ai-driven-grading-models-for-expert-architects-so-that-they-can-evaluate-short-answer-submissions-4x-faster)
-    - [**HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?**](#hmw-implement-ai-driven-grading-models-for-expert-architects-so-that-they-can-evaluate-case-study-submissions-4x-faster)
-    - [**HMW automate the identification of emerging software architecture trends and generate expert-level certification questions to assist architects in updating the certification database efficiently?**](#hmw-automate-the-identification-of-emerging-software-architecture-trends-and-generate-expert-level-certification-questions-to-assist-architects-in-updating-the-certification-database-efficiently)
+    - [**Short answer grading use case**](#short-answer-grading-use-case)
+    - [**Case study grading use case**](#case-study-grading-use-case)
+    - [**Generate certification questions as per new trends use case**](#generate-certification-questions-as-per-new-trends-use-case)
   - [Limitations with adoption of Gen AI](#limitations-with-adoption-of-gen-ai)
   - [Productionizing an LLM-Powered System](#productionizing-an-llm-powered-system)
 - [Final thoughts](#final-thoughts)
   - [Anti patterns](#anti-patterns)
-  - [Glossary](#glossary)
   - [Roadmap](#roadmap)
   - [Our Learnings](#our-learnings)
 
@@ -40,6 +35,9 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
 - [**Srikanth**](https://www.linkedin.com/in/koraveni-srikanth/) , Senior Tech Lead
 - [**Shashank**](https://www.linkedin.com/in/shashank-sheela-740746b4) , Technical Product Manager
 - [**Vijayakumaran**](https://www.linkedin.com/in/vijayakumaran-c-v/) , UX designer
+
+## Glossary
+[Glossary](business-requirements/glossary.md) to understand more about certain terms.
 
 # Problem definition
 
@@ -123,8 +121,9 @@ Refer [detailed cost & efficiency](/other_design_docs/cost-analysis.md) analysis
    ![Gen AI assisted system architectural characteristics](/assets/genai-assisted-system.png "Gen AI assisted system architectural characteristics")
 
 ## Detailed architecture designs
-  
-### **HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?**
+
+### Short answer grading use case  
+**HMW implement AI-driven grading models for expert architects so that they can evaluate short-answer submissions 4X faster?**
   
 Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of this usecase
 
@@ -138,8 +137,8 @@ Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of
 
 ![ASAS Grader C3 Diagram](/assets/test1-grader-c3.jpg "ASAS Grader Partial C3 Diagram")
 
-
-### **HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?**
+### Case study grading use case
+**HMW implement AI-driven grading models for expert architects so that they can evaluate case study submissions 4X faster?**
   
 Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of this usecase
 
@@ -154,7 +153,9 @@ Refer [**detailed design details**](usecases/hmw-ai-grading-case-studies.md) of 
 
 ![Test2 case study](/assets/test2c2.png "Test2 case study")
 
-### **HMW automate the identification of emerging software architecture trends and generate expert-level certification questions to assist architects in updating the certification database efficiently?**
+### Generate certification questions as per new trends use case
+
+**HMW automate the identification of emerging software architecture trends and generate expert-level certification questions to assist architects in updating the certification database efficiently?**
   
 Refer [**detailed design details**](usecases/hmw-ai-content-updates.md) of this usecase
   
@@ -198,10 +199,6 @@ Building a scalable, reliable, and secure LLM-powered system requires carefully 
 - **Cost & Performance Constraints:** Running an agent-based system demands high computational resources, increasing costs and latency without clear benefits.
 - **Ensuring Accuracy & Compliance:** Instead of relying on autonomous AI agents, we integrated structured AI models with human-in-the-loop oversight, ensuring fairness, precision, and regulatory compliance.
 - Agentic pattern will be best **suitable for the analytics use case** - HMW automate test content evaluation for expert architects so that improvements are continuously implemented based on candidate performance trends?
-
-
-## Glossary
-[Glossary](business-requirements/glossary.md) to understand more about certain terms.
  
 ## Roadmap
 Approach: Phased Rollout Strategy
