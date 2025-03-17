@@ -39,9 +39,9 @@ A structured approach to the **O'Reilly Winter 2025 Architectural Kata Challenge
 
 The **Software Architecture Licensing Board (SALB)** was formed in the U.S. to regulate and accredit software architecture certification providers. Like doctors and lawyers, IT professionals must obtain official certifications to practice as software architects.
 
-Certifiable Inc., a leading accredited provider in the US, certifies **200 candidates** per week with **300 expert architects** grading the tests."
+Certifiable Inc., a leading accredited provider in the US, certifies **200 candidates** per week with **300 expert architects** grading the tests.
 
-With new legislation requiring certifications in the UK, Europe, and Asia, demand is set to **surge by 5-10X**. These regions will rely on U.S.-based companies, like Certifiable Inc., to manage certifications, each priced globally at **$800**, as standardized by SALB
+With new legislation requiring certifications in the UK, Europe, and Asia, demand is set to **surge by 5-10X**. These regions will rely on U.S.-based companies, like Certifiable Inc., to manage certifications, each priced globally at **$800**, as standardized by SALB.
 
 
 ## Current Certification Process
@@ -98,19 +98,21 @@ Refer [detailed cost & efficiency](/other_design_docs/cost-analysis.md) analysis
 ### Cost - 80% lower ($940K to $190K grading costs/ week)
 ### Efficiency - 4X improvement in overall efficiency
 
+
 ## Automation use-cases using Gen AI 
    We priortized 3 use-cases for this excercise
 
   ![HMW](/assets/how-might-we.jpg "HMW")
 
 ## Architecture characteristics
+   
+   Refer [detailed architectural characteristics analysis](/other_design_docs/architecture-characteristics.md)
+    
    **Existing system**
    ![Existing architectural characteristics](/assets/existing-architectural-characteristics.png "Existing architectural characteristics")
 
    **Additional characteristics with Gen AI adoption**
    ![Gen AI assisted system architectural characteristics](/assets/genai-assisted-system.png "Gen AI assisted system architectural characteristics")
-
-   Refer [detailed architectural characteristics analysis](/other_design_docs/architecture-characteristics.md)
 
 ## Detailed architecture designs
   
@@ -187,7 +189,7 @@ Building a scalable, reliable, and secure LLM-powered system requires carefully 
 - **Low Error Tolerance:** Agents, being probabilistic, can occasionally make incorrect decisions—unacceptable in a high-stakes certification process.
 - **Cost & Performance Constraints:** Running an agent-based system demands high computational resources, increasing costs and latency without clear benefits.
 - **Ensuring Accuracy & Compliance:** Instead of relying on autonomous AI agents, we integrated structured AI models with human-in-the-loop oversight, ensuring fairness, precision, and regulatory compliance.
-- Agentic pattern will be best suitable for the analytics use case - HMW automate test content evaluation for expert architects so that improvements are continuously implemented based on candidate performance trends?
+- Agentic pattern will be best **suitable for the analytics use case** - HMW automate test content evaluation for expert architects so that improvements are continuously implemented based on candidate performance trends?
 
 
 ## Glossary
