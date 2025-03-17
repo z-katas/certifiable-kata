@@ -208,6 +208,8 @@ Approach: Phased Rollout Strategy
 - **MVP:** Run AI and human grading in parallel to compare accuracy, refine AI models, and track grading consistency.
 - **Growth:** AI handles primary grading, with human validation for low-confidence cases and structured feedback improvements.
 - **Matured:** Achieve high-accuracy AI grading, with minimal human involvement focused on oversight.
+  
+Detailed plan for phased rollout strategy is mentioned [here](/other_design_docs/roll-out-strategy.md)
 
 ## Our Learnings
 Through this journey of productionizing an LLM-powered certification system, we gained critical insights that shaped our solution and align directly with our AI adoption goals
