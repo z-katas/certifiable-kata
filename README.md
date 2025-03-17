@@ -127,7 +127,13 @@ Refer [detailed cost & efficiency](/other_design_docs/cost-analysis.md) analysis
   
 Refer [**detailed design details**](usecases/hmw-ai-grading-short-answers.md) of this usecase
 
-**Solution approach:** The evaluation of short answers in test1 can be automated using an LLM based system. The system can perform **a RAG that uses existing historical correct** and incorrect answers along with candidate's answer as **context to LLM to output the grade**. Evaluations with confidence score more than a pre-defined threshold are considered final whereas the ones below are further processed by expert architects. The new approach allows for the output of the platform to scale to meet the expected growth while ensuring the results closely mimic manual grading. **Splitting the Grader and Judge into separate components allows us to improve/test one component while keeping the other component constant.**
+**Solution approach:** 
+- Context-Aware AI Grading ([**ADR-003 Short answer evaluation**](/ADRs/003-adr-llm-based-short-answer-evalaution-strategy.md)) – The system retrieves previously graded answers as context using RAG ([**ADR-013 Vector serach**](/ADRs/013-adr-llm-vector-search.md),[**ADR-014 Vector store**](/ADRs/014-adr-llm-vector-store.md)) and ASAS Grader evaluates responses, generating structured feedback aligned with expert standards.
+- Confidence-Based Validation & Continuous Learning – ASAS Judge assigns confidence scores, auto-finalizing high-confidence cases while flagging low-confidence responses for expert review. Expert corrections refine AI models over time, ensuring continuous grading accuracy improvements.
+- Key components are Short Answer Grade ETL Service, ASAS grader, ASAS judge & AI gateway([**ADR-001**](/ADRs/001-adr-using-ai-gateway.md))
+- **Splitting the Grader and Judge** into separate components allows us to improve/test one component while keeping the other component constant.
+- Configurable Manual Grading Percentage – Ensures smooth AI adoption with rollback capabilities.
+- Batch Inference Processing – Reduces cloud costs by handling grading requests in optimized batches.
 
 **Data flow:**
  
