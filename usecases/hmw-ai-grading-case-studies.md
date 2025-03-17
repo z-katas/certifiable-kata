@@ -312,6 +312,132 @@ The Case study Judge is responsible for evaluating the quality of the AI-generat
 4. Expert grader will flag inappropriate grading if any given by AI, this is then sent to vector store as feedback loop.
 5. Once expert verifies all the grading, it is sent for final grade submission and then to certification database.
  
+
+### Prompting strategy
+
+These prompt templates utilize advanced prompting strategies such as role-specific prompting, chain-of-thought reasoning, critique-then-refine, and comparison-based assessment. Each section provides a detailed approach for accurate grading.  
+
+<details>
+
+<summary>Example prompt for evaluating case study(Click to expand)</summary>
+
+## **1. ADRs (Architecture Decision Records) Evaluation**  
+
+### **Prompt Template**  
+📌 **Role-Specific Prompting:**  
+> *"You are a highly experienced software architect specializing in decision-making frameworks. Your task is to evaluate an Architecture Decision Record (ADR) based on its clarity, completeness, tradeoff analysis, and impact assessment. Provide a structured analysis, scoring each criterion on a scale of 1-10, and justify the score with detailed reasoning."*  
+
+📌 **Evaluation Criteria:**  
+1. **Problem Definition (1-10):** Is the problem statement clear, well-defined, and relevant to the architectural context?  
+2. **Alternatives Considered (1-10):** Are multiple viable options discussed, with pros and cons clearly stated?  
+3. **Decision Justification (1-10):** Does the ADR provide a sound rationale for the decision made?  
+4. **Tradeoffs & Consequences (1-10):** Does the document explore tradeoffs, risks, and potential consequences of the decision?  
+5. **Alignment with Business & Technical Goals (1-10):** Does the decision align with organizational objectives and best practices?  
+
+📌 **Scoring Example:**  
+> *"The ADR presents a well-structured decision but lacks in-depth tradeoff analysis. While the problem is clearly defined (9/10), the alternatives could have been better justified (6/10). Overall, it scores 7.5/10."*  
+
+📌 **Critique-then-Refine:**  
+> *"Based on the initial assessment, suggest improvements to enhance the ADR’s clarity and decision-making process."*  
+
+---
+
+## **2. Business Requirement Document (BRD) Evaluation**  
+
+### **Prompt Template**  
+
+📌 **Role-Specific Prompting:**  
+> *"As a senior software architect, evaluate the Business Requirement Document (BRD) for completeness, clarity, and feasibility. Your assessment should determine whether it effectively translates business needs into actionable technical requirements. Assign a score (1-10) for each criterion and justify your decision."*  
+
+📌 **Evaluation Criteria:**  
+1. **Requirement Clarity (1-10):** Are business requirements unambiguous, well-documented, and specific?  
+2. **Functional vs. Non-Functional Requirements (1-10):** Are both clearly differentiated and adequately defined?  
+3. **Alignment with Business Goals (1-10):** Does the BRD correctly reflect business objectives?  
+4. **Feasibility & Technical Realism (1-10):** Are the requirements practical and achievable within technical constraints?  
+5. **Completeness (1-10):** Does the document cover all necessary aspects (scope, risks, assumptions, constraints)?  
+
+📌 **Comparison-Based Assessment:**  
+> *"Compare this BRD to industry best practices. Identify areas where it falls short and suggest improvements."*  
+
+📌 **Chain-of-Thought Breakdown:**  
+> *"Step by step, analyze how each requirement is defined, its impact on development, and its feasibility."*  
+
+---
+
+## **3. C2 Diagrams (Container-Component Diagrams) Evaluation**  
+
+### **Prompt Template**  
+📌 **Role-Specific Prompting:**  
+> *"You are evaluating a C2 (Container-Component) diagram for a complex software system. Your goal is to assess the clarity, accuracy, and completeness of the diagram. Provide a detailed breakdown, scoring each category (1-10), and suggest improvements where needed."*  
+
+📌 **Evaluation Criteria:**  
+1. **System Representation (1-10):** Does the diagram correctly depict system containers and components?  
+2. **Labeling & Notation (1-10):** Are elements labeled correctly and do they follow industry standards?  
+3. **Clarity & Readability (1-10):** Can the architecture be understood easily without additional documentation?  
+4. **Component Interaction (1-10):** Does the diagram accurately depict interactions between components?  
+5. **Alignment with Intended Architecture (1-10):** Does it match the described architecture model?  
+
+📌 **Critique-then-Refine Prompting:**  
+> *"What ambiguities exist in the diagram, and how can they be resolved? Suggest improvements to make it more readable and accurate."*  
+
+📌 **Counterfactual Prompting:**  
+> *"If a certain component were removed or modified, how would the architecture behave differently?"*  
+
+---
+
+## **4. Security & Infrastructure Evaluation**  
+
+### **Prompt Template**  
+📌 **Role-Specific Prompting:**  
+> *"Assess the security and infrastructure design of this software system. Evaluate adherence to security best practices, scalability, fault tolerance, and compliance requirements. Provide a security risk assessment and suggest necessary improvements."*  
+
+📌 **Evaluation Criteria:**  
+1. **Authentication & Authorization (1-10):** Are robust security measures (RBAC, OAuth, etc.) in place?  
+2. **Data Encryption & Privacy (1-10):** Are data protection measures like encryption (TLS, AES) implemented?  
+3. **Infrastructure Scalability & Resilience (1-10):** Can the system handle high loads and failures gracefully?  
+4. **Compliance with Standards (1-10):** Does it adhere to GDPR, ISO 27001, or other security regulations?  
+5. **Logging & Monitoring (1-10):** Are logging, auditing, and alert mechanisms effectively implemented?  
+
+📌 **Comparison-Based Assessment:**  
+> *"How does this security model compare to industry benchmarks? Identify vulnerabilities and propose mitigation strategies."*  
+
+📌 **Critique-then-Refine Prompting:**  
+> *"Highlight the most critical security gaps and refine the infrastructure to improve resilience."*  
+
+---
+
+## **5. Data Flow Diagrams (DFDs) Evaluation**  
+
+### **Prompt Template**  
+📌 **Role-Specific Prompting:**  
+> *"You are reviewing a Data Flow Diagram (DFD) for a software system. Evaluate its accuracy, completeness, and security considerations. Ensure that all data sources, transformations, and storage locations are correctly represented."*  
+
+📌 **Evaluation Criteria:**  
+1. **Correctness & Completeness (1-10):** Are all key data elements correctly represented?  
+2. **Security & Privacy Considerations (1-10):** Does the DFD show how sensitive data is handled securely?  
+3. **Clarity & Readability (1-10):** Can stakeholders easily interpret data movements?  
+4. **Process-Data Interaction (1-10):** Are all transformations and interactions correctly represented?  
+5. **Alignment with Business Logic (1-10):** Does the diagram reflect the actual data requirements of the system?  
+
+📌 **Counterfactual Prompting:**  
+> *"If an unauthorized user were to intercept a data flow in this system, what would be the impact? How can this be mitigated?"*  
+
+📌 **Critique-then-Refine Prompting:**  
+> *"Where does the DFD fail to illustrate key security aspects? Suggest modifications to enhance clarity and security."*  
+
+---
+
+## **Final Notes on Prompting Strategies**  
+To ensure **accurate, unbiased grading**, use:  
+✅ **Role-specific prompts** to guide evaluations  
+✅ **Explicit scoring rubrics** to provide objective feedback  
+✅ **Step-by-step chain-of-thought** reasoning for deeper insights  
+✅ **Comparison-based assessment** to benchmark against best practices  
+✅ **Critique-then-refine prompting** to iteratively improve evaluation  
+
+These detailed prompt templates will help in **precise, structured, and high-quality** grading of software architecture case studies. Let me know if you need modifications! 🚀  
+</details>
+
 ## Conclusion
 - **Summary of Changes:** 
   - Automated content segregation categorizes different artifacts in candidate submissions.
