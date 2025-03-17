@@ -220,7 +220,7 @@ The following diagram shows the prompt engineering workflow:
 
 ![prompt engineering process](/assets/prompt-engineering-workflow.png)
 
-Prompt engineering is an iterative process where we the prompts are continously modified and tested to achieve the desired output. Following are the components within a well structured prompt that achieves its purpose
+Following are the components within a well structured prompt that achieves its purpose
 
 - Objective
 - Persona
