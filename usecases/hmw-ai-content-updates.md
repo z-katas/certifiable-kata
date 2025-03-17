@@ -212,7 +212,7 @@ New questions and case studies are automatically created using:
   - **Prompt & model evaluation pipelines** discussed in [evals ADR](/ADRs/009-adr-llm-evaluation.md)
   - **LLM observability tools** to track model behavior and response drift. Discussed in [Observability ADR](/ADRs/011-adr-llm-observability.md)
 
-### ***Prompting techniques
+### Prompting techniques
 
 Prompt engineering is a test-driven and iterative process that can enhance model performance. When creating prompts, it is important to clearly define the objectives and expected outcomes for each prompt and systematically test them to identify areas of improvement.
 
@@ -220,7 +220,7 @@ The following diagram shows the prompt engineering workflow:
 
 ![prompt engineering process](/assets/prompt-engineering-workflow.png)
 
-Prompt engineering is an iterative process where we Following are the components within a well structured prompt that achieves its purpose
+Prompt engineering is an iterative process where we the prompts are continously modified and tested to achieve the desired output. Following are the components within a well structured prompt that achieves its purpose
 
 - Objective
 - Persona
