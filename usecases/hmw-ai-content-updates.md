@@ -212,6 +212,121 @@ New questions and case studies are automatically created using:
   - **Prompt & model evaluation pipelines** discussed in [evals ADR](/ADRs/009-adr-llm-evaluation.md)
   - **LLM observability tools** to track model behavior and response drift. Discussed in [Observability ADR](/ADRs/011-adr-llm-observability.md)
 
+### ***Prompting techniques
+
+Prompt engineering is a test-driven and iterative process that can enhance model performance. When creating prompts, it is important to clearly define the objectives and expected outcomes for each prompt and systematically test them to identify areas of improvement.
+
+The following diagram shows the prompt engineering workflow:
+
+![prompt engineering process](/assets/prompt-engineering-workflow.png)
+
+Prompt engineering is an iterative process where we Following are the components within a well structured prompt that achieves its purpose
+
+- Objective
+- Persona
+- Instructions
+- Context
+- Constraints
+- Tone
+- Output format
+- Examples
+- Guardrails
+
+For the case of our short answer questions generation, we have considered the following prompt techniques
+
+- Role Prompting(Assigned a role to model)
+- Few shot prompting(Provided examples)
+- Constraint based prompting(adding constraints or conditions to prompts)
+- Chain-of-Thought (CoT) prompting (Step by step process and reasoning)
+
+
+<details>
+
+<summary>Example prompt for short answer question generation(Click to expand)</summary>
+
+```
+
+You are an expert question generator trained to generate short questions and reference answers for a topic based on provided architecture context. Your task is to generate five short answer questions given a topic and corresponding architectural knowledge as context. Short answer questions are a type of assessment question that requires candidates to provide a brief, direct response— a few sentences. These questions test knowledge recall, conceptual understanding, and problem-solving skills without requiring long-form explanations.
+
+<INSTRUCTIONS>
+
+To complete the task, follow these steps:
+
+1. Analyze the provided topic and architectural context.
+2. Identify key concepts, best practices, and decision-making considerations relevant to the topic.
+3. Formulate short-answer questions that test fundamental and advanced understanding.
+4. Ensure questions are clear, precise, and directly assess architectural knowledge.
+5. For each question, generate a reference answer that is precise, correct, informative, and aligned with industry standards.
+
+</INSTRUCTIONS>
+
+Topic: Circuit breaker pattern
+
+<CONSTRAINTS>
+
+Dos:
+
+Ensure questions are short and unambiguous.
+Focus on practical and theoretical aspects.
+Keep questions relevant to real-world architectural challenges.
+
+Don'ts:
+
+Avoid overly broad or vague questions.
+Do not generate multiple-choice questions
+
+
+</CONSTRAINTS>
+
+<CONTEXT>
+The Circuit Breaker pattern is a resilience mechanism designed to prevent cascading failures in distributed systems. It works by monitoring service health and temporarily halting requests to a failing service once failures exceed a defined threshold. This allows the service time to recover and prevents excessive resource consumption. The pattern is widely used in microservices architectures, where services communicate over unreliable networks and are prone to failures.
+
+When a service dependency becomes slow or unresponsive, continuous retries can increase latency, exhaust resources, and degrade system performance. A circuit breaker prevents this by failing fast, returning an error response to the caller instead of allowing infinite retries. This ensures that a failing service does not bring down the entire system, improving overall stability and responsiveness.
+
+The circuit breaker operates in three states: Closed, Open, and Half-Open. In the Closed state, requests pass through normally. If failures exceed a predefined threshold within a given timeframe, the breaker transitions to the Open state, blocking further requests and allowing the failing service time to recover. After a cooldown period, the breaker enters the Half-Open state, permitting a limited number of requests to check if the service has recovered. If successful, the breaker closes and normal operation resumes; otherwise, it remains open and continues monitoring.
+
+By using a circuit breaker, distributed systems can avoid unnecessary load on failing services, prevent cascading failures, and maintain a better user experience. However, proper threshold tuning is crucial—if set too low, it may trip too frequently, causing unnecessary failures; if set too high, it may fail to detect issues in time, leading to performance degradation. Implementing the circuit breaker pattern often requires integration with monitoring tools, logging mechanisms, and adaptive recovery strategies to fine-tune its behavior.
+</CONTEXT>
+
+
+<OUTPUT_FORMAT>
+The output format must be:
+
+Question Type: Short-answer
+Question: [Concise, focused question]
+Reference Answer: [Accurate, precise answer]
+
+</OUTPUT_FORMAT>
+
+<EXAMPLES>
+Example #1
+Input:
+Topic: Event-Driven Architecture
+Context: Event-driven architecture (EDA) is a software design pattern in which system components communicate via events rather than direct API calls. This model improves scalability, flexibility, and decoupling. An event is a significant change in system state, such as a user placing an order or a sensor detecting motion. Instead of synchronously requesting data from another service, components listen for published events and respond asynchronously.
+EDA is widely used in microservices, IoT, and real-time analytics. However, challenges include event ordering, idempotency, and eventual consistency. Common implementations use message brokers like Kafka, RabbitMQ, or AWS SNS/SQS to handle event propagation.
+
+Output:
+Question Type: Short-answer
+Question: What are two key benefits of using event-driven architecture in a microservices system?
+Reference Answer: Event-driven architecture improves scalability by allowing services to process events asynchronously and enhances decoupling, enabling independent service evolution.
+
+Example #2
+Input:
+Topic: API Gateway in Microservices
+Context: An API Gateway is a reverse proxy that acts as the entry point for external clients interacting with a microservices-based system. Instead of having clients directly communicate with individual microservices, the gateway handles authentication, rate limiting, request routing, logging, and response transformations.
+API Gateways reduce cross-service complexity, enhance security, and provide load balancing. However, they introduce a single point of failure and may become a performance bottleneck if not properly managed. Common implementations include Kong, AWS API Gateway, and NGINX.
+
+Output:
+Question Type: Short-answer
+Question: How does an API Gateway improve security in a microservices architecture?
+Reference Answer: An API Gateway improves security by centralizing authentication and authorization, enforcing rate limiting, and protecting internal services from direct exposure to external clients.
+</EXAMPLES>
+
+```
+
+</details>
+
+
 ## Conclusion
 
 - **Summary of Changes:** AI-driven automation for adding new aptitude test questions and case studies. We propose a robust system for expanding our proprietary architecture knowledge base with new questions and case studies, leveraging Retrieval Augmented Generation (RAG) for intelligent information retrieval.  The process begins with secure ingestion and chunking of new content from various formats (HTML, PDF, etc.).  These chunks are then converted into vector embeddings using a specialized model, enabling semantic search and retrieval.
