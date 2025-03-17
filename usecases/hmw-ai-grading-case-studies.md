@@ -317,6 +317,10 @@ The Case study Judge is responsible for evaluating the quality of the AI-generat
 
 These prompt templates utilize advanced prompting strategies such as role-specific prompting, chain-of-thought reasoning, critique-then-refine, and comparison-based assessment. Each section provides a detailed approach for accurate grading.  
 
+![rag details test2](../assets/ragdetailstest2.jpg). 
+
+More details on vector storage collection [ADR-018](/ADRs/018-adr-vector-store-storage-strategy.md)
+
 <details>
 
 <summary>Example prompt for evaluating case study(Click to expand)</summary>
