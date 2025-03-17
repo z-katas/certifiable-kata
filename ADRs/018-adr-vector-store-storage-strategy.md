@@ -55,6 +55,9 @@ Discussed above.
 - Metadata filtering overhead vs. collection-based separation.
 
 ## Decision
+
+![vector store collections](../assets/vector-store-collections.drawio.png)
+
 We will adopt a **multi-collection strategy** to optimize query performance and retrieval efficiency. Each entity type will have its own collection, reducing filtering overhead and enabling targeted retrieval.
 
 ## Tradeoffs - Mitigations
