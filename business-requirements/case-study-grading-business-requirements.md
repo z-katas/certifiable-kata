@@ -36,3 +36,24 @@
 - The **existing certification system operates under strict security and compliance standards** such as **GDPR and ISO 27001**.
 - The **architecture must allow AI-driven grading to integrate as a modular service** without disrupting existing workflows.
 - **Response evaluation logic is well-documented**, ensuring AI implementation aligns with established grading methodologies.
+
+## New User Journey / Golden Path using Jobs to be Done Framework
+
+**Persona:** [Alex, Expert Architect](/business-requirements/exper-architect-persona.md)
+
+**Main Job:** Evaluate and grade case study submissions efficiently across multiple artifacts.
+
+**Backstory:** After completing their primary architectural work, Alex is assigned to evaluate Test 2 case study submissions for **4-5 candidates per week**. With limited time available, Alex relies on AI-assisted grading to enhance efficiency and ensure consistency in evaluations across five key submission artifacts.
+
+**End Goal of the Main Job:** Ensure fair, structured, and expert-level grading of case study submissions while reducing the grading workload and maintaining high evaluation standards.
+
+**Job Steps (using universal job map):**
+1. **View candidate submissions** – Access all case study artifacts.
+2. **Review system-generated scoring for each artifact** – Ensure AI-assigned scores align with grading criteria.
+3. **Assess system-generated reasoning** – Verify AI explanations for grading decisions.
+4. **Modify the system-generated assessment** – Adjust AI evaluations where necessary.
+5. **Adjust final score if required** – Confirm that scores reflect accurate assessment.
+6. **Generate structured feedback reports** – Provide candidates with AI-assisted, expert-reviewed feedback for each artifact.
+7. **Modify feedback reports if necessary** – Ensure clarity and relevance before submission.
+8. **Submit final evaluation results** – Confirm scores and update certification records for candidate progression.
+
