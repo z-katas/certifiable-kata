@@ -172,6 +172,123 @@ The AI Model Gateway orchestrates communication between queued queries and the L
 
 ![rag details test1](../assets/rag-details-test1.png)
 
+Prompt engineering is a test-driven and iterative process that can enhance model performance. When creating prompts, it is important to clearly define the objectives and expected outcomes for each prompt and systematically test them to identify areas of improvement.
+
+The following diagram shows the prompt engineering workflow:
+
+![prompt engineering process](/assets/prompt-engineering-workflow.png)
+
+Following are the components within a well structured prompt that achieves its purpose
+
+- Objective
+- Persona
+- Instructions
+- Context
+- Constraints
+- Tone
+- Output format
+- Examples
+- Guardrails
+
+For the case of our short answer questions generation, we have considered the following prompt techniques
+
+- Role Prompting(Assigned a role to model)
+- Few shot prompting(Provided examples)
+- Constraint based prompting(adding constraints or conditions to prompts)
+- Chain-of-Thought (CoT) prompting (Step by step process and reasoning)
+
+<details>
+
+<summary>Example prompt</summary>
+
+```
+
+You are an expert architect tasked to grade short answers based on historical grading patterns and answer references. You will receive a set of previously graded short answers and answer references as context and a new short answer that needs to be graded. Your task is to assign a fair and consistent grade and provide feedback to the new short answer based on the given grading patterns.
+
+<INSTRUCTIONS>
+
+Step 1: Analyze the provided historical short answers and their corresponding grades to understand the grading criteria.
+Step 2: Compare the new short answer to the historical examples, considering correctness, completeness, relevance, and clarity.
+Step 3: Assign a grade that aligns with the grading patterns observed in the historical data.
+Step 4: Provide a brief justification explaining why the assigned grade is appropriate based on the retrieved context.
+
+</INSTRUCTIONS>
+
+
+<INPUT>
+Question: What is the Single Responsibility Principle (SRP) in software design?
+Candidate answer: The Single Responsibility Principle (SRP) states that a class or module should have only one reason to change, meaning it should focus on a single responsibility. This improves code maintainability and separation of concerns. For instance, in an MVC pattern, controllers handle user input while models manage business logic, ensuring clear boundaries between responsibilities.
+
+</INPUT>
+
+<CONTEXT>
+Short Answer 1: The Single Responsibility Principle (SRP) states that a class, module, or function should have only one reason to change, meaning it should handle a single responsibility within a system. Following SRP improves maintainability, reduces coupling, and enhances testability. For example, in an e-commerce system, separating order processing and payment handling into different classes ensures changes in one do not impact the other.
+Feedback: This answer is technically accurate, clear, and well-structured. It defines SRP precisely, explains why it is important, and includes a real-world example demonstrating its application. Correct software architecture terminology is used without unnecessary jargon. 
+Grade: 10 
+
+Short Answer 2: The Single Responsibility Principle means that a class should only do one thing. This makes the code cleaner and easier to maintain.
+Grade: 6
+Feedback: While this response captures the basic idea, it lacks depth and clarity. The definition is too vague—"one thing" is not specific enough to convey SRP's full meaning. It does not explain why SRP matters or provide an example. Expanding on "reason to change" and giving a real-world scenario would strengthen the answer.
+
+Reference answer:The Single Responsibility Principle (SRP) states that a class or module should have only one reason to change, meaning it should focus on a single responsibility. Adhering to SRP leads to better modularity, easier debugging, and lower maintenance costs. For instance, in a blogging platform, separating user authentication from content management ensures independent updates without unintended side effects.
+</CONTEXT>
+
+<CONSTRAINTS>
+<GRADING_CRITERIA>
+
+Each short-answer question is graded on a 10-point scale based on the following criteria:  
+
+1. **Technical Accuracy (40%)** – Does the response reflect correct and industry-standard knowledge?  
+2. **Clarity & Conciseness (20%)** – Is the answer clear, precise, and free from unnecessary jargon?  
+3. **Application & Justification (25%)** – Does the candidate provide reasoning, examples, or justifications?  
+4. **Use of Correct Terminology (15%)** – Are accurate software architecture terms and concepts used?  
+
+Scoring Scale:  
+- **9-10 points:** Perfect Answer – Expert-level response with precise examples.  
+- **7-8 points:** Competent Answer – Correct, but minor gaps in depth or clarity.  
+- **4-6 points:** Needs Improvement – Basic understanding but lacks depth or structure.  
+- **0-3 points:** Weak Answer – Superficial, incorrect, or vague response.  
+</GRADING_CRITERIA>
+
+Feedback constraints:
+  - The feedback should not mention exact score breakdowns or percentages.
+  - Instead, it should provide qualitative feedback on strengths and areas for improvement.
+  - Use Constructive and Actionable Language
+  - The feedback should guide the candidate on how to improve their answer.
+  - Avoid vague comments like "Needs improvement" without specifying what to improve.
+  - Address Strengths and Weaknesses Clearly
+  - Highlight what was done well (e.g., clarity, correct terminology).
+  - Point out specific weaknesses (e.g., lack of examples, missing justification).
+  - The feedback should be professional, unbiased, and encouraging
+  - Avoid overly critical or discouraging language.
+  - Ensure Consistency in Evaluations
+  - Similar mistakes or gaps should receive similar feedback.
+  - The depth of feedback should align with the score assigned.
+  - Limit Feedback Length
+  - Provide key points without unnecessary verbosity
+
+</CONSTRAINTS>
+
+<OUTPUT_FORMAT>
+Assigned Grade: <grade>  
+Justification: <explanation>
+</OUTPUT_FORMAT>
+
+<EXAMPLES>
+Short Answer question: Explain Don’t Repeat Yourself (DRY) principle 
+Short Answer 1: The Don't Repeat Yourself (DRY) principle encourages reducing code duplication by reusing existing code through functions or modules. This makes the codebase more organized and easier to manage.  
+Grade: 5 
+Feedback: Your response correctly identifies the core idea of the DRY principle but lacks depth and justification. While it mentions reducing duplication and improving organization, it does not explain why DRY is important beyond code reusability. Key aspects like maintainability, consistency, and avoiding redundancy across different domains (e.g., databases, infrastructure) are missing. Additionally, the answer does not provide an example or practical application, which would strengthen its effectiveness. Using more precise terminology and expanding on how DRY benefits software development would improve the response.
+
+Short Answer 2: The Don’t Repeat Yourself (DRY) principle emphasizes eliminating redundancy by ensuring each piece of knowledge has a single authoritative representation in a system. It improves maintainability, scalability, and consistency by centralizing logic into reusable functions, modules, or services. For example, instead of duplicating logic in multiple functions, it should be encapsulated in a single function. DRY applies to code, databases, documentation, and infrastructure, reducing errors and improving efficiency. It is widely used in microservices, database normalization, and Infrastructure as Code (IaC).
+Grade: 10
+Feedback: Your response effectively explains the DRY (Don't Repeat Yourself) principle with clarity and correctness. It concisely highlights how DRY helps in reducing redundancy, improving maintainability, and ensuring consistency across different domains like code, databases, and infrastructure. The inclusion of an example (centralizing logic into reusable functions) strengthens the explanation, making it more practical. Additionally, your use of precise terminology enhances the clarity of the response. Overall, this is a well-structured and insightful answer.
+
+Reference answer: The DRY (Don’t Repeat Yourself) principle promotes eliminating redundancy by ensuring logic is written only once and reused through functions, modules, or abstractions. This improves maintainability, reduces errors, and enhances code clarity. For example, using a common validation function instead of duplicating validation logic across multiple components prevents inconsistencies.
+</EXAMPLES>
+```
+</details>
+
 
 ## Conclusion
 
