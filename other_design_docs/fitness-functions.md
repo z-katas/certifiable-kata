@@ -58,6 +58,14 @@ This function assesses the credibility in the new certification process, the num
 
 ---
 
+## 7. Cost
+**Objective:** Ensure the overall cost of the system after AI reacrchitecture is significantly lower than manual grading 
+
+**Fitness Function:**  
+This function assesses the cost and cash burn rate vs the revenue generated . A score near 1 indicates that current certification is cost effective than manual grading and vice-versa.
+
+---
+
 ## Summary of Fitness Functions  
 
 | **Metric**                          | **Goal**                                       | **Desired Outcome** |
@@ -69,5 +77,6 @@ This function assesses the credibility in the new certification process, the num
 | **Certification Process Efficiency**| Reduce evaluation time                       | Score close to 1   |
 | **AI grading Accuracy**             | Reduce evaluation time and scale             | Score close to 1   |
 | **Certification Credibility**       | Increase the certification reputation        | Score close to 1   |
+| **Cost**                            | Overall cost should be significantly lesser than manual grading    | Score close to 1   |
 
 These fitness functions help maintain a **reliable, scalable, and fair certification system**.
