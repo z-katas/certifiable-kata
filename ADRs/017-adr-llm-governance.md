@@ -1,7 +1,7 @@
 # ADR-017: LLM Governance Architecture Decision Record
 
 ## Status
-**Proposed**
+**Approved**
 
 ## Context
 Large Language Models (LLMs) are increasingly being used in applications that involve Retrieval-Augmented Generation (RAG). In such systems, ensuring that unauthorized, sensitive, or unverified content is not retrieved or exposed is a critical governance requirement. Without strong governance mechanisms, LLMs can inadvertently retrieve and generate inappropriate, biased, or harmful responses, leading to security, ethical, and compliance risks.

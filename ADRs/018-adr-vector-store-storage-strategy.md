@@ -1,7 +1,7 @@
 # ADR-018: Vector Store Storage Strategy
 
 ## Status
-**Proposed**
+**Approved**
 
 ## Context
 Our system needs to store and retrieve embeddings for different entity types, including:
