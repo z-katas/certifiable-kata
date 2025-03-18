@@ -131,6 +131,8 @@ New questions and case studies are automatically created using:
 
 ![rag details](../assets/aicontentupdatesragdetails.drawio.png)
 
+Details on vector store collections in [ADR-018](/ADRs/018-adr-vector-store-storage-strategy.md)
+
 Prompt engineering is a test-driven and iterative process that can enhance model performance. When creating prompts, it is important to clearly define the objectives and expected outcomes for each prompt and systematically test them to identify areas of improvement.
 
 The following diagram shows the prompt engineering workflow:

@@ -105,6 +105,8 @@ The AI Model Gateway orchestrates communication between queued queries and the L
 
 ![rag details test1](../assets/rag-details-test1.png)
 
+Details on vector store collections in [ADR-018](/ADRs/018-adr-vector-store-storage-strategy.md)
+
 Prompt engineering is a test-driven and iterative process that can enhance model performance. When creating prompts, it is important to clearly define the objectives and expected outcomes for each prompt and systematically test them to identify areas of improvement.
 
 The following diagram shows the prompt engineering workflow:
@@ -132,7 +134,7 @@ For the case of our short answer questions generation, we have considered the fo
 
 <details>
 
-<summary>Example prompt</summary>
+<summary>Example prompt for grading short answers(Click to expand)</summary>
 
 ```
 
